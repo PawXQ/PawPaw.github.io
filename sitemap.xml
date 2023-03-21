@@ -2,13 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://pawxq.github.io/pawpaw.github.io/categories/</loc>
+    <loc>https://pawxq.github.io/pawpaw.github.io/</loc>
+    <lastmod>2023-03-21T19:43:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://pawxq.github.io/pawpaw.github.io/</loc>
+    <loc>https://pawxq.github.io/pawpaw.github.io/post/</loc>
+    <lastmod>2023-03-21T19:43:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/post/test/</loc>
+    <lastmod>2023-03-21T19:43:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/categories/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

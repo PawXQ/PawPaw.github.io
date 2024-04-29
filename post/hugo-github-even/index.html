@@ -140,20 +140,16 @@
   <ul>
     <li><a href="#hugo-01080">Hugo-0.108.0</a>
       <ul>
-        <li>
-          <ul>
-            <li><a href="#pre-require">Pre-require</a></li>
-            <li><a href="#使用-prebuilt-binaries">使用 Prebuilt binaries</a></li>
-            <li><a href="#hugo-completion-bash">hugo completion bash</a></li>
-            <li><a href="#創建-blog">創建 blog</a></li>
-            <li><a href="#添加版面">添加版面</a></li>
-            <li><a href="#建立文章">建立文章</a></li>
-            <li><a href="#運行測試">運行測試</a></li>
-            <li><a href="#生成靜態文件">生成靜態文件</a></li>
-            <li><a href="#託管到-github">託管到 github</a></li>
-            <li><a href="#github-託管網頁設定">github 託管網頁設定</a></li>
-          </ul>
-        </li>
+        <li><a href="#pre-require">Pre-require</a></li>
+        <li><a href="#使用-prebuilt-binaries">使用 Prebuilt binaries</a></li>
+        <li><a href="#hugo-completion-bash">hugo completion bash</a></li>
+        <li><a href="#創建-blog">創建 blog</a></li>
+        <li><a href="#添加版面">添加版面</a></li>
+        <li><a href="#建立文章">建立文章</a></li>
+        <li><a href="#運行測試">運行測試</a></li>
+        <li><a href="#生成靜態文件">生成靜態文件</a></li>
+        <li><a href="#託管到-github">託管到 github</a></li>
+        <li><a href="#github-託管網頁設定">github 託管網頁設定</a></li>
       </ul>
     </li>
   </ul>
@@ -171,7 +167,7 @@
 <li>可以 Encode WebP images (兩個版都可以 decode)</li>
 <li>Transpile Sass to CSS using the embedded LibSass transpiler</li>
 </ul>
-<h3 id="pre-require">Pre-require</h3>
+<h2 id="pre-require">Pre-require</h2>
 <p>安裝 git 和 go</p>
 <ul>
 <li><a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Git</a></li>
@@ -208,7 +204,7 @@
 </span></span><span class="line"><span class="cl">go version
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="使用-prebuilt-binaries">使用 Prebuilt binaries</h3>
+</div><h2 id="使用-prebuilt-binaries">使用 Prebuilt binaries</h2>
 <p>下載 0.108.0 版，解壓縮就可用</p>
 <p>抓取對應的 binaries，(hugo_extended_0.108.0_linux-amd64.tar.gz)</p>
 <div class="highlight"><div class="chroma">
@@ -237,7 +233,7 @@
 </span></span><span class="line"><span class="cl">hugo version
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="hugo-completion-bash">hugo completion bash</h3>
+</div><h2 id="hugo-completion-bash">hugo completion bash</h2>
 <p><a href="https://gohugo.io/commands/hugo_completion_bash/">hugo completion bash</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -257,7 +253,7 @@
 </span></span><span class="line"><span class="cl">hugo completion bash
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="創建-blog">創建 blog</h3>
+</div><h2 id="創建-blog">創建 blog</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -274,7 +270,7 @@
 </span></span><span class="line"><span class="cl">hugo new site pawpaw <span class="o">&amp;&amp;</span> <span class="nb">cd</span> pawpaw
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="添加版面">添加版面</h3>
+</div><h2 id="添加版面">添加版面</h2>
 <p><a href="https://github.com/olOwOlo/hugo-theme-even">olOwOlo/hugo-theme-even</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -328,7 +324,7 @@
 </span></span><span class="line"><span class="cl">toc: <span class="nb">true</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="建立文章">建立文章</h3>
+</div><h2 id="建立文章">建立文章</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -375,7 +371,7 @@
 </div>
 </div><p>▲ <span style="color:red">draft: false</span> 是代表此文章是否還是<span style="color:red">草稿狀態</span>，如果是 true hugo 生成網頁時就不會出現在 public 。</p>
 <img src="indextest.png" alt="Untitled" style="border: 1px solid black;"/>
-<h3 id="運行測試">運行測試</h3>
+<h2 id="運行測試">運行測試</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -390,7 +386,7 @@
 </span></span><span class="line"><span class="cl">hugo server -D --bind 192.168.80.231 --baseURL http://192.168.80.231
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="生成靜態文件">生成靜態文件</h3>
+</div><h2 id="生成靜態文件">生成靜態文件</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -401,7 +397,7 @@
 </span></span><span class="line"><span class="cl">hugo 
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="託管到-github">託管到 github</h3>
+</div><h2 id="託管到-github">託管到 github</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -462,7 +458,7 @@
 <p>▲ 設定權限 workflow 也要勾選，要不然在下一步 github actions 要上傳 workflow 會被拒絕。</p>
 <p><img src="reject.png" alt="Untitled"></p>
 <p>▲ 好啦~這下被拒絕了吧</p>
-<h3 id="github-託管網頁設定">github 託管網頁設定</h3>
+<h2 id="github-託管網頁設定">github 託管網頁設定</h2>
 <p><a href="https://github.com/PawXQ/pawpaw.github.io/settings/pages">https://github.com/PawXQ/pawpaw.github.io/settings/pages</a></p>
 <p>因為我是自己上傳 public，所以這邊沒有使用自動生成功能</p>
 <p><img src="pages.png" alt="Untitled"></p>
@@ -514,7 +510,7 @@
   <span class="copyright-year">
     &copy; 
     2017 - 
-    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>olOwOlo</span>
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>olOwOlo</span>
   </span>
 </div>
 

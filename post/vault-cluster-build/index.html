@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>[Vault] Vault Cluster Build - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="olOwOlo" /><meta name="description" content="" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.108.0 with theme even" />
+
+
+<link rel="canonical" href="https://pawxq.github.io/pawpaw.github.io/post/vault-cluster-build/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/pawpaw.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/pawpaw.github.io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/pawpaw.github.io/favicon-16x16.png">
+<link rel="manifest" href="/pawpaw.github.io/manifest.json">
+<link rel="mask-icon" href="/pawpaw.github.io/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/pawpaw.github.io/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="[Vault] Vault Cluster Build" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pawxq.github.io/pawpaw.github.io/post/vault-cluster-build/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-05-23T15:35:21+00:00" />
+<meta property="article:modified_time" content="2024-05-23T15:35:21+00:00" />
+<meta itemprop="name" content="[Vault] Vault Cluster Build">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-05-23T15:35:21+00:00" />
+<meta itemprop="dateModified" content="2024-05-23T15:35:21+00:00" />
+<meta itemprop="wordCount" content="2208">
+<meta itemprop="keywords" content="vault,cluster,HA," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[Vault] Vault Cluster Build"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">PawPaw</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/pawpaw.github.io/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/pawpaw.github.io/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/pawpaw.github.io/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/pawpaw.github.io/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">PawPaw</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">[Vault] Vault Cluster Build</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2024-05-23 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#reference">Reference</a></li>
+    <li><a href="#install">Install</a>
+      <ul>
+        <li><a href="#vault-1161">Vault 1.16.1</a></li>
+      </ul>
+    </li>
+    <li><a href="#pre-require">Pre-require</a></li>
+    <li><a href="#install-1">Install</a>
+      <ul>
+        <li><a href="#設定-etchosts--環境變數">設定 /etc/hosts &amp;&amp; 環境變數</a></li>
+        <li><a href="#設定-systemd-unit-檔案">設定 systemd unit 檔案</a></li>
+        <li><a href="#設定-vault-config">設定 vault config</a></li>
+        <li><a href="#簽發憑證--設定證書認證">簽發憑證 / 設定證書認證</a></li>
+        <li><a href="#restart-service">Restart Service</a></li>
+        <li><a href="#設定-vault-auto-completion">設定 vault auto-completion</a></li>
+      </ul>
+    </li>
+    <li><a href="#驗證-vault-狀態--初始化--unseal">驗證 vault 狀態 / 初始化 / Unseal</a>
+      <ul>
+        <li><a href="#初始化">初始化</a></li>
+        <li><a href="#確認狀態seal">確認狀態(seal)</a></li>
+        <li><a href="#unseal">UnSeal</a></li>
+        <li><a href="#login">Login</a></li>
+      </ul>
+    </li>
+    <li><a href="#log-設定">Log 設定</a>
+      <ul>
+        <li><a href="#enable-vault-audit-log">enable vault-audit log</a></li>
+        <li><a href="#設定-logrotate">設定 logrotate</a></li>
+        <li><a href="#確認-raft-狀態">確認 Raft 狀態</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>本篇文章會紀錄如何安裝 Vault Server Cluster.</p>
+<p>至於 Vault 是什麼呢!?</p>
+<p>簡單說就是一個可以協助管理機密資料進行驗證的平台, 為所有的 secret 資料進行統一的管理存放, 也能整合多項 3 party 的登入驗證, 以下請查看官網解釋.</p>
+<blockquote>
+<p>HashiCorp Vault is an identity-based secrets and encryption management system. It provides encryption services that are gated by <code>authentication</code> and <code>authorization</code> methods to ensure secure, auditable and restricted access to secrets. It is used to secure, store and protect secrets and other sensitive data using a <code>UI</code>, <code>CLI</code>, or <code>HTTP API</code>.</p>
+</blockquote>
+<p>快速解釋就是</p>
+<blockquote>
+<p>HashiCorp Vault 是一個管理和保護秘密及敏感資料的系統. 它透過<code>身份驗證</code>和<code>授權</code>方法提供加密服務, 確保資料的安全性和可審計性. 使用者可以透過<code>使用者介面 (UI)</code>, <code>命令列介面 (CLI)</code> 或 <code>HTTP API</code> 存取和管理這些資料.</p>
+</blockquote>
+<h1 id="reference">Reference</h1>
+<p>官方文件：<a href="https://developer.hashicorp.com/vault/docs">Documentation</a></p>
+<p>二近制檔案：<a href="https://releases.hashicorp.com/vault/">Release binary</a></p>
+<h1 id="install">Install</h1>
+<p>因為多數時候, 建置的網路環境是無法連線到外網的, 因此在這邊直接下載 binary 來進行建置.</p>
+<h2 id="vault-1161">Vault 1.16.1</h2>
+<p>這次選用 <a href="https://releases.hashicorp.com/vault/1.16.1/">vault_1.16.1</a> community 版本來安裝.</p>
+<p>點選之後, 裡面還有一層關於1.16.1os版本的細分, 因為我是用 ubuntu, 所以就直接選 <a href="https://releases.hashicorp.com/vault/1.16.1/vault_1.16.1_linux_arm64.zip">vault_1.16.1_linux_arm64.zip</a>.</p>
+<p>至於要在外解壓縮還是虛擬機中解壓縮, 無所謂, 因為我們只需要 <code>binary</code>.</p>
+<p>這邊稍微提一下, 在選 binary 的時候, 會看到有些後面帶有一些 <code>suffix</code>, 這邊就我所知簡單解釋(<span style="color:red"><del>有錯在麻煩大大指證, 並鞭小力一點QQ</del></span>).</p>
+<p>以各個 &lt;vault_version&gt;.&lt;suffix&gt; 進行說明.</p>
+<ul>
+<li>
+<p><code>+ent.hsm</code> : <code>企業版</code>並支援<code>hsm</code>加密</p>
+</li>
+<li>
+<p><code>+ent</code> : <code>企業版</code></p>
+</li>
+<li>
+<p><code>+ent.fips1402</code> : <code>企業版</code>並符合美國安全局加密規定</p>
+</li>
+<li>
+<p><code>+ent.hsm.fips1402</code> : <code>企業版</code>符合美國安全局加密規定並支援<code>hsm</code>加密</p>
+</li>
+</ul>
+<h1 id="pre-require">Pre-require</h1>
+<ol>
+<li>
+<p>將下載的 zip 檔案 scp 到各 vm 並解壓</p>
+<p><code>scp vault_1.16.1_linux_amd64.zip root@172.16.1.202:/root/</code></p>
+<p><code>unzip vault_1.16.1_linux_amd64.zip</code></p>
+</li>
+<li>
+<p>將 vault binary 複製到 /usr/bin/ 底下</p>
+<p><code>cp vault /usr/bin/</code></p>
+</li>
+<li>
+<p>建立存放 vault 相關這定檔目錄, 範例為(/opt/vault/data)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p /opt/vault/data
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mkdir /opt/vault/data/<span class="o">{</span>certs,raft,config,license<span class="o">}</span> <span class="c1"># license 是 enterprise 放置的 license 的地方</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">mkdir /var/log/vault/vault.log
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<h1 id="install-1">Install</h1>
+<h2 id="設定-etchosts--環境變數">設定 /etc/hosts &amp;&amp; 環境變數</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vim /etc/hosts
+</span></span><span class="line"><span class="cl">172.16.1.202 pawpaw-vault01.com
+</span></span><span class="line"><span class="cl">172.16.1.203 pawpaw-vault02.com
+</span></span><span class="line"><span class="cl">172.16.1.204 pawpaw-vault03.com
+</span></span><span class="line"><span class="cl"><span class="c1">#---------------</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vim ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="c1"># 在最底下新增</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># node-1</span>
+</span></span><span class="line"><span class="cl">exoprt <span class="nv">VAULT_ADDR</span><span class="o">=</span>https://pawpaw-vault01.com:8200
+</span></span><span class="line"><span class="cl"><span class="c1"># node-2</span>
+</span></span><span class="line"><span class="cl">exoprt <span class="nv">VAULT_ADDR</span><span class="o">=</span>https://pawpaw-vault02.com:8200
+</span></span><span class="line"><span class="cl"><span class="c1"># node-3</span>
+</span></span><span class="line"><span class="cl">exoprt <span class="nv">VAULT_ADDR</span><span class="o">=</span>https://pawpaw-vault03.com:8200
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="設定-systemd-unit-檔案">設定 systemd unit 檔案</h2>
+<p>設定 systemd 之後需要</p>
+<p><code>systemctl daemon-reload</code></p>
+<p><code>vim /usr/lib/systemd/system/vault.service</code></p>
+<details>
+  <summary style="cursor: pointer; font-weight: bold;">&#x25B6; vault.service</summary>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>Unit<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Description</span><span class="o">=</span><span class="s2">&#34;HashiCorp Vault - A tool for managing secrets&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Documentation</span><span class="o">=</span>https://www.vaultproject.io/docs/
+</span></span><span class="line"><span class="cl"><span class="nv">Requires</span><span class="o">=</span>network-online.target
+</span></span><span class="line"><span class="cl"><span class="nv">After</span><span class="o">=</span>network-online.target
+</span></span><span class="line"><span class="cl"><span class="nv">ConditionFileNotEmpty</span><span class="o">=</span>/opt/vault/data/config/vault.hcl
+</span></span><span class="line"><span class="cl"><span class="nv">StartLimitIntervalSec</span><span class="o">=</span><span class="m">60</span>
+</span></span><span class="line"><span class="cl"><span class="nv">StartLimitBurst</span><span class="o">=</span><span class="m">3</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Service<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">Type</span><span class="o">=</span>notify
+</span></span><span class="line"><span class="cl"><span class="nv">User</span><span class="o">=</span>root
+</span></span><span class="line"><span class="cl"><span class="nv">Group</span><span class="o">=</span>root
+</span></span><span class="line"><span class="cl"><span class="nv">ProtectSystem</span><span class="o">=</span>full
+</span></span><span class="line"><span class="cl"><span class="nv">ProtectHome</span><span class="o">=</span>read-only
+</span></span><span class="line"><span class="cl"><span class="nv">PrivateTmp</span><span class="o">=</span>yes
+</span></span><span class="line"><span class="cl"><span class="nv">PrivateDevices</span><span class="o">=</span>yes
+</span></span><span class="line"><span class="cl"><span class="nv">SecureBits</span><span class="o">=</span>keep-caps
+</span></span><span class="line"><span class="cl"><span class="nv">AmbientCapabilities</span><span class="o">=</span>CAP_IPC_LOCK
+</span></span><span class="line"><span class="cl"><span class="nv">CapabilityBoundingSet</span><span class="o">=</span>CAP_SYSLOG CAP_IPC_LOCK
+</span></span><span class="line"><span class="cl"><span class="nv">NoNewPrivileges</span><span class="o">=</span>yes
+</span></span><span class="line"><span class="cl"><span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/vault server -config<span class="o">=</span>/opt/vault/data/config/vault.hcl
+</span></span><span class="line"><span class="cl"><span class="nv">StandardOutput</span><span class="o">=</span>file:/var/log/vault/vault.log
+</span></span><span class="line"><span class="cl"><span class="nv">StandardError</span><span class="o">=</span>file:/var/log/vault/vault.log
+</span></span><span class="line"><span class="cl"><span class="nv">ExecReload</span><span class="o">=</span>/bin/kill --signal HUP <span class="nv">$MAINPID</span>
+</span></span><span class="line"><span class="cl"><span class="nv">KillMode</span><span class="o">=</span>process
+</span></span><span class="line"><span class="cl"><span class="nv">KillSignal</span><span class="o">=</span>SIGINT
+</span></span><span class="line"><span class="cl"><span class="nv">Restart</span><span class="o">=</span>on-failure
+</span></span><span class="line"><span class="cl"><span class="nv">RestartSec</span><span class="o">=</span><span class="m">5</span>
+</span></span><span class="line"><span class="cl"><span class="nv">TimeoutStopSec</span><span class="o">=</span><span class="m">30</span>
+</span></span><span class="line"><span class="cl"><span class="nv">LimitNOFILE</span><span class="o">=</span><span class="m">65536</span>
+</span></span><span class="line"><span class="cl"><span class="nv">LimitMEMLOCK</span><span class="o">=</span>infinity
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Install<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</span></span></code></pre></td></tr></table>
+</div>
+</div></details>
+<h2 id="設定-vault-config">設定 vault config</h2>
+<p>所有 vault 會使用的設定檔 suffix 都會是<code>.hcl</code>結尾</p>
+<p>因為是使用 HA 機制, 所以這邊使用 <code>raft</code> 來進行 replica, 保持所有 node 的 storage 都相同</p>
+<p><a href="https://developer.hashicorp.com/vault/docs/configuration/storage/raft">Integrated storage (Raft) backend</a></p>
+<p><code>vim /opt/vault/data/config/vault.hcl</code></p>
+<details>
+  <summary style="cursor: pointer; font-weight: bold;">&#x25B6; vault.hcl</summary>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">ui</span>               <span class="o">=</span> <span class="nb">true</span>
+</span></span><span class="line"><span class="cl"><span class="nv">disable_mlock</span>    <span class="o">=</span> <span class="nb">true</span>
+</span></span><span class="line"><span class="cl"><span class="nv">disable_sealwrap</span> <span class="o">=</span> <span class="nb">true</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="nv">cluster_name</span> <span class="o">=</span> <span class="s2">&#34;pawpaw-vault-cluster&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">api_addr</span>     <span class="o">=</span> <span class="s2">&#34;https://pawpaw-vault01.com:8200&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">cluster_addr</span> <span class="o">=</span> <span class="s2">&#34;https://pawpaw-vault01.com:8201&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># info, trace, debug, info, warn, err</span>
+</span></span><span class="line"><span class="cl"><span class="nv">log_level</span>    <span class="o">=</span> <span class="s2">&#34;info&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">log_format</span>   <span class="o">=</span> <span class="s2">&#34;json&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">log_file</span>     <span class="o">=</span> <span class="s2">&#34;/var/log/vault/vault.log&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># license_path = &#34;/opt/vault/data/license/vault.hclic&#34; # enterprise 指定 license 的位置</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">listener <span class="s2">&#34;tcp&#34;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">address</span>            <span class="o">=</span> <span class="s2">&#34;[::]:8200&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">tls_cert_file</span>      <span class="o">=</span> <span class="s2">&#34;/opt/vault/data/certs/host.crt&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">tls_client_ca_file</span> <span class="o">=</span> <span class="s2">&#34;/opt/vault/data/certs/rootCA.crt&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">tls_key_file</span>       <span class="o">=</span> <span class="s2">&#34;/opt/vault/data/certs/host.key&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># 設定不使用 tls</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># tls_disable        = &#34;true&#34; </span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">storage <span class="s2">&#34;raft&#34;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># 每個node皆不同名稱</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">node_id</span> <span class="o">=</span> <span class="s2">&#34;vault1&#34;</span> 
+</span></span><span class="line"><span class="cl">  <span class="nv">path</span>    <span class="o">=</span> <span class="s2">&#34;/opt/vault/data/raft&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># node1 下面需要設定 node2 和 node3, node2 需要設定 node1 和 node3, node3 須設定 node1 和 node2</span>
+</span></span><span class="line"><span class="cl">  retry_join <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">leader_api_addr</span>         <span class="o">=</span> <span class="s2">&#34;https://pawpaw-vault02.com:8200&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">leader_ca_cert_file</span>     <span class="o">=</span> <span class="s2">&#34;/opt/vault/data/certs/rootCA.crt&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">leader_client_cert_file</span> <span class="o">=</span> <span class="s2">&#34;/opt/vault/data/certs/host.crt&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">leader_client_key_file</span>  <span class="o">=</span> <span class="s2">&#34;/opt/vault/data/certs/host.key&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  retry_join <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">leader_api_addr</span>         <span class="o">=</span> <span class="s2">&#34;https://pawpaw-vault03.com:8200&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">leader_ca_cert_file</span>     <span class="o">=</span> <span class="s2">&#34;/opt/vault/data/certs/rootCA.crt&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">leader_client_cert_file</span> <span class="o">=</span> <span class="s2">&#34;/opt/vault/data/certs/host.crt&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">leader_client_key_file</span>  <span class="o">=</span> <span class="s2">&#34;/opt/vault/data/certs/host.key&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">telemetry <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">disable_hostname</span>          <span class="o">=</span> <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">prometheus_retention_time</span> <span class="o">=</span> <span class="s2">&#34;12h&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></details>
+<h2 id="簽發憑證--設定證書認證">簽發憑證 / 設定證書認證</h2>
+<p>這邊使用自簽的方式</p>
+<p>這邊三台都使用同一張憑證, 建立憑證之後, scp 其他各台機器的 /opt/vault/data/certs</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># root crt+key</span>
+</span></span><span class="line"><span class="cl">openssl req -x509 -nodes -new -sha256 -days <span class="m">36500</span> -out rootCA.crt -newkey rsa:4096 -keyout rootCA.key
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#csr + key</span>
+</span></span><span class="line"><span class="cl">openssl req -new -sha256 -out host.csr -newkey rsa:4096 -keyout host.key -nodes -subj <span class="s2">&#34;CN=pawpaw-vault.com&#34;</span> -addext <span class="s2">&#34;subjectAltName = DNS:pawpaw-vault01.com,DNS:pawpaw-vault02.comDNS:pawpaw-vault03.com,IP:172.16.1.202,IP:172.16.1.203,IP:172.16.1.204,IP:127.0.0.1&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#crt</span>
+</span></span><span class="line"><span class="cl">openssl x509 -req -in host.csr -CA rootCA.crt -CAkey rootCA.key -CAcreateserial -out host.crt -days365 -sha256 -extfile &lt;<span class="o">(</span><span class="nb">printf</span> <span class="s2">&#34;subjectAltName=DNS:pawpaw-vault01.com,DNS:pawpaw-vault02.comDNS:pawpaw-vault03.com,IP:172.16.1.202,IP:172.16.1.203,IP:172.16.1.204,IP:127.0.0.1&#34;</span><span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>scp host.crt host.key rootCA.crt root@172.16.1.202:/opt/vault/data/certs/</code></p>
+<p><code>scp host.crt host.key rootCA.crt root@172.16.1.203:/opt/vault/data/certs/</code></p>
+<p><code>scp host.crt host.key rootCA.crt root@172.16.1.204:/opt/vault/data/certs/</code></p>
+<p>設定證書認證(Ubuntu)</p>
+<p><code>cp /opt/vault/data/certs/rootCA.crt /etc/ssl/certs/</code></p>
+<p><code>update-ca-certificates</code></p>
+<h2 id="restart-service">Restart Service</h2>
+<p><code>systemctl restart vault.service</code></p>
+<h2 id="設定-vault-auto-completion">設定 vault auto-completion</h2>
+<p><code>vault -autocomplete-install &amp;&amp; source $HOME/.bashrc</code></p>
+<h1 id="驗證-vault-狀態--初始化--unseal">驗證 vault 狀態 / 初始化 / Unseal</h1>
+<h2 id="初始化">初始化</h2>
+<p>vault server 在建置完成後, 需要進行 init 的動作產生解鎖的 key 和預設 root 登入的 token</p>
+<p>預設產生五把key, 需要三把才能解鎖 Vault server</p>
+<p><span style="color:red">請將產生的 key 妥善保管, 即使想要進行 rekey 的動作, 只要原本的 key 遺失, 整座 server 的資料就等於遺失了.</span></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 初始化指令</span>
+</span></span><span class="line"><span class="cl">vault operator init
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># -key-shares 指定產生 key 數量</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -key-threshold 指定解鎖所需數量 key</span>
+</span></span><span class="line"><span class="cl">vault operator init -key-shares<span class="o">=</span><span class="m">3</span> -key-threshold<span class="o">=</span><span class="m">2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="vault-init.png" alt="vault-init"></p>
+<h2 id="確認狀態seal">確認狀態(seal)</h2>
+<p><code>vault status</code></p>
+<p><img src="vault-seal.png" alt="vault-seal"></p>
+<h2 id="unseal">UnSeal</h2>
+<p>從這邊可以看到 <code>Sealed</code> 為 <code>true</code>, 表示這個 vault server 是被鎖住的, 在這種情況下是無法對 vault server 進行任何操作的.</p>
+<p>需要進行 unseal(解鎖) 的動作, 才能對 server 進行其他的操作.</p>
+<p>根據當初 init 的時候決定需要使用多少把 key 解鎖, 預設需要 <code>3</code> 把</p>
+<p><span style="color:red"><strong>特別注意, 這邊需要三台 <code>server</code> 都進行 <code>unseal</code> 的動作</strong></span></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 第一種後方直接帶 key</span>
+</span></span><span class="line"><span class="cl">vault operator unseal gzGFEo+8b4nR+0+0TALPcapnrNknPyMf9DOBh2b2diVb
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 第二種輸入指令使用 interactive mode</span>
+</span></span><span class="line"><span class="cl">vault operator unseal
+</span></span><span class="line"><span class="cl"><span class="c1">#下方互動式狀態</span>
+</span></span><span class="line"><span class="cl">Unseal Key <span class="o">(</span>will be hidden<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>解鎖完的狀態</p>
+<p>可以看到 <code>Sealed</code> 的部分已被改成 <code>false</code></p>
+<p><img src="vault-unseal.png" alt="vault-unseal"></p>
+<h2 id="login">Login</h2>
+<p>這時候需要使用剛剛拿到的 root token 進行登入</p>
+<p>一樣可以用直接將 token 接續在後方, 或者使用 interactive mode</p>
+<p><code>vault login</code></p>
+<p>可以看到使用的 policy 叫做 root</p>
+<p><img src="vault-login.png" alt="vault-login"></p>
+<h1 id="log-設定">Log 設定</h1>
+<h2 id="enable-vault-audit-log">enable vault-audit log</h2>
+<p>啟用 audit log 需要在 vault server login 後才能進行操作</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Enable at the default path:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vault audit <span class="nb">enable</span> file <span class="nv">file_path</span><span class="o">=</span>/var/log/vault/vault_audit.log
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Enable at a different path. It is possible to enable multiple copies of an audit device:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vault audit <span class="nb">enable</span> -path<span class="o">=</span><span class="s2">&#34;vault_audit_1&#34;</span> file <span class="nv">file_path</span><span class="o">=</span>/home/user/vault_audit.log
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Enable logs on stdout. This is useful when running in a container:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vault audit <span class="nb">enable</span> file <span class="nv">file_path</span><span class="o">=</span>stdout
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="設定-logrotate">設定 logrotate</h2>
+<p>這邊設定 vault-audit log 和 vault log 的 log rotate.</p>
+<p><code>vim /etc/logrotate.d/vault</code></p>
+<details>
+  <summary style="cursor: pointer; font-weight: bold;">&#x25B6; /etc/logrotate.d/vault</summary>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/var/log/vault/vault_audit.log <span class="o">{</span>
+</span></span><span class="line"><span class="cl">   daily              <span class="c1"># 每日 rotate log file</span>
+</span></span><span class="line"><span class="cl">   rotate <span class="m">180</span>         <span class="c1"># 保留180個舊 log file</span>
+</span></span><span class="line"><span class="cl">   notifempty         <span class="c1"># 如果 log file 沒有內容則不進行 rotate</span>
+</span></span><span class="line"><span class="cl">   missingok          <span class="c1"># 如果 log file 不存在則忽略錯誤</span>
+</span></span><span class="line"><span class="cl">   compress           <span class="c1"># 壓縮 rotate 後的 log file </span>
+</span></span><span class="line"><span class="cl">   delaycompress      <span class="c1"># 延遲到下次 rotate 時再壓縮 log file</span>
+</span></span><span class="line"><span class="cl">   postrotate         <span class="c1"># 在 log file rotate 之後執行以下命令</span>
+</span></span><span class="line"><span class="cl">     /bin/systemctl reload vault 2&gt; /dev/null <span class="o">||</span> <span class="nb">true</span> <span class="c1"># 重新載入vault服務, 忽略錯誤</span>
+</span></span><span class="line"><span class="cl">   endscript          <span class="c1"># postrotate腳本結束</span>
+</span></span><span class="line"><span class="cl">   dateext            <span class="c1"># 在 rotate 的 log file 名稱中加入日期</span>
+</span></span><span class="line"><span class="cl">   dateformat -%Y%m%d <span class="c1"># 使用指定的日期格式為日誌檔案命名, 格式為：-YYYYMMDD</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/var/log/vault/vault.log <span class="o">{</span>
+</span></span><span class="line"><span class="cl">   daily              <span class="c1"># 每日 rotate log file</span>
+</span></span><span class="line"><span class="cl">   rotate <span class="m">180</span>         <span class="c1"># 保留180個舊 log file</span>
+</span></span><span class="line"><span class="cl">   notifempty         <span class="c1"># 如果 log file 沒有內容則不進行 rotate</span>
+</span></span><span class="line"><span class="cl">   missingok          <span class="c1"># 如果 log file 不存在則忽略錯誤</span>
+</span></span><span class="line"><span class="cl">   compress           <span class="c1"># 壓縮 rotate 後的 log file </span>
+</span></span><span class="line"><span class="cl">   delaycompress      <span class="c1"># 延遲到下次 rotate 時再壓縮 log file</span>
+</span></span><span class="line"><span class="cl">   postrotate         <span class="c1"># 在 log file rotate 之後執行以下命令</span>
+</span></span><span class="line"><span class="cl">     /bin/systemctl reload vault 2&gt; /dev/null <span class="o">||</span> <span class="nb">true</span> <span class="c1"># 重新載入vault服務, 忽略錯誤</span>
+</span></span><span class="line"><span class="cl">   endscript          <span class="c1"># postrotate腳本結束</span>
+</span></span><span class="line"><span class="cl">   dateext            <span class="c1"># 在 rotate 的 log file 名稱中加入日期</span>
+</span></span><span class="line"><span class="cl">   dateformat -%Y%m%d <span class="c1"># 使用指定的日期格式為日誌檔案命名, 格式為：-YYYYMMDD</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></details>
+<h2 id="確認-raft-狀態">確認 Raft 狀態</h2>
+<p>HA server 啟動後, 檢查 raft integrate storage 是否都有加入</p>
+<p><span style="color:red"><strong>須注意上面前置動作, 所有的 server 都需要進行 unseal 的動作</strong></span></p>
+<p>要不然會無法加入, 下方會貼出錯誤訊息</p>
+<p><code>vault operator raft list-peers</code></p>
+<p><img src="vault-raft-list-peers.png" alt="vault-raft-list-peers"></p>
+<p>在 node2, node3 沒有 unseal server 所產生的錯誤訊息</p>
+<p><img src="vault-raft-join-failed.png" alt="vault-raft-join-failed"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;@level&#34;</span>:<span class="s2">&#34;info&#34;</span>,<span class="s2">&#34;@message&#34;</span>:<span class="s2">&#34;security barrier not initialized&#34;</span>,<span class="s2">&#34;@module&#34;</span>:<span class="s2">&#34;core&#34;</span>,<span class="s2">&#34;@timestamp&#34;</span>:<span class="s2">&#34;2024-05-26T04:40:26.459693Z&#34;</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;@level&#34;</span>:<span class="s2">&#34;info&#34;</span>,<span class="s2">&#34;@message&#34;</span>:<span class="s2">&#34;attempting to join possible raft leader node&#34;</span>,<span class="s2">&#34;@module&#34;</span>:<span class="s2">&#34;core&#34;</span>,<span class="s2">&#34;@timestamp&#34;</span>:<span class="s2">&#34;2024-05-26T04:40:26.462719Z&#34;</span>,<span class="s2">&#34;leader_addr&#34;</span>:<span class="s2">&#34;https://pawpaw-vault01.com:8200&#34;</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;@level&#34;</span>:<span class="s2">&#34;info&#34;</span>,<span class="s2">&#34;@message&#34;</span>:<span class="s2">&#34;attempting to join possible raft leader node&#34;</span>,<span class="s2">&#34;@module&#34;</span>:<span class="s2">&#34;core&#34;</span>,<span class="s2">&#34;@timestamp&#34;</span>:<span class="s2">&#34;2024-05-26T04:40:26.462756Z&#34;</span>,<span class="s2">&#34;leader_addr&#34;</span>:<span class="s2">&#34;https://pawpaw-vault03.com:8200&#34;</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;@level&#34;</span>:<span class="s2">&#34;error&#34;</span>,<span class="s2">&#34;@message&#34;</span>:<span class="s2">&#34;failed to get raft challenge&#34;</span>,<span class="s2">&#34;@module&#34;</span>:<span class="s2">&#34;core&#34;</span>,<span class="s2">&#34;@timestamp&#34;</span>:<span class="s2">&#34;2024-05-26T04:40:26.560712Z&#34;</span>,<span class="s2">&#34;error&#34;</span>:<span class="s2">&#34;error during raft bootstrap init call: Error making API request.\n\nURL: PUT https://pawpaw-vault03.com:8200/v1/sys/storage/raft/bootstrap/challenge\nCode: 503. Errors:\n\n* Vault is sealed&#34;</span>,<span class="s2">&#34;leader_addr&#34;</span>:<span class="s2">&#34;https://pawpaw-vault03.com:8200&#34;</span><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;@level&#34;</span>:<span class="s2">&#34;error&#34;</span>,<span class="s2">&#34;@message&#34;</span>:<span class="s2">&#34;failed to retry join raft cluster&#34;</span>,<span class="s2">&#34;@module&#34;</span>:<span class="s2">&#34;core&#34;</span>,<span class="s2">&#34;@timestamp&#34;</span>:<span class="s2">&#34;2024-05-26T04:40:26.571696Z&#34;</span>,<span class="s2">&#34;err&#34;</span>:<span class="s2">&#34;waiting for unseal keys to be supplied&#34;</span>,<span class="s2">&#34;retry&#34;</span>:<span class="s2">&#34;2s&#34;</span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/pawpaw.github.io/tags/vault/">vault</a>
+          <a href="/pawpaw.github.io/tags/cluster/">cluster</a>
+          <a href="/pawpaw.github.io/tags/ha/">HA</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/pawpaw.github.io/post/elasticsearch-cluster-build/">
+            <span class="next-text nav-default">[ELK] Elasticsearch Cluster Build</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/PawXQ/pawpaw.github.io" class="iconfont icon-github" title="github"></a>
+  <a href="https://pawxq.github.io/pawpaw.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>olOwOlo</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/pawpaw.github.io/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

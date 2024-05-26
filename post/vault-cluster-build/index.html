@@ -48,7 +48,7 @@
 <meta itemprop="name" content="[Vault] Vault Cluster Build">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-05-23T15:35:21+00:00" />
 <meta itemprop="dateModified" content="2024-05-23T15:35:21+00:00" />
-<meta itemprop="wordCount" content="2208">
+<meta itemprop="wordCount" content="2328">
 <meta itemprop="keywords" content="vault,cluster,HA," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[Vault] Vault Cluster Build"/>
 <meta name="twitter:description" content=""/>
@@ -168,6 +168,7 @@
         <li><a href="#enable-vault-audit-log">enable vault-audit log</a></li>
         <li><a href="#設定-logrotate">設定 logrotate</a></li>
         <li><a href="#確認-raft-狀態">確認 Raft 狀態</a></li>
+        <li><a href="#重新初始化-vault-server">重新初始化 Vault Server</a></li>
       </ul>
     </li>
   </ul>
@@ -632,6 +633,8 @@
 </span><span class="lnt">26
 </span><span class="lnt">27
 </span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">
@@ -642,6 +645,7 @@
 </span></span><span class="line"><span class="cl">   missingok          <span class="c1"># 如果 log file 不存在則忽略錯誤</span>
 </span></span><span class="line"><span class="cl">   compress           <span class="c1"># 壓縮 rotate 後的 log file </span>
 </span></span><span class="line"><span class="cl">   delaycompress      <span class="c1"># 延遲到下次 rotate 時再壓縮 log file</span>
+</span></span><span class="line"><span class="cl">   copytruncate       <span class="c1"># 複製並截斷原始文件</span>
 </span></span><span class="line"><span class="cl">   postrotate         <span class="c1"># 在 log file rotate 之後執行以下命令</span>
 </span></span><span class="line"><span class="cl">     /bin/systemctl reload vault 2&gt; /dev/null <span class="o">||</span> <span class="nb">true</span> <span class="c1"># 重新載入vault服務, 忽略錯誤</span>
 </span></span><span class="line"><span class="cl">   endscript          <span class="c1"># postrotate腳本結束</span>
@@ -656,6 +660,7 @@
 </span></span><span class="line"><span class="cl">   missingok          <span class="c1"># 如果 log file 不存在則忽略錯誤</span>
 </span></span><span class="line"><span class="cl">   compress           <span class="c1"># 壓縮 rotate 後的 log file </span>
 </span></span><span class="line"><span class="cl">   delaycompress      <span class="c1"># 延遲到下次 rotate 時再壓縮 log file</span>
+</span></span><span class="line"><span class="cl">   copytruncate       <span class="c1"># 複製並截斷原始文件</span>
 </span></span><span class="line"><span class="cl">   postrotate         <span class="c1"># 在 log file rotate 之後執行以下命令</span>
 </span></span><span class="line"><span class="cl">     /bin/systemctl reload vault 2&gt; /dev/null <span class="o">||</span> <span class="nb">true</span> <span class="c1"># 重新載入vault服務, 忽略錯誤</span>
 </span></span><span class="line"><span class="cl">   endscript          <span class="c1"># postrotate腳本結束</span>
@@ -687,6 +692,34 @@
 </span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;@level&#34;</span>:<span class="s2">&#34;info&#34;</span>,<span class="s2">&#34;@message&#34;</span>:<span class="s2">&#34;attempting to join possible raft leader node&#34;</span>,<span class="s2">&#34;@module&#34;</span>:<span class="s2">&#34;core&#34;</span>,<span class="s2">&#34;@timestamp&#34;</span>:<span class="s2">&#34;2024-05-26T04:40:26.462756Z&#34;</span>,<span class="s2">&#34;leader_addr&#34;</span>:<span class="s2">&#34;https://pawpaw-vault03.com:8200&#34;</span><span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;@level&#34;</span>:<span class="s2">&#34;error&#34;</span>,<span class="s2">&#34;@message&#34;</span>:<span class="s2">&#34;failed to get raft challenge&#34;</span>,<span class="s2">&#34;@module&#34;</span>:<span class="s2">&#34;core&#34;</span>,<span class="s2">&#34;@timestamp&#34;</span>:<span class="s2">&#34;2024-05-26T04:40:26.560712Z&#34;</span>,<span class="s2">&#34;error&#34;</span>:<span class="s2">&#34;error during raft bootstrap init call: Error making API request.\n\nURL: PUT https://pawpaw-vault03.com:8200/v1/sys/storage/raft/bootstrap/challenge\nCode: 503. Errors:\n\n* Vault is sealed&#34;</span>,<span class="s2">&#34;leader_addr&#34;</span>:<span class="s2">&#34;https://pawpaw-vault03.com:8200&#34;</span><span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="o">{</span><span class="s2">&#34;@level&#34;</span>:<span class="s2">&#34;error&#34;</span>,<span class="s2">&#34;@message&#34;</span>:<span class="s2">&#34;failed to retry join raft cluster&#34;</span>,<span class="s2">&#34;@module&#34;</span>:<span class="s2">&#34;core&#34;</span>,<span class="s2">&#34;@timestamp&#34;</span>:<span class="s2">&#34;2024-05-26T04:40:26.571696Z&#34;</span>,<span class="s2">&#34;err&#34;</span>:<span class="s2">&#34;waiting for unseal keys to be supplied&#34;</span>,<span class="s2">&#34;retry&#34;</span>:<span class="s2">&#34;2s&#34;</span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="重新初始化-vault-server">重新初始化 Vault Server</h2>
+<p>當我們需要重新 init server 的時候, 需要先刪除 <code>raft</code> 相關的 storage, 路徑在啟動的設定檔中可以看到</p>
+<p>在這裡我是設在 <code>/opt/vault/data/raft/*</code></p>
+<p>以下步驟操作完, 即可重新 init</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 先刪除</span>
+</span></span><span class="line"><span class="cl">rm -f /opt/vault/data/raft/*
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 重新 restart service</span>
+</span></span><span class="line"><span class="cl">systemctl restart vault.service
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 重新 init</span>
+</span></span><span class="line"><span class="cl">vault operator init
 </span></span></code></pre></td></tr></table>
 </div>
 </div>

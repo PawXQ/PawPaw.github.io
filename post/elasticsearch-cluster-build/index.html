@@ -48,7 +48,7 @@
 <meta itemprop="name" content="[ELK] Elasticsearch Cluster Build">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-05-12T10:44:48+00:00" />
 <meta itemprop="dateModified" content="2024-05-12T10:44:48+00:00" />
-<meta itemprop="wordCount" content="1083">
+<meta itemprop="wordCount" content="1111">
 <meta itemprop="keywords" content="ELK,elasticsearch," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[ELK] Elasticsearch Cluster Build"/>
 <meta name="twitter:description" content=""/>
@@ -444,6 +444,8 @@
 </span><span class="lnt">18
 </span><span class="lnt">19
 </span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vim /etc/elasticsearch/elasticsearch.yml
@@ -454,6 +456,8 @@
 </span></span><span class="line"><span class="cl">path.logs: /var/log/elasticsearch
 </span></span><span class="line"><span class="cl">bootstrap.memory_lock: <span class="nb">true</span> <span class="c1"># 控制elasticsearch只使用memory不使用SWAP</span>
 </span></span><span class="line"><span class="cl">network.host: 0.0.0.0 <span class="c1"># 設定ES服務的IP位置(不限定來源ip)</span>
+</span></span><span class="line"><span class="cl">http.port: <span class="m">9200</span> <span class="c1"># 設定 ES 溝通的端口</span>
+</span></span><span class="line"><span class="cl">discovery.seed_hosts: <span class="o">[</span><span class="s2">&#34;pawpaw-elk-c1&#34;</span>, <span class="s2">&#34;pawpaw-elk-c2&#34;</span>, <span class="s2">&#34;pawpaw-elk-c3&#34;</span><span class="o">]</span> <span class="c1"># 添加至集群的列表</span>
 </span></span><span class="line"><span class="cl">xpack.security.enabled: <span class="nb">true</span> <span class="c1"># 開啟ES安全性設定</span>
 </span></span><span class="line"><span class="cl">xpack.security.enrollment.enabled: <span class="nb">true</span> <span class="c1"># 啟動ES註冊令牌的功能</span>
 </span></span><span class="line"><span class="cl">xpack.security.http.ssl:
@@ -464,7 +468,7 @@
 </span></span><span class="line"><span class="cl">  verification_mode: certificate <span class="c1"># 設定內部TLS驗證模式</span>
 </span></span><span class="line"><span class="cl">  keystore.path: certs/transport.p12 <span class="c1"># 指定keystore檔案路徑</span>
 </span></span><span class="line"><span class="cl">  truststore.path: certs/transport.p12 <span class="c1"># 指定驗證的檔案路徑</span>
-</span></span><span class="line"><span class="cl">cluster.initial_master_nodes: <span class="o">[</span><span class="s2">&#34;pawpaw-elk-c1&#34;</span><span class="o">]</span> <span class="c1"># 指定集群第一次啟動的時可以選舉master的節點, 預設使用hostaname, 建議可改成elasticsearch.yml檔案中的node.name</span>
+</span></span><span class="line"><span class="cl">cluster.initial_master_nodes: <span class="o">[</span><span class="s2">&#34;pawpaw-elk-c1&#34;</span>, <span class="s2">&#34;pawpaw-elk-c2&#34;</span>, <span class="s2">&#34;pawpaw-elk-c3&#34;</span><span class="o">]</span> <span class="c1"># 指定集群第一次啟動的時可以選舉master的節點, 預設使用hostaname, 建議可改成elasticsearch.yml檔案中的node.name</span>
 </span></span><span class="line"><span class="cl">http.host: 0.0.0.0 <span class="c1"># 設定此節點走的HTTP地址</span>
 </span></span></code></pre></td></tr></table>
 </div>

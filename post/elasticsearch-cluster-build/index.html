@@ -48,7 +48,7 @@
 <meta itemprop="name" content="[ELK] Elasticsearch Cluster Build">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-05-12T10:44:48+00:00" />
 <meta itemprop="dateModified" content="2024-05-12T10:44:48+00:00" />
-<meta itemprop="wordCount" content="1111">
+<meta itemprop="wordCount" content="1290">
 <meta itemprop="keywords" content="ELK,elasticsearch," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[ELK] Elasticsearch Cluster Build"/>
 <meta name="twitter:description" content=""/>
@@ -152,13 +152,17 @@
         <li><a href="#修改-elasticsearch-yml-file">修改 Elasticsearch yml file</a></li>
       </ul>
     </li>
+    <li><a href="#修改-elasticsearch-service">修改 elasticsearch service</a></li>
+    <li><a href="#啟動-elasticsearch">啟動 elasticsearch</a></li>
+    <li><a href="#確認-cluster-狀態">確認 cluster 狀態</a></li>
+    <li><a href="#重設-elasticsearch-密碼">重設 elasticsearch 密碼</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
       <p>這篇文章會記錄如何從 0 -&gt; 1 建立一個 elasticsearch cluster, 其中包含 3 個 node.</p>
-<p>之後有機會會再補充透過 ansible 建置的方法</p>
+<p>之後有機會再補充透過 ansible 建置的方法, 和其他相關驗證指令</p>
 <p>因為大多數公司的環境並無法直接連網, 因此都是從官網下載特定版本後, 在透過 scp 導入, 如果可以直接從網路下載就可以直接跳過前面 scp 的部分直接跳到後方修改 <code>yaml file</code> 的部分</p>
 <h1 id="env">ENV</h1>
 <table>
@@ -171,7 +175,7 @@
 <tbody>
 <tr>
 <td>IP</td>
-<td>172.16.1.202  | 172.16.1.203  | 172.16.1.204</td>
+<td>192.168.80.241  | 192.168.80.242  | 192.168.80.243</td>
 </tr>
 <tr>
 <td>主機名稱</td>
@@ -252,9 +256,9 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vim /etc/hosts
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">172.16.1.202 pawpaw-elk-c1
-</span></span><span class="line"><span class="cl">172.16.1.203 pawpaw-elk-c2
-</span></span><span class="line"><span class="cl">172.16.1.204 pawpaw-elk-c3
+</span></span><span class="line"><span class="cl">192.168.80.241 pawpaw-elk-c1
+</span></span><span class="line"><span class="cl">192.168.80.242 pawpaw-elk-c2
+</span></span><span class="line"><span class="cl">192.168.80.243 pawpaw-elk-c3
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="設定虛擬記憶體數量">設定虛擬記憶體數量</h2>
@@ -292,7 +296,7 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkdir /admin/elasticsearch
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">mkdir -p /admin/elasticsearch
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> /admin/elasticsearch
 </span></span></code></pre></td></tr></table>
 </div>
@@ -304,7 +308,7 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">scp &lt;file_path&gt; &lt;user&gt;@&lt;node_ip&gt;:&lt;path&gt;
-</span></span><span class="line"><span class="cl">scp C:\Users\User\Downloads\elasticsearch-8.13.2-amd64.deb root@172.16.1.202:/admin/elasticsearch
+</span></span><span class="line"><span class="cl">scp C:\Users\User\Downloads\elasticsearch-8.13.2-amd64.deb root@192.168.80.241:/admin/elasticsearch
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>安裝<code>.deb</code>檔案, 安裝完成後會出現預設的 elastic 密碼, 沒有記錄到需要重新產生</p>
@@ -398,8 +402,8 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">scp /etc/elasticsearch/certs/* root@172.16.1.203:/etc/elasticsearch/certs/
-</span></span><span class="line"><span class="cl">scp /etc/elasticsearch/elasticsearch.keystore  root@172.16.1.203:/etc/elasticsearch/
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">scp /etc/elasticsearch/certs/* root@192.168.80.242:/etc/elasticsearch/certs/
+</span></span><span class="line"><span class="cl">scp /etc/elasticsearch/elasticsearch.keystore  root@192.168.80.242:/etc/elasticsearch/
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="設定-elasticsearch-記憶體的使用量">設定 Elasticsearch 記憶體的使用量</h2>
@@ -422,6 +426,8 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="修改-elasticsearch-yml-file">修改 Elasticsearch yml file</h2>
+<p>以下指令可以排除空行或#開頭的內容</p>
+<p><code>cat /etc/elasticsearch/elasticsearch.yml | grep -Ev &quot;^$|#&quot;</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -470,6 +476,60 @@
 </span></span><span class="line"><span class="cl">  truststore.path: certs/transport.p12 <span class="c1"># 指定驗證的檔案路徑</span>
 </span></span><span class="line"><span class="cl">cluster.initial_master_nodes: <span class="o">[</span><span class="s2">&#34;pawpaw-elk-c1&#34;</span>, <span class="s2">&#34;pawpaw-elk-c2&#34;</span>, <span class="s2">&#34;pawpaw-elk-c3&#34;</span><span class="o">]</span> <span class="c1"># 指定集群第一次啟動的時可以選舉master的節點, 預設使用hostaname, 建議可改成elasticsearch.yml檔案中的node.name</span>
 </span></span><span class="line"><span class="cl">http.host: 0.0.0.0 <span class="c1"># 設定此節點走的HTTP地址</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="修改-elasticsearch-service">修改 elasticsearch service</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">vim /lib/systemd/system/elasticsearch.serviceㄗ
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 添加在 [service] 底下</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># LimitMEMLOCK 鎖定內存不使用 SWAP</span>
+</span></span><span class="line"><span class="cl"><span class="nv">LimitMEMLOCK</span><span class="o">=</span>infinity
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="啟動-elasticsearch">啟動 elasticsearch</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">systemctl daemon-reload
+</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> elasticsearch.service
+</span></span><span class="line"><span class="cl">systemctl start elasticsearch.service
+</span></span><span class="line"><span class="cl">systemctl status elasticsearch.service
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="確認-cluster-狀態">確認 cluster 狀態</h1>
+<p>列出 elasticsearch version</p>
+<p><code>curl -k -u elastic:&lt;password&gt; -XGET https://192.168.80.241:9200</code></p>
+<p><img src="elasticsearch-version.png" alt="elasticsearch-version"></p>
+<p>列出 elasticsearch cluster nodes 資訊</p>
+<p><code>curl -k -u elastic:&lt;password&gt; -XGET https://192.168.80.241:9200/_cat/nodes?v</code></p>
+<p><img src="elasticsearch-nodes.png" alt="elasticsearch-nodes"></p>
+<h1 id="重設-elasticsearch-密碼">重設 elasticsearch 密碼</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 隨機生成密碼</span>
+</span></span><span class="line"><span class="cl">/usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic
+</span></span><span class="line"><span class="cl"><span class="c1"># 自行設定密碼</span>
+</span></span><span class="line"><span class="cl">/usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic -i
 </span></span></code></pre></td></tr></table>
 </div>
 </div>

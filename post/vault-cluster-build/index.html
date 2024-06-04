@@ -48,7 +48,7 @@
 <meta itemprop="name" content="[Vault] Vault Cluster Build">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-05-23T15:35:21+00:00" />
 <meta itemprop="dateModified" content="2024-05-23T15:35:21+00:00" />
-<meta itemprop="wordCount" content="2328">
+<meta itemprop="wordCount" content="2365">
 <meta itemprop="keywords" content="vault,cluster,HA," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[Vault] Vault Cluster Build"/>
 <meta name="twitter:description" content=""/>
@@ -189,6 +189,7 @@
 <h1 id="reference">Reference</h1>
 <p>官方文件：<a href="https://developer.hashicorp.com/vault/docs">Documentation</a></p>
 <p>二近制檔案：<a href="https://releases.hashicorp.com/vault/">Release binary</a></p>
+<p>HA Cluster Build：<a href="https://vmik.net/2022/02/01/hc-vault-install-raft/">Installation of HashiCorp Vault in HA mode with integrated storage</a></p>
 <h1 id="install">Install</h1>
 <p>因為多數時候, 建置的網路環境是無法連線到外網的, 因此在這邊直接下載 binary 來進行建置.</p>
 <h2 id="vault-1161">Vault 1.16.1</h2>
@@ -722,7 +723,8 @@
 </span></span><span class="line"><span class="cl">vault operator init
 </span></span></code></pre></td></tr></table>
 </div>
-</div>
+</div><p>ref：</p>
+<p><a href="https://support.hashicorp.com/hc/en-us/articles/5837704169619-Re-initialize-Integrated-Raft-Storage">Re-initialize Integrated (Raft) Storage</a></p>
     </div>
 
     

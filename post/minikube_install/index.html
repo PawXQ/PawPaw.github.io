@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>[K8s]Minikube_install - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="olOwOlo" /><meta name="description" content="" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.108.0 with theme even" />
+
+
+<link rel="canonical" href="https://pawxq.github.io/pawpaw.github.io/post/minikube_install/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/pawpaw.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/pawpaw.github.io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/pawpaw.github.io/favicon-16x16.png">
+<link rel="manifest" href="/pawpaw.github.io/manifest.json">
+<link rel="mask-icon" href="/pawpaw.github.io/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/pawpaw.github.io/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="[K8s]Minikube_install" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pawxq.github.io/pawpaw.github.io/post/minikube_install/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-06-08T04:16:39+00:00" />
+<meta property="article:modified_time" content="2024-06-08T04:16:39+00:00" />
+<meta itemprop="name" content="[K8s]Minikube_install">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-06-08T04:16:39+00:00" />
+<meta itemprop="dateModified" content="2024-06-08T04:16:39+00:00" />
+<meta itemprop="wordCount" content="1614">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[K8s]Minikube_install"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">PawPaw</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/pawpaw.github.io/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/pawpaw.github.io/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/pawpaw.github.io/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/pawpaw.github.io/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">PawPaw</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">[K8s]Minikube_install</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2024-06-08 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#pre-require">Pre-require</a></li>
+    <li><a href="#install">Install</a>
+      <ul>
+        <li><a href="#download--install-rpm">Download + Install <code>rpm</code></a></li>
+        <li><a href="#start-minikube-1st">Start Minikube 1st</a></li>
+        <li><a href="#install-docker">Install Docker</a></li>
+        <li><a href="#start-minikube-2nd">Start Minikube 2nd</a></li>
+        <li><a href="#create-user">Create user</a></li>
+        <li><a href="#start-minikube-3rd">Start Minikube 3rd</a></li>
+        <li><a href="#透過-minikube-安裝-kubectl">透過 minikube 安裝 kubectl</a></li>
+        <li><a href="#set-auto-completion">set auto completion</a></li>
+        <li><a href="#minikube-dashboard">minikube dashboard</a></li>
+        <li><a href="#manage-minikube-cluster">Manage Minikube cluster</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>minikube 是一個可以在 local 端快速鍵立 Kubernetes cluster(k8s) 的模擬環境, 支援 macOS, Linux, Windows, 讓 user 可以快速在 k8s 上進行學習和開發.</p>
+<hr>
+<h1 id="pre-require">Pre-require</h1>
+<p>官方有給出最小所需資源</p>
+<ul>
+<li>雙核心 (CPUs or more)</li>
+<li>記憶體 2 GB (2 GB of free memory)</li>
+<li>硬碟空間 20 GB (20GB of free disk space)</li>
+<li>外部網路 (Internet connection)</li>
+</ul>
+<p>官方有列出各類型 OS 建議搭建在何種虛擬環境上</p>
+<ul>
+<li><a href="https://minikube.sigs.k8s.io/docs/drivers/">Driver</a></li>
+</ul>
+<p>Linux 目前還是推薦使用 Docker 和 KVM2, 這一篇使用的 OS 和 Driver 是 <code>Centos 9</code> 和 <code>Docekr</code>.</p>
+<hr>
+<h1 id="install">Install</h1>
+<p>因為版本選用的是 Linux, x86-64, Stable, RPM package</p>
+<p><a href="https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Frpm+package">Minikube start</a></p>
+<h2 id="download--install-rpm">Download + Install <code>rpm</code></h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-latest.x86_64.rpm
+</span></span><span class="line"><span class="cl">sudo rpm -Uvh minikube-latest.x86_64.rpm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="start-minikube-1st">Start Minikube 1st</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">minikube start
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>這時候會出現失敗是因為還沒有安裝任何 <code>minikube</code> 所需要的虛擬話環境.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">* minikube v1.33.1 on Centos 9
+</span></span><span class="line"><span class="cl">* Unable to pick a default driver. Here is what was considered, in preference order:
+</span></span><span class="line"><span class="cl">* Alternatively you could install one of these drivers:
+</span></span><span class="line"><span class="cl">  - docker: Not installed: exec: &#34;docker&#34;: executable file not found in $PATH
+</span></span><span class="line"><span class="cl">  - kvm2: Not installed: exec: &#34;virsh&#34;: executable file not found in $PATH
+</span></span><span class="line"><span class="cl">  - podman: Not installed: exec: &#34;podman&#34;: executable file not found in $PATH
+</span></span><span class="line"><span class="cl">  - qemu2: Not installed: exec: &#34;qemu-system-x86_64&#34;: executable file not found in $PATH
+</span></span><span class="line"><span class="cl">  - virtualbox: Not installed: unable to find VBoxManage in $PATH
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">X Exiting due to DRV_NOT_DETECTED: No possible driver was detected. Try specifying --driver, or see https://minikube.sigs.k8s.io/docs/start/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="install-docker">Install Docker</h2>
+<p>Ref：<a href="https://docs.docker.com/engine/install/centos/">Install Docker Engine on CentOS</a></p>
+<p><strong>Remove old docker version</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Set up the repository</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo yum install -y yum-utils
+</span></span><span class="line"><span class="cl">sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Install Docker Engine</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Check Docker Engine version</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker --version
+</span></span><span class="line"><span class="cl">Docker version 26.1.4, build 5650f9b
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Start/Enable Docker</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">systemctl <span class="nb">enable</span> docker.service --now
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="start-minikube-2nd">Start Minikube 2nd</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">minikube start
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">* minikube v1.33.1 on Centos 9
+</span></span><span class="line"><span class="cl">* Automatically selected the docker driver. Other choices: ssh, none
+</span></span><span class="line"><span class="cl">* The &#34;docker&#34; driver should not be used with root privileges. If you wish to continue as root, use --force.
+</span></span><span class="line"><span class="cl">* If you are running minikube within a VM, consider using --driver=none:
+</span></span><span class="line"><span class="cl">*   https://minikube.sigs.k8s.io/docs/reference/drivers/none/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">X Exiting due to DRV_AS_ROOT: The &#34;docker&#34; driver should not be used with root privileges.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>正常來說<span style="color:red"> minikube 不希望以 <code>root</code> 的身份來執行 minikube</span>, 因為每一個 container 都有各自的 <code>daemond</code> 因此就有可能因為 root 權限影響到 OS 的風險.</p>
+<p>而在正常情況下, Kubernetes 也不會使用 root 來操作, 會偏向一般的使用者.</p>
+<p><a href="https://github.com/kubernetes/minikube/issues/7903">The &ldquo;docker&rdquo; driver should not be used with root privileges.</a></p>
+<p><a href="https://docs.docker.com/engine/security/#docker-daemon-attack-surface">Docker daemon attack surface</a></p>
+<p><a href="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user">Manage Docker as a non-root user</a></p>
+<p><a href="https://mileslin.github.io/2019/05/%E5%9C%A8%E5%AE%B9%E5%99%A8%E4%B8%AD%E5%8F%96%E5%BE%97%E7%89%B9%E6%AC%8A%E5%AD%98%E5%8F%96%E6%AC%8A%E9%99%90/">[Docker] 在容器中取得特權存取權限</a></p>
+<h2 id="create-user">Create user</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># create user
+</span></span><span class="line"><span class="cl">useradd minikube
+</span></span><span class="line"><span class="cl"># change password(optional)
+</span></span><span class="line"><span class="cl">passwd minikube
+</span></span><span class="line"><span class="cl"># add to docker group
+</span></span><span class="line"><span class="cl">usermod -aG docker minikube
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## check
+</span></span><span class="line"><span class="cl">id minikube
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">uid=1000(minikube) gid=1000(minikube) groups=1000(minikube),982(docker)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="start-minikube-3rd">Start Minikube 3rd</h2>
+<p>直接切換使用者或使用新使用者登入</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">su - minikube
+</span></span><span class="line"><span class="cl">minikube start
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">* minikube v1.33.1 on Centos 9
+</span></span><span class="line"><span class="cl">* Automatically selected the docker driver
+</span></span><span class="line"><span class="cl">* Using Docker driver with root privileges
+</span></span><span class="line"><span class="cl">* Starting &#34;minikube&#34; primary control-plane node in &#34;minikube&#34; cluster
+</span></span><span class="line"><span class="cl">* Pulling base image v0.0.44 ...
+</span></span><span class="line"><span class="cl">* Downloading Kubernetes v1.30.0 preload ...
+</span></span><span class="line"><span class="cl">    &gt; preloaded-images-k8s-v18-v1...:  342.90 MiB / 342.90 MiB  100.00% 8.12 Mi
+</span></span><span class="line"><span class="cl">    &gt; gcr.io/k8s-minikube/kicbase...:  481.58 MiB / 481.58 MiB  100.00% 7.74 Mi
+</span></span><span class="line"><span class="cl">* Creating docker container (CPUs=2, Memory=2200MB) ...
+</span></span><span class="line"><span class="cl">* Preparing Kubernetes v1.30.0 on Docker 26.1.1 ...
+</span></span><span class="line"><span class="cl">  - Generating certificates and keys ...
+</span></span><span class="line"><span class="cl">  - Booting up control plane ...
+</span></span><span class="line"><span class="cl">  - Configuring RBAC rules ...
+</span></span><span class="line"><span class="cl">* Configuring bridge CNI (Container Networking Interface) ...
+</span></span><span class="line"><span class="cl">* Verifying Kubernetes components...
+</span></span><span class="line"><span class="cl">  - Using image gcr.io/k8s-minikube/storage-provisioner:v5
+</span></span><span class="line"><span class="cl">* Enabled addons: default-storageclass, storage-provisioner
+</span></span><span class="line"><span class="cl">* kubectl not found. If you need it, try: &#39;minikube kubectl -- get pods -A&#39;
+</span></span><span class="line"><span class="cl">* Done! kubectl is now configured to use &#34;minikube&#34; cluster and &#34;default&#34; namespace by default
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>查看 container 運作狀態</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker ps
+</span></span><span class="line"><span class="cl">CONTAINER ID   IMAGE                                 COMMAND                  CREATED         STATUS         PORTS                                                                                                                                  NAMES
+</span></span><span class="line"><span class="cl">c3b1a6d422ae   gcr.io/k8s-minikube/kicbase:v0.0.44   <span class="s2">&#34;/usr/local/bin/entr…&#34;</span>   <span class="m">4</span> minutes ago   Up <span class="m">4</span> minutes   127.0.0.1:32772-&gt;22/tcp, 127.0.0.1:32771-&gt;2376/tcp, 127.0.0.1:32770-&gt;5000/tcp, 127.0.0.1:32769-&gt;8443/tcp, 127.0.0.1:32768-&gt;32443/tcp   minikube
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="透過-minikube-安裝-kubectl">透過 minikube 安裝 kubectl</h2>
+<p><code>kubectl</code> 是用來管理 k8s cluster 的指令, 透過 minikube 自動幫我們安裝適合當前版本使用的 kubectl</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">minikube kubectl -- get pods -A
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">minikube kubectl version
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># set alias</span>
+</span></span><span class="line"><span class="cl"><span class="nb">alias</span> <span class="nv">kubectl</span><span class="o">=</span><span class="s2">&#34;minikube kubectl --&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="set-auto-completion">set auto completion</h2>
+<p><a href="https://minikube.sigs.k8s.io/docs/commands/completion/">minikube completion</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># for bash users</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> &lt;<span class="o">(</span>minikube completion bash<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="minikube-dashboard">minikube dashboard</h2>
+<p>在 minikube 中預設綁訂了 dashboard 的功能, 透過 <code>minikube dashboard</code> 可以快速觀察 cluster 的狀態</p>
+<p>在使用 minikube dashboard 會遇到需要打開 web-server 的狀況, 因為我的 linux 是 minimal 安裝所以會遇到兩個問題</p>
+<ol>
+<li>
+<p>VM 上沒有 webserver 可以開啟 minikube dashboard</p>
+</li>
+<li>
+<p>透過 docker 打開的 web server 沒有辦法在實體機上打開</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[minikube@minikube ~]$ minikube dashboard
+</span></span><span class="line"><span class="cl">* Verifying dashboard health ...
+</span></span><span class="line"><span class="cl">* Launching proxy ...
+</span></span><span class="line"><span class="cl">* Verifying proxy health ...
+</span></span><span class="line"><span class="cl">* Opening http://127.0.0.1:35677/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+</span></span><span class="line"><span class="cl">/usr/bin/xdg-open: line 881: www-browser: command not found
+</span></span><span class="line"><span class="cl">/usr/bin/xdg-open: line 881: links2: command not found
+</span></span><span class="line"><span class="cl">/usr/bin/xdg-open: line 881: elinks: command not found
+</span></span><span class="line"><span class="cl">/usr/bin/xdg-open: line 881: links: command not found
+</span></span><span class="line"><span class="cl">/usr/bin/xdg-open: line 881: lynx: command not found
+</span></span><span class="line"><span class="cl">/usr/bin/xdg-open: line 881: w3m: command not found
+</span></span><span class="line"><span class="cl">xdg-open: no method available for opening &#39;http://127.0.0.1:35677/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/&#39;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">X Exiting due to HOST_BROWSER: failed to open browser: exit status 3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>從 log 上可以看到, docker 將 minikube 將 dashboard 轉到 vm 上的 127.0.0.1:35677 port, 因此僅開放該 VM 可以透過訪問 http://127.0.0.1:35677 查看到 minikube dashboard</p>
+<p>這邊需要透過 SSH Port Forwarding 的方式將 local 端指定 port 和 VM 的 Port 做連接, <span style="color:red">簡單說就是連接到本地端的指定port 相當於連線到 VM 上的指定 port</span></p>
+<p><a href="https://johnliu55.tw/ssh-tunnel.html">SSH Tunneling (Port Forwarding) 詳解</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 如果有 web server 可以跳過下載</span>
+</span></span><span class="line"><span class="cl">yum install -y lynx
+</span></span><span class="line"><span class="cl"><span class="c1"># 再次執行 minikube dashboard</span>
+</span></span><span class="line"><span class="cl">minikube dashboard
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">* Verifying dashboard health ...
+</span></span><span class="line"><span class="cl">* Launching proxy ...
+</span></span><span class="line"><span class="cl">* Verifying proxy health ...
+</span></span><span class="line"><span class="cl">* Opening http://127.0.0.1:46871/api/v1/namespaces/kubernetes-dashboard/services/http:kubernetes-dashboard:/proxy/ in your default browser...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="minikube_dashboard_http.png" alt="minikube_dashboard_http"></p>
+<p>這裡看到是轉到 46871 port, 從 vm 上可以看到只有 listen 在 127.0.0.1:46871 port
+<img src="minikube_dashboard_port.png" alt="minikube_dashboard_port"></p>
+<p>這時候在 local 端, 打開 cmd, 執行指令打開一條通道直連到 VM 的 127.0.0.1:46871
+<img src="minikube_dashboard_cmd_port_forward.png" alt="minikube_dashboard_cmd_port_forward"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ssh -4NfL 46871:127.0.0.1:46871 root@192.168.48.201
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ssh: SSH 指令，用於建立安全的 shell 連線。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -4: 強制使用 IPv4 位址（而非 IPv6 位址）。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -N: 不執行遠端指令，只建立連線。這通常與連接埠轉送一起使用。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -f: 將 SSH 會話放入背景執行。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -L 46871:127.0.0.1:46871: 指定本機連接埠轉送規則：</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 46871: 本機上要監聽的連接埠。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 127.0.0.1: 遠端主機的位址，這裡表示虛擬機器內部的回環位址。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 46871: 遠端主機上的連接埠。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># root@192.168.48.201: SSH 連線的目標主機和使用者：</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># root: 遠端主機的使用者名稱。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 192.168.48.201: 遠端主機的 IP 位址。</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="minikube_dashboard_port_forward.png" alt="minikube_dashboard_port_forward"></p>
+<h2 id="manage-minikube-cluster">Manage Minikube cluster</h2>
+<p>Pause Kubernetes without impacting deployed applications:</p>
+<p><code>minikube pause</code></p>
+<p>Unpause a paused instance:</p>
+<p><code>minikube unpause</code></p>
+<p>Halt the cluster:</p>
+<p><code>minikube stop</code></p>
+<p>Change the default memory limit (requires a restart):</p>
+<p><code>minikube config set memory 9001</code></p>
+<p>Browse the catalog of easily installed Kubernetes services:</p>
+<p><code>minikube addons list</code></p>
+<p>Create a second cluster running an older Kubernetes release:</p>
+<p><code>minikube start -p aged --kubernetes-version=v1.16.1</code></p>
+<p>Delete all of the minikube clusters:</p>
+<p><code>minikube delete --all</code></p>
+    </div>
+
+    
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/pawpaw.github.io/post/vault-cluster-build/">
+            <span class="next-text nav-default">[Vault] Vault Cluster Build</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/PawXQ/pawpaw.github.io" class="iconfont icon-github" title="github"></a>
+  <a href="https://pawxq.github.io/pawpaw.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>olOwOlo</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/pawpaw.github.io/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

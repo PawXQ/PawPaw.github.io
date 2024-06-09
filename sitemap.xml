@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/post/minikube_install/</loc>
+    <lastmod>2024-06-08T04:16:39+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/</loc>
+    <lastmod>2024-06-08T04:16:39+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/post/</loc>
+    <lastmod>2024-06-08T04:16:39+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://pawxq.github.io/pawpaw.github.io/post/vault-cluster-build/</loc>
     <lastmod>2024-05-23T15:35:21+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -16,21 +37,7 @@
   </url>
   
   <url>
-    <loc>https://pawxq.github.io/pawpaw.github.io/</loc>
-    <lastmod>2024-05-23T15:35:21+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://pawxq.github.io/pawpaw.github.io/tags/ha/</loc>
-    <lastmod>2024-05-23T15:35:21+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://pawxq.github.io/pawpaw.github.io/post/</loc>
     <lastmod>2024-05-23T15:35:21+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

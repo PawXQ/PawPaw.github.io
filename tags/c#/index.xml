@@ -6,16 +6,7 @@
     <description>Recent content in C# on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 11 May 2024 13:54:53 +0000</lastBuildDate><atom:link href="https://pawxq.github.io/pawpaw.github.io/tags/c#/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>[C#] If Else Structure</title>
-      <link>https://pawxq.github.io/pawpaw.github.io/post/c-sharp-if-else-structure/</link>
-      <pubDate>Sat, 11 May 2024 13:54:53 +0000</pubDate>
-      
-      <guid>https://pawxq.github.io/pawpaw.github.io/post/c-sharp-if-else-structure/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Thu, 09 May 2024 15:21:27 +0000</lastBuildDate><atom:link href="https://pawxq.github.io/pawpaw.github.io/tags/c#/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[C#] Parse(), TryParse() diff</title>
       <link>https://pawxq.github.io/pawpaw.github.io/post/c-sharp-parse-tryparse/</link>

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>[GitLab] GitLab_install - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="PawPaw" /><meta name="description" content="" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.108.0 with theme even" />
+
+
+<link rel="canonical" href="https://pawxq.github.io/pawpaw.github.io/post/gitlab/gitlab_install/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/pawpaw.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/pawpaw.github.io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/pawpaw.github.io/favicon-16x16.png">
+<link rel="manifest" href="/pawpaw.github.io/manifest.json">
+<link rel="mask-icon" href="/pawpaw.github.io/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/pawpaw.github.io/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="[GitLab] GitLab_install" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pawxq.github.io/pawpaw.github.io/post/gitlab/gitlab_install/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-06-14T16:11:47+00:00" />
+<meta property="article:modified_time" content="2024-06-14T16:11:47+00:00" />
+<meta itemprop="name" content="[GitLab] GitLab_install">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-06-14T16:11:47+00:00" />
+<meta itemprop="dateModified" content="2024-06-14T16:11:47+00:00" />
+<meta itemprop="wordCount" content="1782">
+<meta itemprop="keywords" content="git,gitlab," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[GitLab] GitLab_install"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">PawPaw</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/pawpaw.github.io/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/pawpaw.github.io/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/pawpaw.github.io/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/pawpaw.github.io/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">PawPaw</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">[GitLab] GitLab_install</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2024-06-14 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#install">Install</a>
+      <ul>
+        <li><a href="#pre-request">Pre-request</a>
+          <ul>
+            <li><a href="#docker-install">Docker Install</a></li>
+          </ul>
+        </li>
+        <li><a href="#install-gitlab">Install GitLab</a>
+          <ul>
+            <li><a href="#setting-mount-path">Setting Mount Path</a></li>
+            <li><a href="#gitlab-ce--gitlab-ee">GitLab CE &amp;&amp; GitLab EE</a></li>
+            <li><a href="#gitlab-compose">GitLab compose</a></li>
+            <li><a href="#start-docker-compose">Start docker compose</a></li>
+            <li><a href="#set-gitlab-url">Set Gitlab Url</a></li>
+          </ul>
+        </li>
+        <li><a href="#upgrade--backup">Upgrade / Backup</a>
+          <ul>
+            <li><a href="#backup">Backup</a></li>
+            <li><a href="#moditfy-docker-compose-file">Moditfy docker compose file</a></li>
+            <li><a href="#stop--upgrade">stop / upgrade</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>這篇會介紹如何透過 docker compose 安裝 <code>gitlab</code></p>
+<p>並還有一些基本的 upgrade, backup 等操作</p>
+<p>我使用的os是 <code>Centos9</code></p>
+<h1 id="install">Install</h1>
+<h2 id="pre-request">Pre-request</h2>
+<h3 id="docker-install">Docker Install</h3>
+<p>Ref：<a href="https://docs.docker.com/engine/install/centos/">Install Docker Engine on CentOS</a></p>
+<p><strong>Remove old docker version</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Set up the repository</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo yum install -y yum-utils
+</span></span><span class="line"><span class="cl">sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Install Docker Engine</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Check Docker Engine version</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker --version
+</span></span><span class="line"><span class="cl">Docker version 26.1.4, build 5650f9b
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Start/Enable Docker</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">systemctl <span class="nb">enable</span> docker.service --now
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="install-gitlab">Install GitLab</h2>
+<p>Ref:</p>
+<p><a href="https://docs.gitlab.com/ee/install/docker.html#set-up-the-volumes-location">set-up-the-volumes-location</a></p>
+<p><a href="https://docs.gitlab.com/ee/install/docker.html#install-gitlab-using-docker-compose">install-gitlab-using-docker-compose</a></p>
+<h3 id="setting-mount-path">Setting Mount Path</h3>
+<p>因為 docker 是一個獨立於 os 的運行環境, 因此裡面的資料一般來說不會存在 local 端, 因此當 docker comtainer 一被刪除, 裡面所有的資料都會消失, 如果有存放任何的 code 也等於全部 <del>byebye</del></p>
+<p>因此在啟動 docker container 的時候要同時將 docker 的 path 和 local 端的 path 進行同步</p>
+<p>簡單說就是 docker 該 volume 有什麼, local 端的 volume 就也會有相同的內容, 也可以直接透過修改 local volume 的內容同步到 docker 內部.</p>
+<p>設定一個 mount path, 用來存放 gitlab 的所有 <code>config</code>, <code>log</code>, <code>data file</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 隨便想存哪就存哪</span>
+</span></span><span class="line"><span class="cl">mkdir -p /opt/gitlab/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 設定環境變數, 等等 compose 檔案需要用到</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">GITLAB_HOME</span><span class="o">=</span>/srv/gitlab
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>官方網站有 <code>GitLab</code> 一般常用來 mount volume 的表格</p>
+<table>
+<thead>
+<tr>
+<th>Local location</th>
+<th>Container location</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$GITLAB_HOME/data</td>
+<td>/var/opt/gitlab</td>
+<td>For storing application data.</td>
+</tr>
+<tr>
+<td>$GITLAB_HOME/logs</td>
+<td>/var/log/gitlab</td>
+<td>For storing logs.</td>
+</tr>
+<tr>
+<td>$GITLAB_HOME/config</td>
+<td>/etc/gitlab</td>
+<td>For storing the GitLab configuration files.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gitlab-ce--gitlab-ee">GitLab CE &amp;&amp; GitLab EE</h3>
+<p>在安裝前, 有一個部分一定要先提及一下, 到底是要選擇 CE (Community Edition) 還是 EE (Enterprise Edition) 呢?</p>
+<p>在這邊建議直接選擇 EE 版本</p>
+<p><span style="color:red"><del>沒有錢怎麼用 EE 版本!?</del></span></p>
+<p>因為 EE 和 CE 其實核心都一樣, 並且即使沒有 license 也能啟動 EE 版本, 只是會自動把 EE 版本額外的功能鎖起來, 自動降成 CE 版, 因次不擔心無法啟動</p>
+<p>並且之後哪天<span style="color:red"><del>有錢了</del></span>想升級, 也不用從 CE 升級 EE, <span style="color:red"><del>直接乖乖付錢就可以搞定</del></p>
+<h3 id="gitlab-compose">GitLab compose</h3>
+<p><a href="https://hub.docker.com/r/gitlab/gitlab-ee">docker-gitlab-ee</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> /opt/gitlab
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">## Yaml File 名字任意, 習慣帶版號方便管理 </span>
+</span></span><span class="line"><span class="cl">vim vim docker-compose-16.11.4.yml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">services:
+</span></span><span class="line"><span class="cl">  gitlab: <span class="c1"># 自定義名稱</span>
+</span></span><span class="line"><span class="cl">    image: gitlab/gitlab-ee:16.11.4-ee.0 <span class="c1"># 所使用的 image</span>
+</span></span><span class="line"><span class="cl">    container_name: gitlab-16.11.4 <span class="c1"># container 名稱</span>
+</span></span><span class="line"><span class="cl">    restart: always <span class="c1"># container 如果 exit 會自動重啟</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># hostname: &#39;gitlab.example.com&#39; # 設定 container 的 hostname</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># environment: # 設定環境變數</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#    GITLAB_OMNIBUS_CONFIG: | # 使用 | 符號表示多行字串</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#      # Add any other gitlab.rb configuration here, each on its own line</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#      external_url &#39;https://gitlab.example.com&#39; # 設定可訪問的url</span>
+</span></span><span class="line"><span class="cl">    ports: <span class="c1"># 將 container 內部的 port 轉道 local 端</span>
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;28080:80&#39;</span> <span class="c1"># 將 contaniner 內部 80 port 轉到 local 的 28080</span>
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;443:443&#39;</span>
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;2222:22&#39;</span>
+</span></span><span class="line"><span class="cl">    volumes: <span class="c1"># 將 container 內部的 volume 和 local 端的 volume 座連接</span>
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;$GITLAB_HOME/config:/etc/gitlab&#39;</span> <span class="c1"># local:container</span>
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;$GITLAB_HOME/logs:/var/log/gitlab&#39;</span>
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;$GITLAB_HOME/data:/var/opt/gitlab&#39;</span>
+</span></span><span class="line"><span class="cl">    shm_size: <span class="s1">&#39;256m&#39;</span> <span class="c1"># 限制此 container 最高使用的 memory</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="start-docker-compose">Start docker compose</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># -d 表示在背景執行</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 通常第一次需要跑一些時間</span>
+</span></span><span class="line"><span class="cl">docker compose -f docker-compose-16.11.4.yml up -d
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="gitlab-pwd.png" alt="gitlab-pwd"></p>
+<p>▲ 啟動完成後, 會出現 <code>config</code>, <code>logs</code>, <code>data</code>, 三個 volume 分別對應到 container 內部的 volume</p>
+<p>第一次啟動後, root 的密碼存放在 <code>config/initial_root_password</code> 裡面</p>
+<p><img src="gitlab-initialpwd.png" alt="gitlab-initialpwd"></p>
+<p>▲ <code>/etc/initial_root_password</code> <span style="color:red">需要注意此檔案會在 24hr 後自動刪除, 請自行修改密碼或記下</p>
+<p><img src="gitlab-docker.png" alt="gitlab-docker"></p>
+<p>▲ 可以看到 docker gitlab 將內部的 80 port 映射在 local 端的 28080</p>
+<p><img src="gitlab-login.png" alt="gitlab-login"></p>
+<p>▲ 在 local 的 url 透過 http://192.168.48.202:28080 開啟 web gui, 輸入帳號 <code>root</code> 和 <code>config/initial_root_password</code> 的密碼</p>
+<p><img src="gitlab-success.png" alt="gitlab-success"></p>
+<p>▲ 成功登入</p>
+<h3 id="set-gitlab-url">Set Gitlab Url</h3>
+<p>當在 Gitlab 中, create new project 之後會發現在需要使用 git clone/push 等功能時, 會發現 git lab 的 url 變成 <code>d506c2370cd2</code>, 表示這在 gitlab 對外表示依然是使用預設 container 的 ID</p>
+<p><img src="gitlab-repo-externalurl.png" alt="gitlab-repo-externalurl"></p>
+<p>這時候需要修改當初在 docker compose file 中 remark 的部分 <code>environment</code>, <code>GITLAB_OMNIBUS_CONFIG</code>, <code>external_url</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">services:
+</span></span><span class="line"><span class="cl">  gitlab: <span class="c1"># 自定義名稱</span>
+</span></span><span class="line"><span class="cl">    image: gitlab/gitlab-ee:16.11.4-ee.0 <span class="c1"># 所使用的 image</span>
+</span></span><span class="line"><span class="cl">    container_name: gitlab-16.11.4 <span class="c1"># container 名稱</span>
+</span></span><span class="line"><span class="cl">    restart: always <span class="c1"># container 如果 exit 會自動重啟</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># hostname: &#39;xq-gitlab.com&#39; # 設定 container 的 hostname</span>
+</span></span><span class="line"><span class="cl">    environment: <span class="c1"># 設定環境變數</span>
+</span></span><span class="line"><span class="cl">      GITLAB_OMNIBUS_CONFIG: <span class="p">|</span> <span class="c1"># 使用 | 符號表示多行字串</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#  # Add any other gitlab.rb configuration here, each on its own line</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#  external_url &#39;https://gitlab.example.com&#39; # 設定可訪問的url, 修改成想要的名稱</span>
+</span></span><span class="line"><span class="cl">        external_url <span class="s1">&#39;http://xq-gitlab.com&#39;</span> <span class="c1"># 設定可訪問的url, 修改成想要的名稱</span>
+</span></span><span class="line"><span class="cl">    ports: <span class="c1"># 將 container 內部的 port 轉道 local 端</span>
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;28080:80&#39;</span> <span class="c1"># 將 contaniner 內部 80 port 轉到 local 的 28080</span>
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;443:443&#39;</span>
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;2222:22&#39;</span>
+</span></span><span class="line"><span class="cl">    volumes: <span class="c1"># 將 container 內部的 volume 和 local 端的 volume 座連接</span>
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;$GITLAB_HOME/config:/etc/gitlab&#39;</span> <span class="c1"># local:container</span>
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;$GITLAB_HOME/logs:/var/log/gitlab&#39;</span>
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;$GITLAB_HOME/data:/var/opt/gitlab&#39;</span>
+</span></span><span class="line"><span class="cl">    shm_size: <span class="s1">&#39;256m&#39;</span> <span class="c1"># 限制此 container 最高使用的 memory</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>設定完成之後因為之後進行 <code>git clone/push</code> 等等相關操作, 還是需要指定該 url 所使用的 ip, 所以還要進行額外設定</p>
+<p>如果有 DNS Server 需要設定 <code>xq-gitlab.com</code> 指向到 gitlab container 的 host ip <code>192.168.48.202</code></p>
+<p>或者自行在 <code>/etc/hosts</code> 指向到 gitlab container 的 host ip <code>192.168.48.202</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#/etc/hosts</span>
+</span></span><span class="line"><span class="cl">192.168.48.202 xq-gitlab.com
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="gitlab-repo-externalurl-2.png" alt="gitlab-repo-externalurl-2"></p>
+<h2 id="upgrade--backup">Upgrade / Backup</h2>
+<p><a href="https://gitlab-com.gitlab.io/support/toolbox/upgrade-path/">GitLab-Upgrade-Path</a></p>
+<p><img src="gitlab-upgrade-path.png" alt="gitlab-upgrade-path"></p>
+<p>▲ 檢查所需的升級停止點</p>
+<p>必需的升級停止是您在升級到更高版本之前, 必須升級到的 GitLab 版本, 從上述舉例狀況</p>
+<p>15.11.13 =&gt; 17.0.2 的完整路徑為 15.11.13 =&gt; 16.3.7 =&gt; 16.7.7 =&gt; 16.11.4 =&gt; 17.0.2</p>
+<p>並且會提醒相關的注意事項.</p>
+<hr>
+<p>這邊我升級的路徑較為簡單</p>
+<p>e.g. 使用 <code>16.11.4 upgrade 到 17.0.2</code></p>
+<p>在進行 upgrade / backup 之前, 我已有在 gitlab 上 create repo 等動作, 因此稍晚可以進行檢查</p>
+<p><img src="gitlab-repo-web.png" alt="gitlab-repo-web"></p>
+<p><img src="gitlab-version.png" alt="gitlab-version"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker <span class="nb">exec</span> -it gitlab /bin/sh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">gitlab-rake gitlab:env:info
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="gitlab-version-2.png" alt="gitlab-version-2"></p>
+<h3 id="backup">Backup</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker <span class="nb">exec</span> -it gitlab gitlab-backup create
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="gitlab-backup.png" alt="gitlab-backup"></p>
+<p><img src="gitlab-backup-2.png" alt="gitlab-backup-2"></p>
+<p>使用備份命令之後會在 <code>/opt/gitlab/data/backup/</code> 建立一個壓縮檔 <code>1718610557_2024_06_17_16.11.4-ee_gitlab_backup.tar</code></p>
+<ul>
+<li><code>1718610557</code>：timestamp</li>
+<li><code>2024_06_17</code>：備份年月日</li>
+<li><code>16.11.4-ee</code>：GitLab 的 version 和表示 ee (企業版)</li>
+<li><code>gitlab_backup.tar</code>：備份檔案的類型和副檔名</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">tar cvpf data/backups/1718610557_2024_06_17_16.11.4-ee_gitlab_rb-secret.tar config/gitlab.rb config/gitlab-secrets.json
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>壓縮的兩個檔案功能分別為</p>
+<ul>
+<li><code>config/gitlab.rb</code>：設定檔備份, 確保在復原時能正確配置所有服務和功能的設定</li>
+<li><code>config/gitlab-secrets.json</code>：機密資訊備份, 確保所有加密的敏感資料能夠正確解密, 並且所有服務的機密資訊保持不變</li>
+</ul>
+<h3 id="moditfy-docker-compose-file">Moditfy docker compose file</h3>
+<p><code>vim docker-compose-17.0.2.yml</code></p>
+<p>一般來說只需要修改 image 使用的部分, <code>image: gitlab/gitlab-ee:17.0.2-ee.0</code></p>
+<h3 id="stop--upgrade">stop / upgrade</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker compose -f docker-compose-16.11.4.yml ps
+</span></span><span class="line"><span class="cl"><span class="c1"># ---</span>
+</span></span><span class="line"><span class="cl">NAME      IMAGE                           COMMAND             SERVICE   CREATED        STATUS                 PORTS
+</span></span><span class="line"><span class="cl">gitlab    gitlab/gitlab-ee:16.11.4-ee.0   <span class="s2">&#34;/assets/wrapper&#34;</span>   gitlab    <span class="m">18</span> hours ago   Up <span class="m">2</span> hours <span class="o">(</span>healthy<span class="o">)</span>   0.0.0.0:443-&gt;443/tcp, :::443-&gt;443/tcp, 0.0.0.0:2222-&gt;22/tcp, :::2222-&gt;22/tcp, 0.0.0.0:28080-&gt;80/tcp, :::28080-&gt;80/tcp
+</span></span><span class="line"><span class="cl"><span class="c1"># ---</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># stop / remove</span>
+</span></span><span class="line"><span class="cl">docker compose -f docker-compose-16.11.4.yml stop
+</span></span><span class="line"><span class="cl">docker compose -f docker-compose-16.11.4.yml rm
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># restart new version</span>
+</span></span><span class="line"><span class="cl">docker compose -f docker-compose-17.0.2.yml up -d
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="gitlab-upgrade-restart.png" alt="gitlab-upgrade-restart">
+▲ 因為我沒有提前下載 image, 所以會在 compose file 執行後才下載 image</p>
+<p><img src="gitlab-upgrade-version.png" alt="gitlab-upgrade-version">
+▲ Version 更新到 17.0.2</p>
+<p><img src="gitlab-upgrade-migration.png" alt="gitlab-upgrade-migration">
+▲ Migration 所有的 Progress</p>
+<p><img src="gitlab-upgrade-repo.png" alt="gitlab-upgrade-repo">
+▲ 確認 repo 也依然存在</p>
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/pawpaw.github.io/tags/git/">git</a>
+          <a href="/pawpaw.github.io/tags/gitlab/">gitlab</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/pawpaw.github.io/post/c-sharp/c-sharp-data-structure-object-container/">
+            <span class="next-text nav-default">[C#] Data Structure - Object Container</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/PawXQ/pawpaw.github.io" class="iconfont icon-github" title="github"></a>
+  <a href="" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2023 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>PawPaw</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/pawpaw.github.io/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

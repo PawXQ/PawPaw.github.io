@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>[GitLab] Gitlab_runner - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="PawPaw" /><meta name="description" content="" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.108.0 with theme even" />
+
+
+<link rel="canonical" href="https://pawxq.github.io/pawpaw.github.io/post/gitlab/gitlab_runner/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/pawpaw.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/pawpaw.github.io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/pawpaw.github.io/favicon-16x16.png">
+<link rel="manifest" href="/pawpaw.github.io/manifest.json">
+<link rel="mask-icon" href="/pawpaw.github.io/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/pawpaw.github.io/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="[GitLab] Gitlab_runner" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pawxq.github.io/pawpaw.github.io/post/gitlab/gitlab_runner/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-06-21T13:15:23+00:00" />
+<meta property="article:modified_time" content="2024-06-21T13:15:23+00:00" />
+<meta itemprop="name" content="[GitLab] Gitlab_runner">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-06-21T13:15:23+00:00" />
+<meta itemprop="dateModified" content="2024-06-21T13:15:23+00:00" />
+<meta itemprop="wordCount" content="1725">
+<meta itemprop="keywords" content="git,gitlab,gitlab_runner,docker," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[GitLab] Gitlab_runner"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">PawPaw</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/pawpaw.github.io/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/pawpaw.github.io/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/pawpaw.github.io/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/pawpaw.github.io/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">PawPaw</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">[GitLab] Gitlab_runner</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2024-06-21 </span>
+        <div class="post-category">
+            <a href="/pawpaw.github.io/categories/git/"> git </a>
+            <a href="/pawpaw.github.io/categories/gitlab/"> gitlab </a>
+            <a href="/pawpaw.github.io/categories/docker/"> docker </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#install">Install</a>
+      <ul>
+        <li><a href="#pre-request">Pre-request</a></li>
+        <li><a href="#docker-network">Docker network</a></li>
+        <li><a href="#create-docker-network">Create Docker Network</a></li>
+        <li><a href="#setting-mount-path">Setting Mount Path</a></li>
+        <li><a href="#modify--create-compose-file">Modify / Create compose file</a></li>
+        <li><a href="#create-runner">Create Runner</a></li>
+        <li><a href="#registry-runner">Registry Runner</a></li>
+        <li><a href="#test-runner">Test Runner</a></li>
+      </ul>
+    </li>
+    <li><a href="#ref">Ref</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>這邊會介紹如何使用 docker 安裝 gitlab_runner 並 register gitlab 上建立的 runner</p>
+<p>裡面包含了一些 debug, 只能說 docker network 要人命QQ</p>
+<h1 id="install">Install</h1>
+<h2 id="pre-request">Pre-request</h2>
+<p>這邊 os 是 <code>centos 9</code></p>
+<p><a href="http://13.113.191.124:1313/post/gitlab/gitlab_install/#docker-install">Docker 安裝</a></p>
+<h2 id="docker-network">Docker network</h2>
+<p>之後會找機會介紹</p>
+<p><del>如果有錯誤請當沒看到 XD</del></p>
+<p><span style="color:red">這邊使用 docker compose taml file 來建立 docker</span></p>
+<p>在 docker compose 建立情況下會為每一個 file 獨立建立 network, 一般直接 command 執行的話, 會共用在同一個 docker bridge</p>
+<p>簡單說明下, 一般情況下 Docker 會建立一個預設 <code>bridge</code> 網路, 用來和外界溝通, 溝通的路徑為 <code>container -&gt; docker bridge -&gt; localhost -&gt; external</code></p>
+<p>使用兩個獨立 compose yaml file 建立兩個 container, docker 分別會對兩個 container 建立兩個 bridge, 使用不同網段, 表示一般在這種情況下, 兩個 container 是無法做溝通的</p>
+<p>比較簡易的做法就是一個 docker network, 然後在建立兩個 container 的時候, 在 compose yaml file 裡面指定使用同一段 network, 這樣就可以很簡單的讓兩個 container 可以互相溝通</p>
+<p>在都不指定 network 情況下</p>
+<ul>
+<li>
+<p>CLI</p>
+<ul>
+<li>默認使用 dafault bridge</li>
+</ul>
+</li>
+<li>
+<p>Compose yaml file</p>
+<ul>
+<li>
+<p>同一個 file, 同一個 bridge (兩個 container 可互相溝通)</p>
+</li>
+<li>
+<p>不同 file, 個別建立 bridge (兩個 container 無法互相溝通)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="create-docker-network">Create Docker Network</h2>
+<p>這邊先建立一個 docker network, 等等需要修改之前寫好的 gitlab 和 gitlab runner 的 compose file, 指定到 gitlab 這個 network</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker network ls
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NETWORK ID     NAME      DRIVER    SCOPE
+</span></span><span class="line"><span class="cl">97f000745c6c   bridge    bridge    <span class="nb">local</span>
+</span></span><span class="line"><span class="cl">4fa42a266487   host      host      <span class="nb">local</span>
+</span></span><span class="line"><span class="cl">3e63fd5ecca6   none      null      <span class="nb">local</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">docker network create gitlab
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">16dfdf4b7fcd9c4e17d2fb531481ad9b1fdcb20be691777b5fbb204b544dfd3c
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">docker network ls
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NETWORK ID     NAME      DRIVER    SCOPE
+</span></span><span class="line"><span class="cl">97f000745c6c   bridge    bridge    <span class="nb">local</span>
+</span></span><span class="line"><span class="cl">16dfdf4b7fcd   gitlab    bridge    <span class="nb">local</span>
+</span></span><span class="line"><span class="cl">4fa42a266487   host      host      <span class="nb">local</span>
+</span></span><span class="line"><span class="cl">3e63fd5ecca6   none      null      <span class="nb">local</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>透過 <code>ip a</code> 可以看到多了一張虛擬網卡, 上方的 <code>docker0</code> 是預設定 docker bridge</p>
+<p>gitlab subnet 是 172.30.0.1/16</p>
+<p><img src="docker-network-subnet.png" alt="docker-network-subnet"></p>
+<h2 id="setting-mount-path">Setting Mount Path</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 隨便想存哪就存哪</span>
+</span></span><span class="line"><span class="cl">mkdir -p /opt/gitlab/gitlab_runner
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 設定環境變數, 等等 gitlab runner compose 檔案需要用到</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">GITLAB_RUNNER_HOME</span><span class="o">=</span>/opt/gitlab/gitlab_runner
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="modify--create-compose-file">Modify / Create compose file</h2>
+<p>Gitlab</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">services:
+</span></span><span class="line"><span class="cl">  gitlab:
+</span></span><span class="line"><span class="cl">    image: gitlab/gitlab-ee:17.0.2-ee.0
+</span></span><span class="line"><span class="cl">    container_name: gitlab
+</span></span><span class="line"><span class="cl">    restart: always
+</span></span><span class="line"><span class="cl">    hostname: <span class="s1">&#39;xq-gitlab.com&#39;</span> <span class="c1"># 設定 container 的 hostname</span>
+</span></span><span class="line"><span class="cl">    environment:
+</span></span><span class="line"><span class="cl">      GITLAB_OMNIBUS_CONFIG: <span class="p">|</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># Add any other gitlab.rb configuration here, each on its own line</span>
+</span></span><span class="line"><span class="cl">        external_url <span class="s1">&#39;http://xq-gitlab.com&#39;</span>
+</span></span><span class="line"><span class="cl">    ports:
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;28080:80&#39;</span>
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;443:443&#39;</span>
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;2222:22&#39;</span>
+</span></span><span class="line"><span class="cl">    volumes:
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;$GITLAB_HOME/config:/etc/gitlab&#39;</span>
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;$GITLAB_HOME/logs:/var/log/gitlab&#39;</span>
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;$GITLAB_HOME/data:/var/opt/gitlab&#39;</span>
+</span></span><span class="line"><span class="cl">    shm_size: <span class="s1">&#39;1024m&#39;</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">#extra_hosts: # 用來額外寫入container內的 /etc/hosts</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">#  - &#34;xq-gitlab.com:172.27.0.2&#34;</span>
+</span></span><span class="line"><span class="cl">    networks: <span class="c1"># 表示 container service 使用的 network 設定 </span>
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;gitlab&#39;</span>
+</span></span><span class="line"><span class="cl">networks:
+</span></span><span class="line"><span class="cl">  gitlab: <span class="c1"># 為這個設定命名為 gitlab</span>
+</span></span><span class="line"><span class="cl">    name: gitlab <span class="c1"># 指定使用名稱為 gitlab 的 network</span>
+</span></span><span class="line"><span class="cl">    external: <span class="nb">true</span> <span class="c1"># 表示已經建立好, 不需要額外建立</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Gitlab Runner</p>
+<p><del>記得在選 image 的時候不要跟我一樣耍白癡選 <code>bleeding</code>, 那個表示還在開發中&hellip;</del></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">services:
+</span></span><span class="line"><span class="cl">  gitlab-runner:
+</span></span><span class="line"><span class="cl">    image: gitlab/gitlab-runner:latest
+</span></span><span class="line"><span class="cl">    container_name: gitlab-runner
+</span></span><span class="line"><span class="cl">    restart: always
+</span></span><span class="line"><span class="cl">    volumes:
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;$GITLAB_RUNNER_HOME/:/etc/gitlab-runner&#39;</span>
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;/var/run/docker.sock:/var/run/docker.sock&#39;</span> <span class="c1"># 讓 docker 內部可以使用 docker 指令, 不用額外安裝 docker</span>
+</span></span><span class="line"><span class="cl">    shm_size: <span class="s1">&#39;1024m&#39;</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">#extra_hosts:</span>
+</span></span><span class="line"><span class="cl">      <span class="c1">#  - &#34;xq-gitlab.com:172.27.0.2&#34;</span>
+</span></span><span class="line"><span class="cl">    networks:
+</span></span><span class="line"><span class="cl">      - <span class="s1">&#39;gitlab&#39;</span>
+</span></span><span class="line"><span class="cl">networks:
+</span></span><span class="line"><span class="cl">  gitlab:
+</span></span><span class="line"><span class="cl">    name: gitlab
+</span></span><span class="line"><span class="cl">    external: <span class="nb">true</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>啟動</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker compose -f &lt;compose_file.yaml&gt; up -d
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">docker ps -a
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">CONTAINER ID   IMAGE                          COMMAND                  CREATED              STATUS                   PORTS                                                                                                                   NAMES
+</span></span><span class="line"><span class="cl">a3a9a1f43c73   gitlab/gitlab-runner:latest    <span class="s2">&#34;/usr/bin/dumb-init …&#34;</span>   About a minute ago   Up About a minute                                                                                                                                gitlab-runner
+</span></span><span class="line"><span class="cl">460f2b182b3b   gitlab/gitlab-ee:17.0.2-ee.0   <span class="s2">&#34;/assets/wrapper&#34;</span>        <span class="m">5</span> minutes ago        Up <span class="m">5</span> minutes <span class="o">(</span>healthy<span class="o">)</span>   0.0.0.0:443-&gt;443/tcp, :::443-&gt;443/tcp, 0.0.0.0:2222-&gt;22/tcp, :::2222-&gt;22/tcp, 0.0.0.0:28080-&gt;80/tcp, :::28080-&gt;80/tcp   gitlab
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>檢查是否在 172.30.0.1/16 網段</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">docker inspect -f <span class="s1">&#39;{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}&#39;</span> gitlab
+</span></span><span class="line"><span class="cl">172.30.0.2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">docker inspect -f <span class="s1">&#39;{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}&#39;</span> gitlab-runner
+</span></span><span class="line"><span class="cl">172.30.0.3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="create-runner">Create Runner</h2>
+<p>登入 Gilab 之後, 點選下方的 admin -&gt; CI/CD -&gt; New instance runner</p>
+<p><del>恩!? 看沒有!? 那就請看圖片&hellip;.</del></p>
+<p><del>請忽略已經存在的&hellip;</del></p>
+<p><img src="gitlab-runner-create-1.png" alt="gitlab-runner-create-1"></p>
+<p>這邊主要的設定是 Tags</p>
+<p>Tags：表示說這個 runner 需要執行的 job, 可以用<code>,</code>分隔多個 tag</p>
+<p>Run untagged jobs 打勾, 表示所有沒有 tag 的 job 都可以執行</p>
+<p>Maximum job timeout：Runner在終止作業之前可以運行的最大時間(以秒為單位)</p>
+<p>Runner的超時設置將優先於 job 的設定</p>
+<p><img src="gitlab-runner-create-2.png" alt="gitlab-runner-create-2"></p>
+<p>請將 token 的資訊保留, 如果未註冊完就關閉, 就只能重新 create</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">gitlab-runner register  --url http://xq-gitlab.com  --token glrt-u5s81zUsUzwkJpbDZ8AC
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="gitlab-runner-create-3.png" alt="gitlab-runner-create-3"></p>
+<p><del>這邊把舊的#8刪掉了, 舊的不去新的不來</del></p>
+<p>可以看到 runner 已經來到 #9 看到我慘烈的測試</p>
+<p><img src="gitlab-runner-create-4.png" alt="gitlab-runner-create-4"></p>
+<h2 id="registry-runner">Registry Runner</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 連線進入 gitlab-runner container</span>
+</span></span><span class="line"><span class="cl">docker <span class="nb">exec</span> -it gitlab-runner /bin/sh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">gitlab-runner register
+</span></span><span class="line"><span class="cl"><span class="c1"># Runtime platform                                    arch=amd64 os=linux pid=46 revision=44feccdf version=17.0.0</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Running in system-mode.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Enter the GitLab instance URL (for example, https://gitlab.com/):</span>
+</span></span><span class="line"><span class="cl">http://xq-gitlab.com
+</span></span><span class="line"><span class="cl"><span class="c1"># Enter the registration token:</span>
+</span></span><span class="line"><span class="cl">glrt-u5s81zUsUzwkJpbDZ8AC
+</span></span><span class="line"><span class="cl"><span class="c1"># Verifying runner... is valid                        runner=u5s81zUsU</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Enter a name for the runner. This is stored only in the local config.toml file:</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>ce57232a8472<span class="o">]</span>: demo
+</span></span><span class="line"><span class="cl"><span class="c1"># Enter an executor: docker+machine, kubernetes, instance, shell, docker-windows, parallels, virtualbox, docker, docker-autoscaler, custom, ssh:</span>
+</span></span><span class="line"><span class="cl">docker
+</span></span><span class="line"><span class="cl"><span class="c1"># Enter the default Docker image (for example, ruby:2.7):</span>
+</span></span><span class="line"><span class="cl">python:alpine
+</span></span><span class="line"><span class="cl"><span class="c1"># Runner registered successfully. Feel free to start it, but if it&#39;s running already the config should be automatically reloaded!</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Configuration (with the authentication token) was saved in &#34;/etc/gitlab-runner/config.toml&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="gitlab-runner-register.png" alt="gitlab-runner-register"></p>
+<p>這邊會產出 <code>config.toml</code> 這個檔案裡面會記錄所有註冊的資訊</p>
+<p>這邊要多增加一個設定</p>
+<p><code>[[runners]]..[runners.docker]</code>在底下新增 <code>network_mode = &quot;gitlab&quot;</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">concurrent</span> <span class="o">=</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">check_interval</span> <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="nv">shutdown_timeout</span> <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>session_server<span class="o">]</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">session_timeout</span> <span class="o">=</span> <span class="m">1800</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[[</span>runners<span class="o">]]</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">name</span> <span class="o">=</span> <span class="s2">&#34;demo&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">url</span> <span class="o">=</span> <span class="s2">&#34;http://xq-gitlab.com&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">id</span> <span class="o">=</span> <span class="m">9</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">token</span> <span class="o">=</span> <span class="s2">&#34;glrt-u5s81zUsUzwkJpbDZ8AC&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">token_obtained_at</span> <span class="o">=</span> 2024-06-21T16:32:24Z
+</span></span><span class="line"><span class="cl">  <span class="nv">token_expires_at</span> <span class="o">=</span> 0001-01-01T00:00:00Z
+</span></span><span class="line"><span class="cl">  <span class="nv">executor</span> <span class="o">=</span> <span class="s2">&#34;docker&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">[</span>runners.custom_build_dir<span class="o">]</span>
+</span></span><span class="line"><span class="cl">  <span class="o">[</span>runners.cache<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">MaxUploadedArchiveSize</span> <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl">    <span class="o">[</span>runners.cache.s3<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="o">[</span>runners.cache.gcs<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="o">[</span>runners.cache.azure<span class="o">]</span>
+</span></span><span class="line"><span class="cl">  <span class="o">[</span>runners.docker<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">tls_verify</span> <span class="o">=</span> <span class="nb">false</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">image</span> <span class="o">=</span> <span class="s2">&#34;python:alpine&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">privileged</span> <span class="o">=</span> <span class="nb">false</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">disable_entrypoint_overwrite</span> <span class="o">=</span> <span class="nb">false</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">oom_kill_disable</span> <span class="o">=</span> <span class="nb">false</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">disable_cache</span> <span class="o">=</span> <span class="nb">false</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">volumes</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&#34;/cache&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">shm_size</span> <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">network_mtu</span> <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">network_mode</span> <span class="o">=</span> <span class="s2">&#34;gitlab&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>這意思是說在 gitlab runner 啟用的 docker 是和 gitlab, gitlab_runner 使用同一個網路</p>
+<p>因為 gitlab runner 裡面的 docker 需要從本地 docker gitlab 裡面的 repo 拉取<code>http://xq-gitlab.com/root/ci-cd-demo.git/</code></p>
+<p>但是因為這是在 docker network 裡面才有辦法辨認, 因此需要指定 gitlab runner 啟用的 docker 使用相同的 network</p>
+<p>要不然在跑 pipeline 會出現下面的這種<span style="color:red">Could not resolve host error</span><del>(當初找半天找到要中風)</del></p>
+<p><img src="gitlab-runner-unable-access-gitlab-repo.png" alt="gitlab-runner-unable-access-gitlab-repo"></p>
+<h2 id="test-runner">Test Runner</h2>
+<p>這邊做一個測試, 這篇比較單純為介紹如何 register runner, 只後如何操作會載另外整理</p>
+<p>底下這個檔案是上傳到 gitlab repo 之後會自動執行的檔案, <span style="color:red">檔案名稱是固定的</span></p>
+<p>.gitlab-ci.yml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">helloworld: <span class="c1"># job name 什麼名稱都可以</span>
+</span></span><span class="line"><span class="cl">  script: <span class="c1"># 底下表示要執行的指令</span>
+</span></span><span class="line"><span class="cl">    - <span class="nb">echo</span> <span class="s2">&#34;hello world, gitlab!&#34;</span> <span class="c1">#要執行的動作</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="gitlab-push.png" alt="gitlab-push"></p>
+<p>請忽略好幾個測試的&hellip;..搞半天XD</p>
+<p><img src="gitlab-pipeline.png" alt="gitlab-pipeline"></p>
+<p><img src="gitlab-job-test.png" alt="gitlab-job-test"></p>
+<h1 id="ref">Ref</h1>
+<p><a href="https://stackoverflow.com/questions/50325932/gitlab-runner-docker-could-not-resolve-host">Gitlab runner docker Could not resolve host</a></p>
+<p><a href="https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-runnersdocker-section">Advanced configuration</a></p>
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/pawpaw.github.io/tags/git/">git</a>
+          <a href="/pawpaw.github.io/tags/gitlab/">gitlab</a>
+          <a href="/pawpaw.github.io/tags/gitlab_runner/">gitlab_runner</a>
+          <a href="/pawpaw.github.io/tags/docker/">docker</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/pawpaw.github.io/post/gitlab/gitlab_install/">
+            <span class="next-text nav-default">[GitLab] GitLab_install</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/PawXQ/pawpaw.github.io" class="iconfont icon-github" title="github"></a>
+  <a href="" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2023 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>PawPaw</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/pawpaw.github.io/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

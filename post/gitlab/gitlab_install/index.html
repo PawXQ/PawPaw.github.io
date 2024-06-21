@@ -48,8 +48,8 @@
 <meta itemprop="name" content="[GitLab] GitLab_install">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-06-14T16:11:47+00:00" />
 <meta itemprop="dateModified" content="2024-06-14T16:11:47+00:00" />
-<meta itemprop="wordCount" content="1782">
-<meta itemprop="keywords" content="git,gitlab," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="wordCount" content="1785">
+<meta itemprop="keywords" content="git,gitlab,docker," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[GitLab] GitLab_install"/>
 <meta name="twitter:description" content=""/>
 
@@ -128,7 +128,11 @@
 
       <div class="post-meta">
         <span class="post-time"> 2024-06-14 </span>
-        
+        <div class="post-category">
+            <a href="/pawpaw.github.io/categories/git/"> git </a>
+            <a href="/pawpaw.github.io/categories/gitlab/"> gitlab </a>
+            <a href="/pawpaw.github.io/categories/docker/"> docker </a>
+            </div>
         
       </div>
     </header>
@@ -154,13 +158,13 @@
             <li><a href="#set-gitlab-url">Set Gitlab Url</a></li>
           </ul>
         </li>
-        <li><a href="#upgrade--backup">Upgrade / Backup</a>
-          <ul>
-            <li><a href="#backup">Backup</a></li>
-            <li><a href="#moditfy-docker-compose-file">Moditfy docker compose file</a></li>
-            <li><a href="#stop--upgrade">stop / upgrade</a></li>
-          </ul>
-        </li>
+      </ul>
+    </li>
+    <li><a href="#upgrade--backup">Upgrade / Backup</a>
+      <ul>
+        <li><a href="#backup">Backup</a></li>
+        <li><a href="#moditfy-docker-compose-file">Moditfy docker compose file</a></li>
+        <li><a href="#stop--upgrade">stop / upgrade</a></li>
       </ul>
     </li>
   </ul>
@@ -243,10 +247,10 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 隨便想存哪就存哪</span>
-</span></span><span class="line"><span class="cl">mkdir -p /opt/gitlab/
+</span></span><span class="line"><span class="cl">mkdir -p /opt/gitlab/gitlab
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># 設定環境變數, 等等 compose 檔案需要用到</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">GITLAB_HOME</span><span class="o">=</span>/srv/gitlab
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">GITLAB_HOME</span><span class="o">=</span>/opt/gitlab/gitlab
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>官方網站有 <code>GitLab</code> 一般常用來 mount volume 的表格</p>
@@ -292,7 +296,7 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> /opt/gitlab
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> /opt/gitlab/gitlab
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">## Yaml File 名字任意, 習慣帶版號方便管理 </span>
 </span></span><span class="line"><span class="cl">vim vim docker-compose-16.11.4.yml
@@ -430,7 +434,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><img src="gitlab-repo-externalurl-2.png" alt="gitlab-repo-externalurl-2"></p>
-<h2 id="upgrade--backup">Upgrade / Backup</h2>
+<h1 id="upgrade--backup">Upgrade / Backup</h1>
 <p><a href="https://gitlab-com.gitlab.io/support/toolbox/upgrade-path/">GitLab-Upgrade-Path</a></p>
 <p><img src="gitlab-upgrade-path.png" alt="gitlab-upgrade-path"></p>
 <p>▲ 檢查所需的升級停止點</p>
@@ -456,7 +460,8 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><img src="gitlab-version-2.png" alt="gitlab-version-2"></p>
-<h3 id="backup">Backup</h3>
+<h2 id="backup">Backup</h2>
+<p><a href="https://docs.gitlab.com/ee/administration/backup_restore/backup_gitlab.html">Back up GitLab</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -467,7 +472,7 @@
 </div>
 </div><p><img src="gitlab-backup.png" alt="gitlab-backup"></p>
 <p><img src="gitlab-backup-2.png" alt="gitlab-backup-2"></p>
-<p>使用備份命令之後會在 <code>/opt/gitlab/data/backup/</code> 建立一個壓縮檔 <code>1718610557_2024_06_17_16.11.4-ee_gitlab_backup.tar</code></p>
+<p>使用備份命令之後會在 <code>/opt/gitlab/gitlab/data/backup/</code> 建立一個壓縮檔 <code>1718610557_2024_06_17_16.11.4-ee_gitlab_backup.tar</code></p>
 <ul>
 <li><code>1718610557</code>：timestamp</li>
 <li><code>2024_06_17</code>：備份年月日</li>
@@ -487,10 +492,10 @@
 <li><code>config/gitlab.rb</code>：設定檔備份, 確保在復原時能正確配置所有服務和功能的設定</li>
 <li><code>config/gitlab-secrets.json</code>：機密資訊備份, 確保所有加密的敏感資料能夠正確解密, 並且所有服務的機密資訊保持不變</li>
 </ul>
-<h3 id="moditfy-docker-compose-file">Moditfy docker compose file</h3>
+<h2 id="moditfy-docker-compose-file">Moditfy docker compose file</h2>
 <p><code>vim docker-compose-17.0.2.yml</code></p>
 <p>一般來說只需要修改 image 使用的部分, <code>image: gitlab/gitlab-ee:17.0.2-ee.0</code></p>
-<h3 id="stop--upgrade">stop / upgrade</h3>
+<h2 id="stop--upgrade">stop / upgrade</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -534,9 +539,14 @@
       <div class="post-tags">
           <a href="/pawpaw.github.io/tags/git/">git</a>
           <a href="/pawpaw.github.io/tags/gitlab/">gitlab</a>
+          <a href="/pawpaw.github.io/tags/docker/">docker</a>
           </div>
       <nav class="post-nav">
-        
+        <a class="prev" href="/pawpaw.github.io/post/gitlab/gitlab_runner/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">[GitLab] Gitlab_runner</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         <a class="next" href="/pawpaw.github.io/post/c-sharp/c-sharp-data-structure-object-container/">
             <span class="next-text nav-default">[C#] Data Structure - Object Container</span>
             <span class="next-text nav-mobile">Next</span>

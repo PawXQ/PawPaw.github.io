@@ -6,7 +6,16 @@
     <description>Recent content in gitlab on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 21 Jun 2024 13:15:23 +0000</lastBuildDate><atom:link href="https://pawxq.github.io/pawpaw.github.io/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Jun 2024 15:55:16 +0000</lastBuildDate><atom:link href="https://pawxq.github.io/pawpaw.github.io/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Gitlab] Gitlab_Basic</title>
+      <link>https://pawxq.github.io/pawpaw.github.io/post/gitlab/gitlab_basic/</link>
+      <pubDate>Wed, 26 Jun 2024 15:55:16 +0000</pubDate>
+      
+      <guid>https://pawxq.github.io/pawpaw.github.io/post/gitlab/gitlab_basic/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>[GitLab] Gitlab_runner</title>
       <link>https://pawxq.github.io/pawpaw.github.io/post/gitlab/gitlab_runner/</link>

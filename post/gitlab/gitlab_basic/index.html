@@ -48,7 +48,7 @@
 <meta itemprop="name" content="[Gitlab] Gitlab_Basic">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-06-26T15:55:16+00:00" />
 <meta itemprop="dateModified" content="2024-06-26T15:55:16+00:00" />
-<meta itemprop="wordCount" content="1450">
+<meta itemprop="wordCount" content="2157">
 <meta itemprop="keywords" content="gitlab,ci/cd,basic," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[Gitlab] Gitlab_Basic"/>
 <meta name="twitter:description" content=""/>
@@ -150,6 +150,11 @@
         <li><a href="#env-variable">ENV Variable</a>
           <ul>
             <li><a href="#workflow">WorkFlow</a></li>
+          </ul>
+        </li>
+        <li><a href="#runnerexcutor">Runner/Excutor</a>
+          <ul>
+            <li><a href="#runner-excution-flow">runner-excution-flow</a></li>
           </ul>
         </li>
       </ul>
@@ -536,7 +541,102 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l">never</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div>
+</div><h2 id="runnerexcutor">Runner/Excutor</h2>
+<p><a href="https://docs.gitlab.com/runner/">Gitlab-runner</a></p>
+<p><a href="https://docs.gitlab.com/runner/executors/index.html">Gitlab-runner-excutor</a></p>
+<p>這邊來說說 Gitlab / Gitlab runner / Gitlab 之間的關係</p>
+<p>Gitlab：產生任務</p>
+<p>Runner：接收任務</p>
+<p>Excutor：實際執行</p>
+<p>就是說 Gitlab 會透過 <code>.gitlab-ci.yml</code> 來產生 pipeline(job), 並藉由 runner 接收到這個 job 之後, 指派給 excutor 來執行</p>
+<p>Gitlab runner excutor 有以下幾種類別</p>
+<table>
+<thead>
+<tr>
+<th>executor類型</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shell executor</td>
+<td>Runner 直接在自己的 Local 環境執行 CI Job</td>
+</tr>
+<tr>
+<td>Parallels executor</td>
+<td>Runner 使用 Parallels 建立乾淨的 VM, 透過 SSH 登入該 VM 執行 CI Job. 需在主機上安裝 Parallels, 適用於 MacOS</td>
+</tr>
+<tr>
+<td>VirtualBox executor</td>
+<td>Runner 使用 VirtualBox 建立乾淨的 VM, 透過 SSH 登入該 VM 執行 CI Job. 需在主機上安裝 VirtualBox, 適用於 Linux 和 Windows</td>
+</tr>
+<tr>
+<td>Docker executor</td>
+<td>Runner 使用 Docker 建立乾淨的 Container 並執行 CI Job</td>
+</tr>
+<tr>
+<td>Docker Machine executor</td>
+<td>類似 Docker Executor, 但可 auto-scaling</td>
+</tr>
+<tr>
+<td>Kubernetes executor</td>
+<td>Runner 使用 Kubernetes 叢集來運行 jobs. 透過 K8s API 控制 K8s Cluster 資源, 自動建立乾淨的 Pod 執行 CI Job</td>
+</tr>
+<tr>
+<td>SSH executor</td>
+<td>Runner 透過 SSH 連接到遠端主機執行 CI Job, 需提供 SSH 連線的帳號密碼或 SSH Key</td>
+</tr>
+<tr>
+<td>Custom executor</td>
+<td>自定義 Executor. 若上述 Executors 無法滿足需求, 使用者可自行撰寫 Custom Executor</td>
+</tr>
+</tbody>
+</table>
+<h3 id="runner-excution-flow">runner-excution-flow</h3>
+<p>至於 gitlab 和 runner 和 excutor 是怎麼 registry, 溝通分配 job 的, 偷一下官網的圖XD</p>
+<p><img src="gitlab-runner-excution-flow.png" alt="gitlab-runner-excution-flow"></p>
+<ol>
+<li>註冊階段：</li>
+</ol>
+<ul>
+<li>
+<p>POST /api/v4/runners with registration_token：</p>
+<p>Runner 使用註冊令牌(registration_token)向 GitLab 註冊</p>
+</li>
+<li>
+<p>Registered with runner_token：</p>
+<p>Runner 註冊成功後, GitLab 會回傳一個 Runner 令牌(runner_token)給 Runner</p>
+</li>
+</ul>
+<ol start="2">
+<li>作業請求和處理階段：</li>
+</ol>
+<ul>
+<li>
+<p>POST /api/v4/jobs/request with runner_token：</p>
+<p>Runner 使用 Runner 令牌(runner_token)向 GitLab 請求作業（job）</p>
+</li>
+<li>
+<p>Job payload with job_token：</p>
+<p>GitLab 回應包含作業資訊和作業令牌(job_token)的作業載荷給 Runner</p>
+</li>
+<li>
+<p>Clone sources with job_token：</p>
+<p>Runner 使用作業令牌（job_token）clone sources</p>
+</li>
+<li>
+<p>Download artifacts with job_token：</p>
+<p>Runner 使用作業令牌（job_token）下載相關的工件（artifacts）</p>
+</li>
+<li>
+<p>Return job output and status：</p>
+<p>Runner 完成作業後, return 作業的輸出和狀態</p>
+</li>
+<li>
+<p>Updating job output and status with job_token：</p>
+<p>使用作業令牌(job_token)更新作業的輸出和狀態至 GitLab</p>
+</li>
+</ul>
     </div>
 
     

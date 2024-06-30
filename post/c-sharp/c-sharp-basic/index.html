@@ -48,7 +48,7 @@
 <meta itemprop="name" content="[C#] C# Basic">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-05-08T15:59:34+00:00" />
 <meta itemprop="dateModified" content="2024-05-08T15:59:34+00:00" />
-<meta itemprop="wordCount" content="607">
+<meta itemprop="wordCount" content="807">
 <meta itemprop="keywords" content="C#," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[C#] C# Basic"/>
 <meta name="twitter:description" content=""/>
@@ -140,8 +140,14 @@
   <ul>
     <li><a href="#基本介紹">基本介紹</a>
       <ul>
-        <li><a href="#變數類別">變數類別</a></li>
+        <li><a href="#變數類別">變數類別</a>
+          <ul>
+            <li><a href="#基本型">基本型</a></li>
+            <li><a href="#衍生型">衍生型</a></li>
+          </ul>
+        </li>
         <li><a href="#邏輯運算判斷符號">邏輯/運算判斷符號</a></li>
+        <li><a href="#迴圈loop">迴圈(Loop)</a></li>
       </ul>
     </li>
   </ul>
@@ -179,15 +185,16 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="變數類別">變數類別</h2>
-<p>基本資料型別 =&gt; 泛只能用言語表達, 能有實際的定值</p>
+<p>基本資料型別 =&gt; 泛指能用言語表達, 能有實際的定值</p>
 <p>衍生性資料性別 =&gt; 除了基本資料型別以外的通通都是衍生型</p>
 <p><span style="color:red">基本資料型別</span></p>
-<p>e.g. <code>int</code>, <code>string</code>, <code>char</code>, <code>float</code>, <code>double</code>, <code>boolean</code></p>
+<p>e.g. <code>int</code>, <code>char</code>, <code>float</code>, <code>double</code>, <code>boolean</code></p>
+<p><span style="color:red">衍生型資料型別</span></p>
+<p>e.g. <code>string</code>,</p>
 <br/>
+<h3 id="基本型">基本型</h3>
 <p><code>int</code> 4Byte, 作為純數值, 若有小數點, 預設無條捨去, 範圍：-21474783647~21474783647 =&gt; int8, int16, int32, int64, 默認 int 一般就是int32</p>
 <p>int number = 2147483647;</p>
-<p><code>string</code> 字串 =&gt; 中文2Byte 英文1Byte</p>
-<p>string str = &quot;Hello&quot;;</p>
 <p><code>char</code> 字元, 表示只含一個字母</p>
 <p>char c = 'c';</p>
 <p><code>float</code> 4Byte =&gt; 單精度浮點數, <code>double</code> 8Byte 倍經度浮點數</p>
@@ -196,6 +203,11 @@
 <p>double dou = 12.5;</p>
 <p><code>boolean</code> 就是布林值, True or False</p>
 <p>bool bol = true; // 正正得正, 正負得負</p>
+<br/>
+<h3 id="衍生型">衍生型</h3>
+<p><code>string</code> 字串 =&gt; 中文2Byte 英文1Byte</p>
+<p>string str = &quot;Hello&quot;;</p>
+<br/>
 <h2 id="邏輯運算判斷符號">邏輯/運算判斷符號</h2>
 <p><code>!</code> 用於進行邏輯<code>NOT</code>運算, 例如 bool result = !true;</p>
 <p><code>&amp;&amp;</code> 用於進行邏輯<code>AND</code>運算, 例如 bool result = (true &amp;&amp; false);</p>
@@ -206,6 +218,65 @@
 <p><code>%</code> 用於取數字餘數, 例如 int result = 10 % 3; 結果 int result = 1;</p>
 <p><code>&amp;</code> 用於位元與, 例如 int result = 5 &amp; 3; 結果 int result = 1 (使用 2 進制數位邏輯);</p>
 <p><code>|</code> 用於位元或, 例如 int result = 5 | 3; 結果 int result = 7 (使用 2 進制數位邏輯);</p>
+<br/>
+<h2 id="迴圈loop">迴圈(Loop)</h2>
+<p>常見的迴圈有三種 <code>for</code>, <code>while</code>, <code>foreach</code></p>
+<p><code>for</code> =&gt; 有限次數內, 重複執行, 基本上用在確定迴圈次數的狀態</p>
+<p><code>while</code> =&gt; 在條件為 true 的情況下, 重複執行, 可能會變成 無窮迴圈</p>
+<p><code>foreach</code> =&gt; 用在遍歷(traverse)集合(set), <code>array</code>, <code>list</code> 等等中的每一個 element</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="c1">// for</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// output 1~9</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">10</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// while</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// output 1~9</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="p">&lt;</span> <span class="m">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">i</span><span class="p">++;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// foreach</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// output 1~5</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span><span class="p">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="k">foreach</span> <span class="p">(</span><span class="kt">int</span> <span class="n">number</span> <span class="k">in</span> <span class="n">numbers</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">number</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     

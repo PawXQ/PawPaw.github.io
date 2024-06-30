@@ -48,7 +48,7 @@
 <meta itemprop="name" content="[C#] Data Structure - Object Container(undone)">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-06-10T18:10:59+00:00" />
 <meta itemprop="dateModified" content="2024-06-10T18:10:59+00:00" />
-<meta itemprop="wordCount" content="1355">
+<meta itemprop="wordCount" content="2001">
 <meta itemprop="keywords" content="C#,data-structure,object-container," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[C#] Data Structure - Object Container(undone)"/>
 <meta name="twitter:description" content=""/>
@@ -143,6 +143,11 @@
         <li><a href="#一維-array">一維 Array</a></li>
         <li><a href="#二維-array">二維 Array</a></li>
         <li><a href="#三維-array">三維 Array</a></li>
+        <li><a href="#動態-array-list">動態 Array (List)</a>
+          <ul>
+            <li><a href="#memory-示意圖">memory 示意圖</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#列表-list-linkedlist">列表 List (LinkedList)</a>
@@ -291,6 +296,90 @@
 <p>三維陣列</p>
 <p>有天想到在來寫&hellip;&hellip;</p>
 <p>嗯&hellip;..目前不會畫, 想到再說QQ</p>
+<h2 id="動態-array-list">動態 Array (List)</h2>
+<p>ref：</p>
+<p><a href="https://blog.csdn.net/weixin_44996090/article/details/135438369">C#中List＜T＞底层原理剖析</a></p>
+<p>宣告方式：</p>
+<p>已知項目內容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="n">List</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">variable_name</span><span class="p">&gt;</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;</span> <span class="p">{</span> <span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">var3</span><span class="p">...</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">strs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span> <span class="s">&#34;apple&#34;</span><span class="p">,</span> <span class="s">&#34;banana&#34;</span><span class="p">,</span> <span class="s">&#34;cherry&#34;</span> <span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>不知項目內容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="c1">// new 代表預先占用記憶體(還沒有 content)</span>
+</span></span><span class="line"><span class="cl"><span class="n">List</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">variable_name</span><span class="p">&gt;</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl"><span class="n">List</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">variable_name</span><span class="p">&gt;</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;(</span><span class="m">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">strs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></br>
+<p>我們一般常看到的 <code>List&lt;T&gt;</code> 其實是 <code>dynamic array</code></p>
+<p>動態 Array 是由多個 array 組成的 data structure, 大小容量會隨著需求自動調整</p>
+<p>在 <code>List&lt;T&gt;</code> 中當 array 中的 capacity 不夠使用時, 會分配一個更大的 array, 將現有的 element 複製到新的 array, 並刪除舊有的 array</p>
+<p>因此當這種情況發生時, 新的 array 和舊的 array 可能就不會是連續的記憶體(因為被搬家了)<del>當然有可能搬到隔壁&hellip;</del></p>
+<p>當宣告 <code>List&lt;var_type&gt; &lt;variable_name&gt; = new List&lt;var_type&gt;();</code> 的時候, 預設是沒有給 capacity 的, 但是當一 add element 之後 capacity 就會預設為 4</p>
+<p>在沒有指定 initial capacity 的時候 <code>dafault capacity 為 4</code>, 當 capacity 不足時會自動翻倍, 4 -&gt; 8 -&gt; 16</p>
+<p>如果有指定 capacity 的時候 e.g. <code>3</code>, 容量不足時就會翻倍成 6, 3 -&gt; 6 -&gt; 12</p>
+<h3 id="memory-示意圖">memory 示意圖</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 添加元素，初始容量為 4</span>
+</span></span><span class="line"><span class="cl"><span class="n">numbers</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">1</span><span class="p">);</span> <span class="c1">// [1, _, _, _]</span>
+</span></span><span class="line"><span class="cl"><span class="n">numbers</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">2</span><span class="p">);</span> <span class="c1">// [1, 2, _, _]</span>
+</span></span><span class="line"><span class="cl"><span class="n">numbers</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">3</span><span class="p">);</span> <span class="c1">// [1, 2, 3, _]</span>
+</span></span><span class="line"><span class="cl"><span class="n">numbers</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">4</span><span class="p">);</span> <span class="c1">// [1, 2, 3, 4]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 添加第五個元素時，內部數組擴展到容量 8</span>
+</span></span><span class="line"><span class="cl"><span class="n">numbers</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">5</span><span class="p">);</span> <span class="c1">// [1, 2, 3, 4, 5, _, _, _]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在這個過程中, 舊的內部 array [ 1 | 2 | 3 | 4 ] 可能位於某個記憶體地址範圍內, 例如 0x0010 到 0x0013</p>
+<p>當內部 array 擴展到容量 8 時, 新的內部 array [ 1 | 2 | 3 | 4 | 5 | _ | _ | _ ] 可能會分配到另一個記憶體地址範圍，例如 0x0020 到 0x0027</p>
+<p>從圖上可以看到雖然後面已經分配了 memory 位置, 但是其實裡面沒有任何內容, 如果要讀取也會出現 <span style="color:red">Unhandled Exception: System.ArgumentOutOfRangeException: Index was out of range.</spna></p>
+<p>表示雖然分配了記憶體位置, 但是會閒置等於是浪費了</p>
+<p>例如存放 126 個 element 時，會 extand 到 256 的空間, 剩下的 130 個空間就浪費了</p>
+<p><img src="dynamic-array-memory.png" alt="dynamic-array-memory"></p>
+</br>
 <h1 id="列表-list-linkedlist">列表 List (LinkedList)</h1>
 <p>這邊所說的 List 是指 LinkedList,</p>
 <p>一種由節點(Node) 組成的容器(container), 每個 node 包含 data 和指向下一個 node 的指標</p>
@@ -299,18 +388,25 @@
 方便進行 insert 和 delete 操作</span></p>
 <p>缺點：<span style="color:red">訪問速度較慢, 需要找到 Head 之後, traverse 所有 node 依序往後尋找</span></p>
 <p>宣告方式：</p>
+<p>不知項目內容</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="c1">// new 代表預先占用記憶體(還沒有 content)</span>
 </span></span><span class="line"><span class="cl"><span class="n">LinkedList</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">variable_name</span><span class="p">&gt;</span> <span class="p">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;();</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">LinkedList</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">num</span> <span class="p">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl"><span class="n">num</span><span class="p">.</span><span class="n">AddLast</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">num</span><span class="p">.</span><span class="n">AddLast</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">num</span><span class="p">.</span><span class="n">AddLast</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><img src="linkedlist-memory.png" alt="linkedlist-memory"></p>

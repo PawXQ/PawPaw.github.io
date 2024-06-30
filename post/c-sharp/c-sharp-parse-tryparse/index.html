@@ -48,7 +48,7 @@
 <meta itemprop="name" content="[C#] Parse(), TryParse() diff">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-05-09T15:21:27+00:00" />
 <meta itemprop="dateModified" content="2024-05-09T15:21:27+00:00" />
-<meta itemprop="wordCount" content="306">
+<meta itemprop="wordCount" content="574">
 <meta itemprop="keywords" content="C#," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[C#] Parse(), TryParse() diff"/>
 <meta name="twitter:description" content=""/>
@@ -138,6 +138,7 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
+    <li><a href="#主要區別">主要區別</a></li>
     <li><a href="#轉換格式">轉換格式</a>
       <ul>
         <li><a href="#parse--tryparse">Parse() &amp; TryParse()</a>
@@ -145,18 +146,23 @@
             <li><a href="#intparse">int.Parse()</a></li>
             <li><a href="#doubleparse">double.Parse()</a></li>
             <li><a href="#inttryparse">int.TryParse()</a></li>
+            <li><a href="#doubletryparse">double.TryParse()</a></li>
           </ul>
         </li>
       </ul>
     </li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h1 id="轉換格式">轉換格式</h1>
+      <h1 id="主要區別">主要區別</h1>
+<p><code>Parse()</code> 在轉換失敗時會拋出異常, 正常情況下都會導致程式中斷</p>
+<p><code>TryParse()</code> 在轉換失敗時不會拋出 error, 而是返回 <code>false</code>, 這樣可以避免程式中斷</p>
+<h1 id="轉換格式">轉換格式</h1>
 <h2 id="parse--tryparse">Parse() &amp; TryParse()</h2>
-<p><code>Parse()</code> 通常用來將<span style="color:red">'字串'</span>轉換成其他類型, 例如：<code>int</code>, <code>double</code> 等等</p>
+<p><code>Parse()</code> 通常用來將 <span style="color:red">'字串'</span> 轉換成其他類型, 例如：<code>int</code>, <code>double</code>, <code>DateTime</code>, <code>decimal</code> 等等</p>
 <p>語法為 <code>type var = type.Parse(var)</code>, type 表示要轉換的類型, 在轉換前需先宣告 <code>string var</code>的值</p>
 <h3 id="intparse">int.Parse()</h3>
 <div class="highlight"><div class="chroma">
@@ -183,8 +189,10 @@
 </div><br/>
 <p>但是當 <code>int.Parse()</code> 無法順利轉換的時候, 就會出現錯誤, 表示該字串無法被解析為 int, 這時候就可以使用 <code>TryParse()</code></p>
 <p><span style="color:red">Unhandled Exception: System.FormatException: Input string was not in a correct format.</span></p>
+<br/>
 <h3 id="inttryparse">int.TryParse()</h3>
-<p>TryParse() 表示當原 var 中的 value 無法順利被轉換時會返回false, 而不會出現錯誤造成程式中斷</p>
+<p><code>TryParse()</code> 表示當原 var 中的 value <span style="color:red">無法順利被轉換時會返回 <code>false</code></span>, 而不會出現錯誤造成程式中斷</p>
+<p><code>TryParse()</code> 在處理不確定輸入時是一個較為安全的方法, 可以避免無效或錯誤的輸入導致程序中斷, 並<span style="color:red">可以提供錯誤處理的機制</span></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -205,12 +213,12 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="err">#</span> <span class="err">假定</span> <span class="n">num1_st</span> <span class="err">設為</span> <span class="kt">string</span> <span class="s">&#34;123&#34;</span><span class="p">,</span> <span class="err">因為</span><span class="m">123</span><span class="err">可以順利被轉換</span><span class="p">,</span> <span class="err">因此最後會顯示</span><span class="m">123</span>
-</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="err">如果</span> <span class="n">num1_st</span> <span class="err">設為</span> <span class="kt">string</span> <span class="s">&#34;aaa&#34;</span><span class="p">,</span> <span class="err">則會出現</span> <span class="n">error</span> <span class="n">syntax</span><span class="p">!</span>
-</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="kt">int</span><span class="p">.</span><span class="n">TryParse</span><span class="p">(</span><span class="n">num1_st</span><span class="p">,</span> <span class="k">out</span> <span class="kt">int</span> <span class="n">num1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="n">num1_st</span><span class="err">：要被轉換的值</span>
-</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="k">out</span><span class="err">：</span><span class="n">output</span>
-</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="kt">int</span> <span class="n">num1</span><span class="err">：存儲轉換後的整數值</span>
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="c1">// 如果 num1_st 設為 string &#34;123&#34;, 因為 123 可以順利被轉換, 因此最後會顯示123</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 如果 num1_st 設為 string &#34;aaa&#34;, 則會出現 error syntax!</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// int.TryParse(num1_st, out int num1)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// num1_st：要被轉換的值</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// out：output</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// int num1：存儲轉換後的整數值</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kt">string</span> <span class="n">num1_st</span> <span class="p">=</span> <span class="s">&#34;123&#34;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="kt">int</span><span class="p">.</span><span class="n">TryParse</span><span class="p">(</span><span class="n">num1_st</span><span class="p">,</span> <span class="k">out</span> <span class="kt">int</span> <span class="n">num1</span><span class="p">))</span>
@@ -223,7 +231,58 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h3 id="doubletryparse">double.TryParse()</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="c1">// 如果 num1_st 設為 string &#34;3.14&#34;, 因為 3.14 可以順利被轉換, 因此最後會顯示123</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 如果 num1_st 設為 string &#34;aaa&#34;, 則會出現 error syntax!</span>
+</span></span><span class="line"><span class="cl"><span class="kt">string</span> <span class="n">num1_st</span> <span class="p">=</span> <span class="s">&#34;3.14&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="kt">double</span><span class="p">.</span><span class="n">TryParse</span><span class="p">(</span><span class="n">num1_st</span><span class="p">,</span> <span class="k">out</span> <span class="kt">double</span> <span class="n">num1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">num1</span><span class="p">);</span> <span class="c1">// Output: 3.14</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;error syntax!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">string</span> <span class="n">num2_st</span> <span class="p">=</span> <span class="s">&#34;aaa&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="kt">double</span><span class="p">.</span><span class="n">TryParse</span><span class="p">(</span><span class="n">num2_st</span><span class="p">,</span> <span class="k">out</span> <span class="kt">double</span> <span class="n">num2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">num2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;error syntax!&#34;</span><span class="p">);</span> <span class="c1">// Output: error syntax!</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
+</div><h1 id="conclusion">Conclusion</h1>
+<p><code>Parse()</code> 用於將 <code>string</code> 轉換為 <code>int</code>, 但當轉換失敗時會拋出異常</p>
+<p><code>TryParse()</code> 用於安全地將 <code>string</code> 轉換為 <code>int</code>, 當轉換 failed 時不會拋出 error, 而是返回 false, 並可以進行錯誤處理</p>
     </div>
 
     

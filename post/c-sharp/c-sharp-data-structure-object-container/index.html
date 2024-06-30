@@ -48,7 +48,7 @@
 <meta itemprop="name" content="[C#] Data Structure - Object Container(undone)">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-06-10T18:10:59+00:00" />
 <meta itemprop="dateModified" content="2024-06-10T18:10:59+00:00" />
-<meta itemprop="wordCount" content="2001">
+<meta itemprop="wordCount" content="3003">
 <meta itemprop="keywords" content="C#,data-structure,object-container," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[C#] Data Structure - Object Container(undone)"/>
 <meta name="twitter:description" content=""/>
@@ -299,6 +299,7 @@
 <h2 id="動態-array-list">動態 Array (List)</h2>
 <p>ref：</p>
 <p><a href="https://blog.csdn.net/weixin_44996090/article/details/135438369">C#中List＜T＞底层原理剖析</a></p>
+<p><a href="https://referencesource.microsoft.com/#mscorlib/system/collections/generic/list.cs">List resource code</a></p>
 <p>宣告方式：</p>
 <p>已知項目內容</p>
 <div class="highlight"><div class="chroma">
@@ -331,7 +332,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="c1">// new 代表預先占用記憶體(還沒有 content)</span>
 </span></span><span class="line"><span class="cl"><span class="n">List</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">variable_name</span><span class="p">&gt;</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;();</span>
-</span></span><span class="line"><span class="cl"><span class="n">List</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">variable_name</span><span class="p">&gt;</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;(</span><span class="m">4</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">List</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">variable_name</span><span class="p">&gt;</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;(</span><span class="m">3</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
 </span></span><span class="line"><span class="cl">
@@ -379,6 +380,65 @@
 <p>表示雖然分配了記憶體位置, 但是會閒置等於是浪費了</p>
 <p>例如存放 126 個 element 時，會 extand 到 256 的空間, 剩下的 130 個空間就浪費了</p>
 <p><img src="dynamic-array-memory.png" alt="dynamic-array-memory"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">list</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Initial capacity：&#34;</span> <span class="p">+</span> <span class="n">list</span><span class="p">.</span><span class="n">Capacity</span><span class="p">);</span> <span class="c1">// 初始容量: 0</span>
+</span></span><span class="line"><span class="cl"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Initial number of items：&#34;</span> <span class="p">+</span> <span class="n">list</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>   <span class="c1">// 初始項目數: 0</span>
+</span></span><span class="line"><span class="cl"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;1st: list.Add(0)&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">list</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;2nd: list.Add(0)&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">list</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;3rd: list.Add(0)&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">list</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Capacity after update：&#34;</span> <span class="p">+</span> <span class="n">list</span><span class="p">.</span><span class="n">Capacity</span><span class="p">);</span> <span class="c1">// 更新後容量: 4</span>
+</span></span><span class="line"><span class="cl"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Number of items：&#34;</span> <span class="p">+</span> <span class="n">list</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>   <span class="c1">// 項目數: 3</span>
+</span></span><span class="line"><span class="cl"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;4th: list.Add(0)&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">list</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;5th: list.Add(0)&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">list</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Capacity after update：&#34;</span> <span class="p">+</span> <span class="n">list</span><span class="p">.</span><span class="n">Capacity</span><span class="p">);</span> <span class="c1">// 更新後容量: 8 </span>
+</span></span><span class="line"><span class="cl"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Number of items：&#34;</span> <span class="p">+</span> <span class="n">list</span><span class="p">.</span><span class="n">Count</span><span class="p">);</span>       <span class="c1">// 項目數: 5</span>
+</span></span><span class="line"><span class="cl"><span class="k">try</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;The sixth element value：&#34;</span> <span class="p">+</span> <span class="n">list</span><span class="p">[</span><span class="m">5</span><span class="p">]);</span>    <span class="c1">// 第六個元素值: 0</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">catch</span> <span class="p">(</span><span class="n">ArgumentOutOfRangeException</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Access out of range：&#34;</span> <span class="p">+</span> <span class="n">e</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span> <span class="c1">// 存取超出範圍: Index was out of range. Must be non-negative and less than the size of the collection.</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="dynamic-array-memory-2.png" alt="dynamic-array-memory-2"></p>
 </br>
 <h1 id="列表-list-linkedlist">列表 List (LinkedList)</h1>
 <p>這邊所說的 List 是指 LinkedList,</p>
@@ -415,9 +475,293 @@
 <p>從記憶體的編號可以看到 LinkedList 並不是連續的記憶體, 所有的 connect 都是靠每一個 Node 中 Next 紀錄的下一個記憶體位置</p>
 <p><span style="color:red">最後一個記憶體的 Next 會記錄 null</span>, LinkedList 到這裡就結束了</p>
 <h2 id="stack">Stack</h2>
-<h2 id="queue">Queue</h2>
-<h2 id="dictonary">Dictonary</h2>
-<h2 id="hashset">HashSet</h2>
+<p>Stack 是一種 LIFO（Last In First Out, 後進先出）data structure, 表示最後添加的 element 會是第一個被移除的, 先進後出</p>
+<p>宣告方式：</p>
+<p>已知項目內容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="n">Stack</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">variable_name</span><span class="p">&gt;</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;(</span><span class="k">new</span> <span class="n">var_type</span><span class="p">[]</span> <span class="p">{</span> <span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">var3</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Stack</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Stack</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">strs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span> <span class="s">&#34;apple&#34;</span><span class="p">,</span> <span class="s">&#34;banana&#34;</span><span class="p">,</span> <span class="s">&#34;cherry&#34;</span> <span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>不知項目內容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="c1">// new 代表預先占用記憶體(還沒有 content)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Stack</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">variable_name</span><span class="p">&gt;</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Stack</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Stack</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">strs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>操作方式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="n">Stack</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">stack</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Stack</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 添加元素</span>
+</span></span><span class="line"><span class="cl"><span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">stack</span><span class="p">.</span><span class="n">Push</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 訪問並移除元素</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">top</span> <span class="p">=</span> <span class="n">stack</span><span class="p">.</span><span class="n">Pop</span><span class="p">();</span> <span class="c1">// 3</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">nextTop</span> <span class="p">=</span> <span class="n">stack</span><span class="p">.</span><span class="n">Peek</span><span class="p">();</span> <span class="c1">// 2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="queue">Queue</h2>
+<p>Queue 是一種 FIFO(First In First Out, 先進先出) data structure, 表示先添加的 element 會是第一個被移除的 element</p>
+<p>它可以想象成排隊買票, 你只能從隊尾添加人, 並從隊首的人優先購票~~(插隊應該合情合理吧)~~</p>
+<p>宣告方式：</p>
+<p>已知項目內容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="n">Queue</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">variable_name</span><span class="p">&gt;</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;(</span><span class="k">new</span> <span class="n">var_type</span><span class="p">[]</span> <span class="p">{</span> <span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">var3</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Queue</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Queue</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">strs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span> <span class="s">&#34;apple&#34;</span><span class="p">,</span> <span class="s">&#34;banana&#34;</span><span class="p">,</span> <span class="s">&#34;cherry&#34;</span> <span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>不知項目內容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="c1">// new 代表預先占用記憶體(還沒有 content)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Queue</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">variable_name</span><span class="p">&gt;</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Queue</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Queue</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">strs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>操作方式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="n">Queue</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">queue</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 添加元素</span>
+</span></span><span class="line"><span class="cl"><span class="n">queue</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">queue</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">queue</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 訪問並移除元素</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">front</span> <span class="p">=</span> <span class="n">queue</span><span class="p">.</span><span class="n">Dequeue</span><span class="p">();</span> <span class="c1">// 1</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">nextFront</span> <span class="p">=</span> <span class="n">queue</span><span class="p">.</span><span class="n">Peek</span><span class="p">();</span> <span class="c1">// 2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="dictonary">Dictonary</h2>
+<p>Dictionary 是一種 key-value pair 的集合, 它使用 key 來快速查找對應的 value</p>
+<p>宣告方式：</p>
+<p>已知項目內容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="n">Dictionary</span><span class="p">&lt;</span><span class="n">key_type</span><span class="p">,</span> <span class="n">value_type</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">variable_name</span><span class="p">&gt;</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="n">key_type</span><span class="p">,</span> <span class="n">value_type</span><span class="p">&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="n">key1</span><span class="p">,</span> <span class="n">value1</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="n">key2</span><span class="p">,</span> <span class="n">value2</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="n">key3</span><span class="p">,</span> <span class="n">value3</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="m">1</span><span class="p">,</span> <span class="s">&#34;one&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="m">2</span><span class="p">,</span> <span class="s">&#34;two&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span><span class="m">3</span><span class="p">,</span> <span class="s">&#34;three&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>不知項目內容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="c1">// new 代表預先占用記憶體(還沒有 content)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Dictionary</span><span class="p">&lt;</span><span class="n">key_type</span><span class="p">,</span> <span class="n">value_type</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">variable_name</span><span class="p">&gt;</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="n">key_type</span><span class="p">,</span> <span class="n">value_type</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>操作方式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">dict</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// add key-value pair</span>
+</span></span><span class="line"><span class="cl"><span class="n">dict</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="s">&#34;one&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">dict</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="s">&#34;two&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">dict</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="s">&#34;three&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// access value</span>
+</span></span><span class="line"><span class="cl"><span class="kt">string</span> <span class="k">value</span> <span class="p">=</span> <span class="n">dict</span><span class="p">[</span><span class="m">1</span><span class="p">];</span> <span class="c1">// &#34;one&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Check if key exists</span>
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="n">hasKey</span> <span class="p">=</span> <span class="n">dict</span><span class="p">.</span><span class="n">ContainsKey</span><span class="p">(</span><span class="m">2</span><span class="p">);</span> <span class="c1">// true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// remove key-value pair</span>
+</span></span><span class="line"><span class="cl"><span class="n">dict</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="hashset">HashSet</h2>
+<p>HashSet 是一種 set, 它存放的是<span style="color:red">唯一的 element</span>, 不允許有重複的value</p>
+<p>宣告方式</p>
+<p>已知項目內容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="n">HashSet</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">variable_name</span><span class="p">&gt;</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;(</span><span class="k">new</span> <span class="n">var_type</span><span class="p">[]</span> <span class="p">{</span> <span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">var3</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">strs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span> <span class="s">&#34;apple&#34;</span><span class="p">,</span> <span class="s">&#34;banana&#34;</span><span class="p">,</span> <span class="s">&#34;cherry&#34;</span> <span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>不知項目內容</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="c1">// new 代表預先占用記憶體(還沒有 content)</span>
+</span></span><span class="line"><span class="cl"><span class="n">HashSet</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">variable_name</span><span class="p">&gt;</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="n">var_type</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">strs</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>操作方式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="k">set</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// add element</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 檢查是否包含 element</span>
+</span></span><span class="line"><span class="cl"><span class="kt">bool</span> <span class="n">contains</span> <span class="p">=</span> <span class="k">set</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="m">2</span><span class="p">);</span> <span class="c1">// true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// remove element</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="m">3</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     

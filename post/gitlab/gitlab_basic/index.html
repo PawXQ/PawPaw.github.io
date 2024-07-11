@@ -596,8 +596,8 @@
 <p>至於 gitlab 和 runner 和 excutor 是怎麼 registry, 溝通分配 job 的, 偷一下官網的圖XD</p>
 <p><img src="gitlab-runner-excution-flow.png" alt="gitlab-runner-excution-flow"></p>
 <ol>
-<li>註冊階段：</li>
-</ol>
+<li>
+<p>註冊階段：</p>
 <ul>
 <li>
 <p>POST /api/v4/runners with registration_token：</p>
@@ -608,9 +608,9 @@
 <p>Runner 註冊成功後, GitLab 會回傳一個 Runner 令牌(runner_token)給 Runner</p>
 </li>
 </ul>
-<ol start="2">
-<li>作業請求和處理階段：</li>
-</ol>
+</li>
+<li>
+<p>作業請求和處理階段：</p>
 <ul>
 <li>
 <p>POST /api/v4/jobs/request with runner_token：</p>
@@ -637,6 +637,8 @@
 <p>使用作業令牌(job_token)更新作業的輸出和狀態至 GitLab</p>
 </li>
 </ul>
+</li>
+</ol>
     </div>
 
     

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>[C#] C# Method Parameters - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="PawPaw" /><meta name="description" content="" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.108.0 with theme even" />
+
+
+<link rel="canonical" href="https://pawxq.github.io/pawpaw.github.io/post/c-sharp/c-sharp-method-parameters/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/pawpaw.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/pawpaw.github.io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/pawpaw.github.io/favicon-16x16.png">
+<link rel="manifest" href="/pawpaw.github.io/manifest.json">
+<link rel="mask-icon" href="/pawpaw.github.io/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/pawpaw.github.io/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="[C#] C# Method Parameters" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pawxq.github.io/pawpaw.github.io/post/c-sharp/c-sharp-method-parameters/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-08-02T21:30:49+00:00" />
+<meta property="article:modified_time" content="2024-08-02T21:30:49+00:00" />
+<meta itemprop="name" content="[C#] C# Method Parameters">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-08-02T21:30:49+00:00" />
+<meta itemprop="dateModified" content="2024-08-02T21:30:49+00:00" />
+<meta itemprop="wordCount" content="895">
+<meta itemprop="keywords" content="C#,parameters," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[C#] C# Method Parameters"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">PawPaw</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/pawpaw.github.io/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/pawpaw.github.io/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/pawpaw.github.io/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/pawpaw.github.io/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">PawPaw</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">[C#] C# Method Parameters</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2024-08-02 </span>
+        <div class="post-category">
+            <a href="/pawpaw.github.io/categories/c/"> C# </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ref">REF</a></li>
+    <li><a href="#method-parameter">Method Parameter</a>
+      <ul>
+        <li><a href="#ref-1">Ref</a></li>
+        <li><a href="#out">Out</a></li>
+        <li><a href="#in">In</a></li>
+      </ul>
+    </li>
+    <li><a href="#ref-和-out-差異">ref 和 out 差異</a>
+      <ul>
+        <li><a href="#ref-2">Ref</a></li>
+        <li><a href="#out-1">Out</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="ref">REF</h1>
+<p><a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/method-parameters">Method Parameters</a></p>
+<p><a href="http://www.webkaka.com/tutorial/asp.net/2023/0507104/">详述C#中out和ref有哪些差异及优势</a></p>
+<p><a href="https://www.cnblogs.com/HappyEDay/p/5434949.html">C#中in,out,ref,params的作用和区别</a></p>
+<h1 id="method-parameter">Method Parameter</h1>
+<p><span style="color: red">在一般情況下所有的輸入參數(argument) 都是傳值<code>(value)</code>, 表示會傳入 variable 的副本</p>
+<ul>
+<li>
+<p>在 value type 的情況下 variable 的 value 會被<code>複製</code>並傳入 method</p>
+</li>
+<li>
+<p>在 reference type 的情況下, variable 的 reference(也就是 address) 會被複製並傳入 method</p>
+</li>
+</ul>
+<p>在 variable 是 value type 的情況下, 如果需要傳入 value type variable 的 reference(variable address) 則需要添加修飾符 <code>ref</code>,  <code>out</code>, <code>in</code></p>
+<h2 id="ref-1">Ref</h2>
+<p>ref 在 method 宣告, 呼叫時皆須使用</p>
+<p>傳遞給 <code>ref</code>參數(argument) 的 variable 在 method 調用前<code>需要先初始化(initial)</code>, 即必須已經賦值</p>
+<p>method 內部可以 read 和 update <code>ref</code> argument 的 value, 即原本的 variable 的 value 會變更</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">ref_num</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span> <span class="c1">// 需要先給 value</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">AddNumber</span><span class="p">(</span><span class="k">ref</span> <span class="n">ref_num</span><span class="p">);</span> <span class="c1">// 使用 method 傳入 argument 時, 要同時使用 modifier</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">ref_num</span><span class="p">);</span> <span class="c1">// output 20</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">ReadKey</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="k">void</span> <span class="n">AddNumber</span><span class="p">(</span><span class="k">ref</span> <span class="kt">int</span> <span class="n">number1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">number1</span> <span class="p">+=</span> <span class="m">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="out">Out</h2>
+<p>out 在 method 宣告, 呼叫時皆須使用</p>
+<p>傳遞給 <code>out</code> argument 的 variable 在 method 呼叫之前<code>不須先初始化(initial)</code>, <code>只需要宣告 type</code>, 即使預先給定 value 也沒有意義, 因為 method 內部會對 variable 重新賦值</p>
+<p>method 內部必須對 <code>out</code> argument 賦值</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">out_num</span><span class="p">;</span> <span class="c1">// 宣告 type</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// int out_num = 100; // 給定 100 也無效果</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">AddNumber</span><span class="p">(</span><span class="k">out</span> <span class="n">out_num</span><span class="p">);</span> <span class="c1">// 使用 method 傳入 argument 時, 要同時使用 modifier</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">out_num</span><span class="p">);</span> <span class="c1">// output 15</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">ReadKey</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="k">void</span> <span class="n">AddNumber</span><span class="p">(</span><span class="k">out</span> <span class="kt">int</span> <span class="n">number1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">number1</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span> <span class="c1">// method 內部會賦值</span>
+</span></span><span class="line"><span class="cl">    <span class="n">number1</span> <span class="p">+=</span> <span class="m">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="in">In</h2>
+<p>in 在 method 宣告時需要設定, 呼叫時不需要</p>
+<p>傳入的 value 無法被修改, 只能是 <code>read only</code>, 但好處是可以不用 copy 副本, 而是直接使用 address, 可以減少 memory 消耗</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">in_num</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">PrintNumber</span><span class="p">(</span><span class="k">in</span> <span class="n">in_num</span><span class="p">);</span> <span class="c1">// method 傳入 argument 時, 可以不使用 modifier(in)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">ReadKey</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">static</span> <span class="k">void</span> <span class="n">PrintNumber</span><span class="p">(</span><span class="k">in</span> <span class="kt">int</span> <span class="n">number1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// number1 += 10; // 編譯錯誤, 不能修改 in argument 的 value</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">number1</span><span class="p">);</span> <span class="c1">// 儘可以讀取</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="ref-和-out-差異">ref 和 out 差異</h1>
+<h2 id="ref-2">Ref</h2>
+<ul>
+<li>
+<p>Reference Passing：表示傳遞的是 argument 的引用, method 內部對該 argument 的修改會影響原 argument(variable) 的 value</p>
+</li>
+<li>
+<p>Intial 要求：傳遞給 ref argument 的 variable 在 method 呼叫之前必須已經 initial（即已賦值）</p>
+</li>
+<li>
+<p>RW 能力：method 內部可以 read 和 write ref argument 的 value, method 內對 ref argument 的任何變更都會反映在 variable 上。</p>
+</li>
+</ul>
+<h2 id="out-1">Out</h2>
+<ul>
+<li>
+<p>Output argument：Out 表示傳遞的是 argument 的引用, method 內部對該 argument 的賦值會影響原 argument(variable) 的 value</p>
+</li>
+<li>
+<p>Intial 要求：傳遞給 out 參數的變數在方法呼叫之前不需要 Intial, 只需宣告 type 即可</p>
+</li>
+<li>
+<p>賦值要求：method 內部必須對 out argument 進行賦值, 確保在方法傳回之前該 argument 已經被賦值</p>
+</li>
+<li>
+<p>RW 能力：method 內部只能寫入 out argument 的 value, 讀取 out argument 的 value 是未定義的, 必須在 method 內部賦值後才能讀取</p>
+</li>
+</ul>
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/pawpaw.github.io/tags/c/">C#</a>
+          <a href="/pawpaw.github.io/tags/parameters/">parameters</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/pawpaw.github.io/post/c-sharp/c-sharp-stack-heap/">
+            <span class="next-text nav-default">[C#] C# Stack &amp; Heap</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/PawXQ/pawpaw.github.io" class="iconfont icon-github" title="github"></a>
+  <a href="" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2023 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>PawPaw</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/pawpaw.github.io/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

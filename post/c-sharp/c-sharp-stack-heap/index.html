@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>[C#] C# Stack &amp; Heap - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="PawPaw" /><meta name="description" content="" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.108.0 with theme even" />
+
+
+<link rel="canonical" href="https://pawxq.github.io/pawpaw.github.io/post/c-sharp/c-sharp-stack-heap/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/pawpaw.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/pawpaw.github.io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/pawpaw.github.io/favicon-16x16.png">
+<link rel="manifest" href="/pawpaw.github.io/manifest.json">
+<link rel="mask-icon" href="/pawpaw.github.io/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/pawpaw.github.io/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="[C#] C# Stack &amp; Heap" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pawxq.github.io/pawpaw.github.io/post/c-sharp/c-sharp-stack-heap/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-07-28T08:48:09+00:00" />
+<meta property="article:modified_time" content="2024-07-28T08:48:09+00:00" />
+<meta itemprop="name" content="[C#] C# Stack &amp; Heap">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-07-28T08:48:09+00:00" />
+<meta itemprop="dateModified" content="2024-07-28T08:48:09+00:00" />
+<meta itemprop="wordCount" content="2046">
+<meta itemprop="keywords" content="C#,Stack,Heap," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[C#] C# Stack &amp; Heap"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">PawPaw</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/pawpaw.github.io/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/pawpaw.github.io/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/pawpaw.github.io/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/pawpaw.github.io/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">PawPaw</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">[C#] C# Stack &amp; Heap</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2024-07-28 </span>
+        <div class="post-category">
+            <a href="/pawpaw.github.io/categories/c/"> C# </a>
+            <a href="/pawpaw.github.io/categories/stack/"> Stack </a>
+            <a href="/pawpaw.github.io/categories/heap/"> Heap </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ref">REF</a></li>
+    <li><a href="#基本重點">基本重點</a></li>
+    <li><a href="#stack-和-heap-基本概念">Stack 和 Heap 基本概念</a>
+      <ul>
+        <li><a href="#variable-type">Variable type</a>
+          <ul>
+            <li><a href="#value-type">Value type</a></li>
+            <li><a href="#reference-type">Reference type</a></li>
+            <li><a href="#pointer">Pointer</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#heap">Heap</a>
+      <ul>
+        <li><a href="#golden-rule">Golden Rule</a></li>
+      </ul>
+    </li>
+    <li><a href="#stack-lifo">Stack LIFO</a></li>
+    <li><a href="#example-1">Example 1</a></li>
+    <li><a href="#example-2">Example 2</a></li>
+    <li><a href="#example-3">Example 3</a></li>
+    <li><a href="#importan-note">Importan Note</a>
+      <ul>
+        <li><a href="#example-4">Example 4</a></li>
+      </ul>
+    </li>
+    <li><a href="#c-中值類型和引用類型的內存分配和變量傳遞機制">C# 中值類型和引用類型的內存分配和變量傳遞機制</a>
+      <ul>
+        <li><a href="#value-type-1">Value Type</a></li>
+        <li><a href="#reference-type-1">Reference Type</a></li>
+        <li><a href="#代碼示例">代碼示例</a></li>
+      </ul>
+    </li>
+    <li><a href="#內存分配圖示">內存分配圖示</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="ref">REF</h1>
+<p><a href="https://dev.to/grantdotdev/c-stack-heap-6j6">C# Stack vs Heap</a></p>
+<p>底下大多數內容是翻譯該篇文章</p>
+<h1 id="基本重點">基本重點</h1>
+<p>變數的存儲位置：</p>
+<p><code>value type variable</code> 通常存儲在 <code>stack</code> 中而 <code>reference type variable</code> 的 <code>reference</code> 存儲在 <code>stack</code> 中, 實際對象存儲在 heap 中</p>
+<p>變數之間的指派：</p>
+<p>當 value type variable 被指派給另一個 value type variable 時, 會進行 value 的複製</p>
+<p>當 reference type variable 被指派給另一個 reference type variable 時, 會進行 reference 的複製</p>
+<h1 id="stack-和-heap-基本概念">Stack 和 Heap 基本概念</h1>
+<ul>
+<li>
+<p><code>Stack</code> 是在記憶體中用來追蹤所執行的 code, 是一種 LIFO 的 data structure</p>
+<ul>
+<li>儲存的類型為 <code>value type</code></li>
+</ul>
+</li>
+<li>
+<p><code>Heap</code> 是在記憶體中用來追蹤 objects 和 structures</p>
+<ul>
+<li>儲存的類型為 <code>reference type</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="variable-type">Variable type</h2>
+<p>在 C# 中 variable 的 type 有分為兩種 <code>value type</code> 和 <code>reference type</code></p>
+<h3 id="value-type">Value type</h3>
+<ul>
+<li>
+<p>bool</p>
+</li>
+<li>
+<p>byte</p>
+</li>
+<li>
+<p>char</p>
+</li>
+<li>
+<p>decimal</p>
+</li>
+<li>
+<p>double</p>
+</li>
+<li>
+<p>enum</p>
+</li>
+<li>
+<p>float</p>
+</li>
+<li>
+<p>int</p>
+</li>
+<li>
+<p>long</p>
+</li>
+<li>
+<p>sbyte</p>
+</li>
+<li>
+<p>short</p>
+</li>
+<li>
+<p>struct</p>
+</li>
+<li>
+<p>uint</p>
+</li>
+<li>
+<p>ulong</p>
+</li>
+<li>
+<p>ushort</p>
+</li>
+</ul>
+<h3 id="reference-type">Reference type</h3>
+<ul>
+<li>
+<p>class</p>
+</li>
+<li>
+<p>interface</p>
+</li>
+<li>
+<p>delegate</p>
+</li>
+<li>
+<p>object</p>
+</li>
+<li>
+<p>string</p>
+</li>
+</ul>
+<h3 id="pointer">Pointer</h3>
+<p>在 stack 和 heap 中還有一個東西稱作 <code>pointer</code>, 用來指向 reference type 的存放位址(address), <code>pointer</code> 會存放在 stack 中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Program</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Person</span> <span class="n">person</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Person</span><span class="p">();</span> <span class="c1">// 創建 object, person 存儲在 Stack 中, 指向 Heap 中的內存</span>
+</span></span><span class="line"><span class="cl">        <span class="n">person</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="s">&#34;John&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">person</span><span class="p">.</span><span class="n">Name</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Person</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>
+<p>Reference 存放在 stack 中</p>
+<ul>
+<li>
+<p>在這之中, <code>person</code> 作為 <code>local variable</code> 存放在 stack 之中</p>
+</li>
+<li>
+<p><code>person</code> 存放了在 Heap 中 <code>Person</code> object 的 memory address</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Object 存放在 Heap 中</p>
+<ul>
+<li>
+<p><code>new Person()</code> 在 Heap 中分配 memory 來存儲 Person object</p>
+</li>
+<li>
+<p>object 的 data(e.g <code>name</code>) 也存放在 Heap 中</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>圖示</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Stack:
+</span></span><span class="line"><span class="cl"><span class="o">[</span>Main method call frame<span class="o">]</span>
+</span></span><span class="line"><span class="cl">    person <span class="o">(</span>reference<span class="o">)</span> -&gt; 指向 Heap 中的 Person object
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Heap:
+</span></span><span class="line"><span class="cl">Person object:
+</span></span><span class="line"><span class="cl">    Name <span class="o">(</span>string<span class="o">)</span> -&gt; 存儲 value <span class="s2">&#34;John&#34;</span> 的內存區域
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>引用(Reference)：在 C# 中, 當我們 create 一個 object 時, 返回的 reference 存儲在 stack 中, 這個 reference 指向 Heap 中的 object</p>
+</li>
+<li>
+<p>對象(object)：實際的 object data 存儲在 Heap 中, 這使得 object 可以在 function 之間傳遞並且在需要時動態地分配和釋放。</p>
+<ul>
+<li>
+<p>動態分配：當 create 一個新 object <code>Person person = new Person();</code>, C# 會自動在 Heap 中分配一部份 memory 存放 object 的 attrubute</p>
+</li>
+<li>
+<p>動態釋放：在 C# 中當沒有任何的 reference 使用該 person 的 object, C# 的垃圾回收器（Garbage Collector）會自動釋放 memory, 在 C 和 C++ 中需要透過 <code>free</code> 或 <code>delete</code> 手動釋放</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="stack">Stack</h1>
+<p><code>Stack</code> 是一個 <code>LIFO 的機制</code>, 用來存放 local variable, 當使用一個 method, 會建立一個 frame 並送入 stack 中, stack frame 包含 method&rsquo;s parameters, return address, local variables 和其他相關資訊</p>
+<p>在執行 method 的過程中, local variables 和 parameters 會存放在在 stack frame</p>
+<p>當頂部的 method 執行完畢, 會將其 pop 掉, 並執行當前最頂部的 method</p>
+<p><img src="stack_lifo.png" alt="stack_lifo"></p>
+<h1 id="heap">Heap</h1>
+<p>Heap 是用來存放所有 Reference type variable 的實際 data</p>
+<h2 id="golden-rule">Golden Rule</h2>
+<ol>
+<li>
+<p><code>所有的 reference type 都會存放在 Heap</code></p>
+</li>
+<li>
+<p><code>所有的 value type 都會存放在 Stack</code>, 除非在 declared 時使用 reference type 才會存放在 Heap (e.g. ref, out, in)</p>
+</li>
+<li>
+<p><code>Pointer</code>, 用來指向 reference type data, 會<code>存放在 stack</code></p>
+</li>
+<li>
+<p><code>Global variables</code> 會<code>存放在 Heap</code> 讓所有的 code 皆可使用</p>
+</li>
+</ol>
+<h1 id="stack-lifo">Stack LIFO</h1>
+<p>Stack 在之前提過的部份, 是用來追蹤所有執行中或以執行過的 code</p>
+<p>當 code 調用了一個 method, main thread 開始執行 instructions(指令), 這些 code instructions 存放在 method table 中.</p>
+<p>但是 method 的 parameters 也會被送入 stack frame 中, method 內部的 variable 也會被送入 stack frame</p>
+<h1 id="example-1">Example 1</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="k">public</span> <span class="kt">int</span> <span class="n">Multiply</span><span class="p">(</span><span class="kt">int</span> <span class="n">value1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">value2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">result</span><span class="p">;</span> <span class="c1">// Stack</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="p">=</span> <span class="n">value1</span> <span class="p">*</span> <span class="n">value2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>當調用了 <code>Multiply</code> method, method 的 parameter 就會被 push 到 stack 內(method 本身並不在 stack 上), 所以 stack 目前看起來像是</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">value2 <span class="p">|</span> int
+</span></span><span class="line"><span class="cl">value1 <span class="p">|</span> int
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>當 main thread 開始執行 code instructions, 會看到 <code>result</code> variable, 正如前面所說, local variable 會被 push 到 stack 中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">result <span class="p">|</span> int
+</span></span><span class="line"><span class="cl">value2 <span class="p">|</span> int
+</span></span><span class="line"><span class="cl">value1 <span class="p">|</span> int
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>method 執行完畢後會 return <code>result</code> variable, 並且將其從 stack frame 中 pop 出來</p>
+<p>stack frame 上所有的 memory 都會被清理</p>
+<p>在每次 method 內部 declared 的 <code>value type</code> variable 或者 parameter 都會存放在 stack</p>
+<h1 id="example-2">Example 2</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="k">public</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">  <span class="k">private</span> <span class="kt">int</span> <span class="n">number</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Application</span> <span class="n">app</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Application</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span> <span class="k">class</span> <span class="nc">Application</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">private</span> <span class="kt">int</span> <span class="n">number</span> <span class="p">=</span> <span class="m">42</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以很明確地從定義中得知 <code>Application Class = Reference Type</code></p>
+<p>由上往下解析 <code>private int number = 0</code> 是 <code>Value Type</code> 存放在 stack 中</p>
+<p><code>app variable</code> 是 <code>Reference Type</code>, app 作為 local variable(pointer) 存放在 stack, 而 new Application() 的 object data 存放在 Heap 之中</p>
+<p>但是 class Application 中的 <code>private int number = 42</code> 存放在 stack 還是 heap 呢?</p>
+<p>依然是存放在 heap, 因為他是 Reference Type 的 top level property</p>
+<h1 id="example-3">Example 3</h1>
+<p>以下一個稍微再複雜一點的舉例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="k">public</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">  <span class="k">private</span> <span class="kt">int</span> <span class="n">number</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">Application</span> <span class="n">app</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Application</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="n">app</span><span class="p">.</span><span class="n">SomeMethod</span><span class="p">(</span><span class="m">420</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span> <span class="k">class</span> <span class="nc">Application</span>  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">private</span> <span class="kt">int</span> <span class="n">number</span> <span class="p">=</span> <span class="m">42</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">public</span> <span class="k">void</span> <span class="n">SomeMethod</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>那當調用 <code>SomeMethod</code> 這個 method 的時候, argument <code>number</code> 應該被存放到哪裡呢?</p>
+<p>答案是 <code>Stack</code>, 雖然他是在 Reference Type 的內部, 但是它是 method 的 parameter, 所以是存放在 Stack</p>
+<p>因為所有的 Value Type 的 method parameter 和 local variables 都會存放在 Stack</p>
+<h1 id="importan-note">Importan Note</h1>
+<h2 id="example-4">Example 4</h2>
+<p>當我們在<code>使用 Reference Type</code> 的時候, 我們的 <code>variable 實際表示的是 pointer</code> 並<code>指向該 Reference Type 的 address</code>, 並不是 actual value</p>
+<p>簡單說, 當有兩個 variable 指向同一個 pointer, 它們會指向同一個 address, 如果修改其中一個 object, 另一個 variable 也會同時被更改</p>
+<p>以下方舉例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="k">public</span> <span class="k">class</span> <span class="nc">Application</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">int</span> <span class="n">NumberOfThreads</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span> <span class="k">void</span> <span class="n">Main</span> <span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Application</span> <span class="n">app1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Application</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Application</span> <span class="n">app2</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Application</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">app1</span><span class="p">.</span><span class="n">NumberOfThread</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">app1</span><span class="p">.</span><span class="n">NumberOfThreads</span><span class="p">)</span> <span class="c1">// 10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">app2</span> <span class="p">=</span> <span class="n">app1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">app2</span><span class="p">.</span><span class="n">NumberOfThreads</span> <span class="p">=</span> <span class="m">40</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">app1</span><span class="p">.</span><span class="n">NumberOfThreads</span><span class="p">);</span> <span class="c1">// 40</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>當我們 assign app1 給 app2, 他是透過 reference 的方式進行操作, 他在 stack 上添加了一個 pointer app2 同樣指向 app1 的 reference type address</p>
+<p>因此, 當我們 update <code>app2</code> 的 <code>NumberOfThreads value</code>, 實際上我們是更新共用的 reference type 的 address, 因此 <code>app1</code> 的 <code>NumberOfThreads value</code> 也會被更新</p>
+<p><img src="reference_type.png" alt="reference_type"></p>
+<h1 id="c-中值類型和引用類型的內存分配和變量傳遞機制">C# 中值類型和引用類型的內存分配和變量傳遞機制</h1>
+<p>在 C# 中, value type 和 reference type 的內存分配和變量傳遞機制如下：</p>
+<p><img src="stack_heap.png" alt="stack_heap"></p>
+<h2 id="value-type-1">Value Type</h2>
+<ul>
+<li>值類型（如 <code>int</code>、<code>double</code> 等）在堆疊（stack）中分配內存。</li>
+<li>當將值類型變量傳遞給方法時，會傳遞該變量的副本。</li>
+</ul>
+<h2 id="reference-type-1">Reference Type</h2>
+<ul>
+<li>引用類型（如 <code>class</code>、<code>string</code> 等）在堆疊中分配引用（即地址），而實際對象存在於堆（heap）中。</li>
+<li>當將引用類型變量傳遞給方法時，會傳遞該變量的引用。</li>
+</ul>
+<h2 id="代碼示例">代碼示例</h2>
+<p>以下是示例代碼及其內存分配情況的圖示：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-csharp" data-lang="csharp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">number</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">number2</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">number3</span> <span class="p">=</span> <span class="n">number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">number3</span> <span class="p">-=</span> <span class="m">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">number2</span> <span class="p">+=</span> <span class="m">10</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Student</span> <span class="n">std1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Student</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">std1</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">&#34;Leo&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">std1</span><span class="p">.</span><span class="n">address</span> <span class="p">=</span> <span class="s">&#34;U.S.A&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">std1</span><span class="p">.</span><span class="n">phone</span> <span class="p">=</span> <span class="s">&#34;0123456&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Student</span> <span class="n">std2</span> <span class="p">=</span> <span class="n">std1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">std2</span><span class="p">.</span><span class="n">name</span> <span class="p">=</span> <span class="s">&#34;David&#34;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="內存分配圖示">內存分配圖示</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">-----------------------------------
+</span></span><span class="line"><span class="cl">Stack                          Heap
+</span></span><span class="line"><span class="cl">-----------------------------------
+</span></span><span class="line"><span class="cl">number (value: 10)            ---------------------
+</span></span><span class="line"><span class="cl">number2 (value: 20)           | class Student       |
+</span></span><span class="line"><span class="cl">number3 (value: 0)            |---------------------|
+</span></span><span class="line"><span class="cl">std1 (ref: 0x001) ------&gt;     | name = David        |
+</span></span><span class="line"><span class="cl">std2 (ref: 0x001) ------&gt;     | address = U.S.A     |
+</span></span><span class="line"><span class="cl">                              | phone = 0123456     |
+</span></span><span class="line"><span class="cl">                              ---------------------
+</span></span><span class="line"><span class="cl">-----------------------------------
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>
+<p>value type 和 reference type：</p>
+<ul>
+<li>
+<p>int number = 10 等 variable 存在於堆疊（stack）中, 它們是 value type</p>
+</li>
+<li>
+<p>Student std1 = new Student() 和 Student std2 = std1 是 reference type, std1 和 std2 都是指向 heap 中實際對象的引用</p>
+</li>
+</ul>
+</li>
+<li>
+<p>reference type variable的更改：</p>
+<ul>
+<li>當 std2.name = &ldquo;David&rdquo; 被設置時, 由於 std2 和 std1 都引用相同的對象, 這個對象的 name 屬性會被更改</li>
+</ul>
+</li>
+<li>
+<p>指標複製：</p>
+<ul>
+<li>引用變量指向同一個堆內的實例, std1 和 std2 共享相同的內存地址（0x001）。</li>
+</ul>
+</li>
+</ul>
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/pawpaw.github.io/tags/c/">C#</a>
+          <a href="/pawpaw.github.io/tags/stack/">Stack</a>
+          <a href="/pawpaw.github.io/tags/heap/">Heap</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/pawpaw.github.io/post/c-sharp/c-sharp-method-parameters/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">[C#] C# Method Parameters</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/pawpaw.github.io/post/gitlab/gitlab_basic/">
+            <span class="next-text nav-default">[GitLab] GitLab_Basic</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/PawXQ/pawpaw.github.io" class="iconfont icon-github" title="github"></a>
+  <a href="" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2023 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>PawPaw</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/pawpaw.github.io/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

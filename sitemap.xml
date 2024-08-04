@@ -2,6 +2,97 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/post/c-sharp/c-sharp-method-parameters/</loc>
+    <lastmod>2024-08-02T21:30:49+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/tags/c#/</loc>
+    <lastmod>2024-08-02T21:30:49+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/categories/c#/</loc>
+    <lastmod>2024-08-02T21:30:49+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/categories/</loc>
+    <lastmod>2024-08-02T21:30:49+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/</loc>
+    <lastmod>2024-08-02T21:30:49+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/tags/parameters/</loc>
+    <lastmod>2024-08-02T21:30:49+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/post/</loc>
+    <lastmod>2024-08-02T21:30:49+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/tags/</loc>
+    <lastmod>2024-08-02T21:30:49+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/post/c-sharp/c-sharp-stack-heap/</loc>
+    <lastmod>2024-07-28T08:48:09+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/tags/heap/</loc>
+    <lastmod>2024-07-28T08:48:09+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/categories/heap/</loc>
+    <lastmod>2024-07-28T08:48:09+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/tags/stack/</loc>
+    <lastmod>2024-07-28T08:48:09+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/categories/stack/</loc>
+    <lastmod>2024-07-28T08:48:09+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://pawxq.github.io/pawpaw.github.io/post/gitlab/gitlab_basic/</loc>
     <lastmod>2024-06-26T15:55:16+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -16,20 +107,6 @@
   </url>
   
   <url>
-    <loc>https://pawxq.github.io/pawpaw.github.io/categories/</loc>
-    <lastmod>2024-06-26T15:55:16+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://pawxq.github.io/pawpaw.github.io/</loc>
-    <lastmod>2024-06-26T15:55:16+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://pawxq.github.io/pawpaw.github.io/tags/gitlab/</loc>
     <lastmod>2024-06-26T15:55:16+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -38,20 +115,6 @@
   
   <url>
     <loc>https://pawxq.github.io/pawpaw.github.io/categories/gitlab/</loc>
-    <lastmod>2024-06-26T15:55:16+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://pawxq.github.io/pawpaw.github.io/post/</loc>
-    <lastmod>2024-06-26T15:55:16+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://pawxq.github.io/pawpaw.github.io/tags/</loc>
     <lastmod>2024-06-26T15:55:16+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -108,13 +171,6 @@
   
   <url>
     <loc>https://pawxq.github.io/pawpaw.github.io/post/c-sharp/c-sharp-data-structure-object-container/</loc>
-    <lastmod>2024-06-10T18:10:59+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://pawxq.github.io/pawpaw.github.io/tags/c#/</loc>
     <lastmod>2024-06-10T18:10:59+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>[C#] C# Basic Oop - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="PawPaw" /><meta name="description" content="" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.108.0 with theme even" />
+
+
+<link rel="canonical" href="https://pawxq.github.io/pawpaw.github.io/post/c-sharp/c-sharp-basic-oop/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/pawpaw.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/pawpaw.github.io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/pawpaw.github.io/favicon-16x16.png">
+<link rel="manifest" href="/pawpaw.github.io/manifest.json">
+<link rel="mask-icon" href="/pawpaw.github.io/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/pawpaw.github.io/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="[C#] C# Basic Oop" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pawxq.github.io/pawpaw.github.io/post/c-sharp/c-sharp-basic-oop/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-08-18T14:54:20+00:00" />
+<meta property="article:modified_time" content="2024-08-18T14:54:20+00:00" />
+<meta itemprop="name" content="[C#] C# Basic Oop">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-08-18T14:54:20+00:00" />
+<meta itemprop="dateModified" content="2024-08-18T14:54:20+00:00" />
+<meta itemprop="wordCount" content="3164">
+<meta itemprop="keywords" content="C#,oop," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[C#] C# Basic Oop"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">PawPaw</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/pawpaw.github.io/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/pawpaw.github.io/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/pawpaw.github.io/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/pawpaw.github.io/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">PawPaw</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">[C#] C# Basic Oop</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2024-08-18 </span>
+        <div class="post-category">
+            <a href="/pawpaw.github.io/categories/c/"> C# </a>
+            <a href="/pawpaw.github.io/categories/oop/"> oop </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#類別class">類別(Class)</a></li>
+    <li><a href="#物件object">物件(Object)</a></li>
+    <li><a href="#欄位field">欄位(Field)</a></li>
+    <li><a href="#建構函式constructor">建構函式(Constructor)</a></li>
+    <li><a href="#方法method">方法(Method)</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>在一般學習程式語言的過程中都會聽到<code>物件導向程式設計(Object-oriented programming, 簡稱OOP)</code>, 這是一種基於物件(object)概念的開發方式, 能提高程式的可用性, 重複性, 擴展性等等的方式</p>
+<p>而在強型別中的 C#, 使用 <code>OOP</code> 開發, 幾乎是不可避免</p>
+<p>而要在 C# 中使用 OOP 需要了解一些基本的概念</p>
+<ul>
+<li>
+<p><code>類別(class)</code>：定義 object 的<code>模板或藍圖</code>, 描述對象的 field 和 method, 一個 class 通常是由 field 和 method 所組成</p>
+</li>
+<li>
+<p><code>物件(object)</code>：物件就是類別(class)的實體化</p>
+</li>
+<li>
+<p><code>欄位(field)</code>：定義 class 內的變數(variable)</p>
+</li>
+<li>
+<p><code>建構函式(Constructor)</code>：當 object 被創建時自動調用的特殊方法, 用來<code>初始化物件</code>的狀態</p>
+</li>
+<li>
+<p><code>方法(method)</code>：class 中定義的函數, 用來描述 object 的行為</p>
+</li>
+</ul>
+<br/>
+<p>今天使用的舉例 Class(類別)範例如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="c1">// Students 類別</span>
+</span></span><span class="line"><span class="cl"><span class="k">internal</span> <span class="k">class</span> <span class="nc">Students</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 欄位(field)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">int</span> <span class="n">Number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">int</span> <span class="n">Chinese</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">int</span> <span class="n">English</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">int</span> <span class="n">Math</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 建構函式(Constructor)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="n">Students</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">number</span><span class="p">,</span> <span class="kt">int</span> <span class="n">chinese</span><span class="p">,</span> <span class="kt">int</span> <span class="n">english</span><span class="p">,</span> <span class="kt">int</span> <span class="n">math</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="n">Number</span> <span class="p">=</span> <span class="n">number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="n">Chinese</span> <span class="p">=</span> <span class="n">chinese</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="n">English</span> <span class="p">=</span> <span class="n">english</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="n">Math</span> <span class="p">=</span> <span class="n">math</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 方法(method)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">double</span><span class="p">)</span> <span class="n">Calc</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">total</span> <span class="p">=</span> <span class="n">Chinese</span> <span class="p">+</span> <span class="n">English</span> <span class="p">+</span> <span class="n">Math</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">double</span> <span class="n">avg</span> <span class="p">=</span> <span class="n">total</span> <span class="p">/</span> <span class="m">3.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="n">avg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">void</span> <span class="n">ShowInfo</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&#34;Name: {Name}, Number: {Number}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">void</span> <span class="n">ShowDetailedInfo</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="kt">int</span> <span class="n">totalScore</span><span class="p">,</span> <span class="kt">double</span> <span class="n">avgScore</span><span class="p">)</span> <span class="p">=</span> <span class="n">Calc</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&#34;Name: {Name}, Number: {Number}, Total Score: {totalScore}, Avg Score: {avgScore:F2}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="類別class">類別(Class)</h1>
+<p>類別(class)簡單來說, 就是物件(object) 的藍圖(blueprint), 以描述學生為例, 需要先有設計圖來確定這個學生會有哪些特性和功能.</p>
+<p>類別(Class)就類似這個設計圖, 它會定義未來學生的物件(Object)擁有的欄位(Field) 和方法(Method).</p>
+<p>定義類別(class)的語法如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="k">internal</span> <span class="k">class</span> <span class="nc">classname</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">statement</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>首先會有關鍵字 class, 再來是自定義的 <code>&lt;classname&gt;</code>, 類別的名稱習慣上會使用 Pasal 命名方式, 即每個單詞的首字母大寫</p>
+<p>關鍵字 <code>internal</code> 簡單的說明是：無法被外部不相干的 project 所呼叫, 避免被誤修改操作等動作</p>
+<p>範例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="c1">// example 1</span>
+</span></span><span class="line"><span class="cl"><span class="k">internal</span> <span class="k">class</span> <span class="nc">Students</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// example 2</span>
+</span></span><span class="line"><span class="cl"><span class="k">internal</span> <span class="k">class</span> <span class="nc">MyChild</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="物件object">物件(Object)</h1>
+<p>物件(object) 就是透過類別(class) 所實際建立的物體, 就是類別(class) 實體化的概念</p>
+<p>class 和 object 的關係就像剛剛的學生設計圖和實際的學生</p>
+<p>建立物件(object)的語法如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="n">object_name</span> <span class="p">=</span> <span class="n">classname</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>範例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="c1">// example</span>
+</span></span><span class="line"><span class="cl"><span class="n">Students</span> <span class="n">student1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Student</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>範例中的 <code>student1</code> 就是使用 <code>Students class</code> 建立出來的 object</p>
+<p>在 C# 中也有簡易的方式用來確認 class 和 object 互相之間的關係, 透過 <code>is</code> 這個 operator, 即可判斷</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="k">internal</span> <span class="k">class</span> <span class="nc">Program</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 建立 Students class object</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Students</span> <span class="n">student1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Students</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">student1</span> <span class="k">is</span> <span class="n">Students</span><span class="p">);</span> <span class="c1">// 反回 True</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">student1</span> <span class="k">is</span> <span class="n">Teachers</span><span class="p">);</span> <span class="c1">// 返回 False</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Students class</span>
+</span></span><span class="line"><span class="cl"><span class="k">internal</span> <span class="k">class</span> <span class="nc">Students</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Teachers class</span>
+</span></span><span class="line"><span class="cl"><span class="k">internal</span> <span class="k">class</span> <span class="nc">Teachers</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="欄位field">欄位(Field)</h1>
+<p>欄位(field) 就是<code>存放 object 的資料</code>, 也可以說是設定 class 內部的變數(variable)</p>
+<p>設定的語法如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="n">object_name</span><span class="p">.</span><span class="n">field_name</span> <span class="p">=</span> <span class="k">value</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>但是因為 C#是強型別的語言, 因此要透過上述方式對 field 進行賦值之前, 需要在 class 中<code>先宣告該 field 和 type</code></p>
+<p>並且在 field 前方也有些修飾符(modifier), 用來控制訪問權限, 這邊只會簡單說明 private 和 public 兩種</p>
+<ul>
+<li>
+<p>public: 可以從 class 的外部訪問</p>
+</li>
+<li>
+<p>private: 只能在 class 的內部訪問</p>
+</li>
+</ul>
+<p>範例：</p>
+<p>在 class 中先進行宣告</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="k">internal</span> <span class="k">class</span> <span class="nc">Students</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// declare field</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span><span class="p">;</span> <span class="c1">// 可以從 class 的外部訪問</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">int</span> <span class="n">Number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="kt">int</span> <span class="n">Age</span><span class="p">;</span>  <span class="c1">// 只能在 Students class 內部訪問</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>創建後賦值</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="c1">// create Students class object</span>
+</span></span><span class="line"><span class="cl"><span class="n">Students</span> <span class="n">student1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Students</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Name field</span>
+</span></span><span class="line"><span class="cl"><span class="n">student1</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="s">&#34;PawPaw&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Number field</span>
+</span></span><span class="line"><span class="cl"><span class="n">student1</span><span class="p">.</span><span class="n">Number</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// student1.Age = 20;  // 這行會導致編譯錯誤，因為 Age 是 private</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>從上面可以看到, 需要先在 class 中宣告 field 和 type, 並在在建立了 object 之後, 才能對 field 進行賦值.</p>
+<p>但是這種方式當 field 的數量開始多了之後, 就會顯得非常沒效率, 因此會建議使用待會提到的<code>建構函式(Constructor)</code>.</p>
+<p>而要存取 object field 的值則透過以下語法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="n">object_name</span><span class="p">.</span><span class="n">field_name</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">student1</span><span class="p">.</span><span class="n">Name</span><span class="p">);</span> <span class="c1">// PawPaw</span>
+</span></span><span class="line"><span class="cl"><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">student1</span><span class="p">.</span><span class="n">Number</span><span class="p">);</span> <span class="c1">// 1</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Console.WriteLine(student1.Age);  // 這行會導致編譯錯誤，因為 Age 是 private</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用 private 欄位可以防止外部直接訪問和修改可能的敏感數據.</p>
+<p>通常我們會將 field 設為 private, 然後通過 public method 或其他方式來控制對這些 field 的訪問和修改.</p>
+<h1 id="建構函式constructor">建構函式(Constructor)</h1>
+<p>建構函式(Constructor) 就如上面所說明, 當 object 被創建時自動調用的特殊方法, 用來<code>初始化物件</code>的狀態.</p>
+<p>簡單說就是當你初始化這個 object 的時候就會先<code>強迫輸入所需要的 field value</code>.</p>
+<p>這樣有什麼好處呢?</p>
+<ol>
+<li>
+<p>可以增加效率, 不需要一個一個 field 給予 value</p>
+</li>
+<li>
+<p>當 class 中, 有些方法(method) 需要依賴於一些 field 的 value 的時候, 可以避免因為該 field 沒有 value, 而出現錯誤</p>
+</li>
+</ol>
+<p>寫法: 與函數相同, 但是沒有回傳類型, 必須與類別名稱相同</p>
+<p>在使用建構函式(Constructor)之前依然需要先進行 field 的宣告</p>
+<p>設定的語法如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="k">public</span> <span class="n">Students</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">number</span><span class="p">,</span> <span class="kt">int</span> <span class="n">chinese</span><span class="p">,</span> <span class="kt">int</span> <span class="n">english</span><span class="p">,</span> <span class="kt">int</span> <span class="n">math</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="n">Number</span> <span class="p">=</span> <span class="n">number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="n">Chinese</span> <span class="p">=</span> <span class="n">chinese</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="n">English</span> <span class="p">=</span> <span class="n">english</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="n">Math</span> <span class="p">=</span> <span class="n">math</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在這裡的 <code>this</code>, 是用來區分 class 的 field 和構建函數(constructor) 的參數(parameter), 所以範例中的意思就是此 class 的 <code>Name</code> field 等於傳入的 <code>name</code> parameter</p>
+<p>簡單說：</p>
+<ol>
+<li>
+<p><code>this.Name</code> 明確表示為 class 中的 Name field</p>
+</li>
+<li>
+<p><code>name</code>(沒有<code>this</code>)指的是構建函數(constructor) 的參數(parameter)</p>
+</li>
+</ol>
+<p>如下範例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="c1">// Students 類別</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span> <span class="k">class</span> <span class="nc">Students</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 欄位(field)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">int</span> <span class="n">Number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">int</span> <span class="n">Chinese</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">int</span> <span class="n">English</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">int</span> <span class="n">Math</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 建構函式(Constructor)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="n">Students</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">number</span><span class="p">,</span> <span class="kt">int</span> <span class="n">chinese</span><span class="p">,</span> <span class="kt">int</span> <span class="n">english</span><span class="p">,</span> <span class="kt">int</span> <span class="n">math</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="n">Number</span> <span class="p">=</span> <span class="n">number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="n">Chinese</span> <span class="p">=</span> <span class="n">chinese</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="n">English</span> <span class="p">=</span> <span class="n">english</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="n">Math</span> <span class="p">=</span> <span class="n">math</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 使用 Contructor 創建物件</span>
+</span></span><span class="line"><span class="cl"><span class="n">Students</span> <span class="n">student1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Students</span><span class="p">(</span><span class="s">&#34;John&#34;</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">80</span><span class="p">,</span> <span class="m">75</span><span class="p">,</span> <span class="m">90</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>範例中於建立 student1 物件(Object)的同時, 生成其 field 並且 initial 欄位值(Name, Number, Chinese, English, Math).</p>
+<p>在這個例子中無法明顯體會到有沒有 <code>this</code> 的差異, 用下列的舉例可以明顯感受</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="k">internal</span> <span class="k">class</span> <span class="nc">Students</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 欄位(field)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">int</span> <span class="n">Number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 建構函式(Constructor)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 使用 this</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="n">Students</span><span class="p">(</span><span class="kt">string</span> <span class="n">Name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">Number</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="n">Name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="n">Number</span> <span class="p">=</span> <span class="n">Number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 不使用 this</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="n">Students</span><span class="p">(</span><span class="kt">string</span> <span class="n">Name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">Number</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Name</span> <span class="p">=</span> <span class="n">Name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Number</span> <span class="p">=</span> <span class="n">Number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在這個例子中, 構建函數(constructor)的 parameter 和 field 的名稱剛好一樣：<code>this.Name = Name;</code></p>
+<p>先不說會不會出現 error, 光是在程式上就無法明確的知道是 method 內部的 variable 設定還是要對 class 的 field 賦值</p>
+<p>使用 <code>this</code> 的主要原因:</p>
+<ol>
+<li>
+<p>清晰性: 明確指出我們在使用 class 的 field,而不是局部變量.</p>
+</li>
+<li>
+<p>避免混淆: 當 parameter 和 field 名相同時(如這個例子), this 可以幫助區分它們.</p>
+</li>
+<li>
+<p>好習慣: 即使參數名不同, 使用 this 也是個好習慣, 使代碼更一致和清晰.</p>
+</li>
+</ol>
+<h1 id="方法method">方法(Method)</h1>
+<p>方法(method) 表示是在 class 中所定義的函數, 可以想成這個 object 所能做的行為</p>
+<p>定義方法(Method) 的方式和定義一般的 function 很像, 都是<code>修飾符開頭 -&gt; 返回類型 -&gt; 方法名稱 -&gt; 參數類型 參數名稱</code></p>
+<p>語法如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="n">modifer</span> <span class="n">return_value</span> <span class="n">method_name</span><span class="p">(</span><span class="n">type</span> <span class="n">type_name</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="n">statement</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在 C# 中，我們可以定義不同類型的方法, 以下舉幾個不同的例子</p>
+<ol>
+<li>void method(不返回值的 method)：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="k">public</span> <span class="k">void</span> <span class="n">ShowInfo</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&#34;Name: {Name}, Number: {Number}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>返回多個值的 method(使用元組)：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="k">private</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">double</span><span class="p">)</span> <span class="n">Calc</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">total</span> <span class="p">=</span> <span class="n">Chinese</span> <span class="p">+</span> <span class="n">English</span> <span class="p">+</span> <span class="n">Math</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">avg</span> <span class="p">=</span> <span class="n">total</span> <span class="p">/</span> <span class="m">3.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="n">avg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>這個 <code>Calc</code> method 會計算總分和平均分, 並以 tuple 的形式返回這兩個值. tuple 是 C# 中一種可以包含多個值的 data structure</p>
+<ol start="3">
+<li>調用其他 method 的 method：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="k">public</span> <span class="k">void</span> <span class="n">ShowDetailedInfo</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="kt">int</span> <span class="n">totalScore</span><span class="p">,</span> <span class="kt">double</span> <span class="n">avgScore</span><span class="p">)</span> <span class="p">=</span> <span class="n">Calc</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&#34;Name: {Name}, Number: {Number}, Total Score: {totalScore}, Avg Score: {avgScore:F2}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>這個 <code>ShowDetailedInfo</code> 方法調用了 <code>Calc</code> 方法, 並使用其返回值來顯示更詳細的學生信息.</p>
+<p>底下使用一個完整的範例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C#" data-lang="C#"><span class="line"><span class="cl"><span class="k">internal</span> <span class="k">class</span> <span class="nc">Students</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 欄位(field)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">string</span> <span class="n">Name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">int</span> <span class="n">Number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">int</span> <span class="n">Chinese</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">int</span> <span class="n">English</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="kt">int</span> <span class="n">Math</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// 建構函式(Constructor)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="n">Students</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">number</span><span class="p">,</span> <span class="kt">int</span> <span class="n">chinese</span><span class="p">,</span> <span class="kt">int</span> <span class="n">english</span><span class="p">,</span> <span class="kt">int</span> <span class="n">math</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="n">Number</span> <span class="p">=</span> <span class="n">number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="n">Chinese</span> <span class="p">=</span> <span class="n">chinese</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="n">English</span> <span class="p">=</span> <span class="n">english</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="n">Math</span> <span class="p">=</span> <span class="n">math</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// private method：計算總分和平均分</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">double</span><span class="p">)</span> <span class="n">Calc</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">total</span> <span class="p">=</span> <span class="n">Chinese</span> <span class="p">+</span> <span class="n">English</span> <span class="p">+</span> <span class="n">Math</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">double</span> <span class="n">avg</span> <span class="p">=</span> <span class="n">total</span> <span class="p">/</span> <span class="m">3.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">(</span><span class="n">total</span><span class="p">,</span> <span class="n">avg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// public method：顯示基本信息</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">void</span> <span class="n">ShowInfo</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&#34;Name: {Name}, Number: {Number}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// public method：顯示詳細信息</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">void</span> <span class="n">ShowDetailedInfo</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">(</span><span class="kt">int</span> <span class="n">totalScore</span><span class="p">,</span> <span class="kt">double</span> <span class="n">avgScore</span><span class="p">)</span> <span class="p">=</span> <span class="n">Calc</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&#34;Name: {Name}, Number: {Number}, Total Score: {totalScore}, Avg Score: {avgScore:F2}&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 使用示例</span>
+</span></span><span class="line"><span class="cl"><span class="n">Students</span> <span class="n">student1</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Students</span><span class="p">(</span><span class="s">&#34;PawPaw&#34;</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">90</span><span class="p">,</span> <span class="m">80</span><span class="p">,</span> <span class="m">70</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">student1</span><span class="p">.</span><span class="n">ShowInfo</span><span class="p">();</span>         <span class="c1">// 輸出：Name: PawPaw, Number: 1</span>
+</span></span><span class="line"><span class="cl"><span class="n">student1</span><span class="p">.</span><span class="n">ShowDetailedInfo</span><span class="p">();</span> <span class="c1">// 輸出：Name: PawPaw, Number: 1, Total Score: 240, Avg Score: 80.00</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在這個例子中：</p>
+<ol>
+<li>
+<p><code>Calc</code> 是一個 private method, 只能在 class 內部使用. 它計算總分和平均分.</p>
+</li>
+<li>
+<p><code>ShowInfo</code> 是一個簡單的公 public method，顯示學生的基本信息.</p>
+</li>
+<li>
+<p><code>ShowDetailedInfo</code> 是另一個 public method, 它調用了 <code>Calc</code> method 來獲取總分和平均分, 然後顯示更詳細的學生信息.</p>
+</li>
+</ol>
+<p>通過這種方式, 我們可以將複雜的邏輯(如計算分數)封裝在私有方法中, 而將對外展示的功能放在 public method 中. 這種做法提高了代碼的可讀性和可維護性.</p>
+    </div>
+
+    
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/pawpaw.github.io/tags/c/">C#</a>
+          <a href="/pawpaw.github.io/tags/oop/">oop</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/pawpaw.github.io/post/c-sharp/c-sharp-method-parameters/">
+            <span class="next-text nav-default">[C#] C# Method Parameters</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/PawXQ/pawpaw.github.io" class="iconfont icon-github" title="github"></a>
+  <a href="" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2023 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>PawPaw</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/pawpaw.github.io/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

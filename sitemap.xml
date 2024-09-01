@@ -2,6 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/post/github/github_actions/github_actions_basic/</loc>
+    <lastmod>2024-09-01T00:50:47+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/tags/basic/</loc>
+    <lastmod>2024-09-01T00:50:47+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/categories/</loc>
+    <lastmod>2024-09-01T00:50:47+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/</loc>
+    <lastmod>2024-09-01T00:50:47+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/tags/github_actions/</loc>
+    <lastmod>2024-09-01T00:50:47+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/categories/github_actions/</loc>
+    <lastmod>2024-09-01T00:50:47+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/post/</loc>
+    <lastmod>2024-09-01T00:50:47+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://pawxq.github.io/pawpaw.github.io/tags/</loc>
+    <lastmod>2024-09-01T00:50:47+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://pawxq.github.io/pawpaw.github.io/post/c-sharp/c-sharp-basic-oop/</loc>
     <lastmod>2024-08-18T14:54:20+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -23,20 +79,6 @@
   </url>
   
   <url>
-    <loc>https://pawxq.github.io/pawpaw.github.io/categories/</loc>
-    <lastmod>2024-08-18T14:54:20+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://pawxq.github.io/pawpaw.github.io/</loc>
-    <lastmod>2024-08-18T14:54:20+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://pawxq.github.io/pawpaw.github.io/tags/oop/</loc>
     <lastmod>2024-08-18T14:54:20+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -45,20 +87,6 @@
   
   <url>
     <loc>https://pawxq.github.io/pawpaw.github.io/categories/oop/</loc>
-    <lastmod>2024-08-18T14:54:20+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://pawxq.github.io/pawpaw.github.io/post/</loc>
-    <lastmod>2024-08-18T14:54:20+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://pawxq.github.io/pawpaw.github.io/tags/</loc>
     <lastmod>2024-08-18T14:54:20+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -115,13 +143,6 @@
   
   <url>
     <loc>https://pawxq.github.io/pawpaw.github.io/post/gitlab/gitlab_basic/</loc>
-    <lastmod>2024-06-26T15:55:16+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://pawxq.github.io/pawpaw.github.io/tags/basic/</loc>
     <lastmod>2024-06-26T15:55:16+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

@@ -48,7 +48,7 @@
 <meta itemprop="name" content="[Github_actions] Github_actions_basic">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-09-01T00:50:47+00:00" />
 <meta itemprop="dateModified" content="2024-09-01T00:50:47+00:00" />
-<meta itemprop="wordCount" content="2294">
+<meta itemprop="wordCount" content="2398">
 <meta itemprop="keywords" content="github_actions,ci/cd,basic," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[Github_actions] Github_actions_basic"/>
 <meta name="twitter:description" content=""/>
@@ -555,9 +555,43 @@
 &ldquo;${{ env.VARIABLE_NAME }}&rdquo; 和 ${{ env.VARIABLE_NAME }} 在大多數情況下是等價的
 但在某些情況下, 使用 <code>&quot;&quot;</code> 可以避免 YAML 解析問題, 特別是當 value 包含特殊字元時</p>
 </li>
+<li>
+<p>在 shell 命令中(run: 部分):</p>
+</li>
 </ol>
-<p>所以在 YAML 文件中最安全的做法通常是使用 <code>&quot;${{ }}&quot;</code> 語法</p>
-<p>簡單說在 github actions 中 shell 裡面可以使用 <code>${VARIABLE_NAME}</code> 和 <code>$VARIABLE_NAME</code>, 但是在其他部分一定要 <code>${{ env.VARIABLE_NAME }}</code> 或 <code>${{ secrets.SECRET_NAME }}</code></p>
+<ul>
+<li>
+<p>使用 <code>$VARIABLE_NAME</code> 或 <code>${VARIABLE_NAME}</code></p>
+</li>
+<li>
+<p>例如： <code>echo $GITHUB_WORKSPACE</code> 或 <code>echo ${GITHUB_WORKSPACE}</code></p>
+</li>
+</ul>
+<ol start="2">
+<li>在 workflow 檔案的其他所有部分：</li>
+</ol>
+<ul>
+<li>
+<p>必須使用 ${{ env.VARIABLE_NAME }}</p>
+</li>
+<li>
+<p>對於 secrets，使用 ${{ secrets.SECRET_NAME }}</p>
+</li>
+<li>
+<p>例如：if: ${{ env.STAGE == &lsquo;production&rsquo; }}</p>
+</li>
+</ul>
+<ol start="3">
+<li>重要補充：</li>
+</ol>
+<ul>
+<li>
+<p>即使是預先定義的 GitHub 環境變數（如 GITHUB_WORKSPACE），在非 shell 部分也必須使用 ${{ env.VARIABLE_NAME }} 語法</p>
+</li>
+<li>
+<p>github 上下文（如 github.event）總是使用 ${{ }} 語法，不論在哪裡使用</p>
+</li>
+</ul>
 <p>另外在 github variable 中 ${{ }} 內部的空格是不影響的, 取決於個人或公司的習慣</p>
 <p>環境變數的範圍：在 job 級別定義的環境變數只在該 job 中可用, 而在 workflow 級別定義的環境變數在所有 job 中都可用</p>
 <div class="highlight"><div class="chroma">
@@ -665,7 +699,21 @@
 </div>
     </div>
 
-    
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">PawPaw</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2024-09-01
+        
+    </span>
+  </p>
+  
+  
+</div>
 <footer class="post-footer">
       <div class="post-tags">
           <a href="/pawpaw.github.io/tags/github_actions/">github_actions</a>

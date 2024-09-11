@@ -6,13 +6,22 @@
     <description>Recent content in Categories on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 01 Sep 2024 00:50:47 +0000</lastBuildDate><atom:link href="https://pawxq.github.io/pawpaw.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 Sep 2024 05:59:42 +0000</lastBuildDate><atom:link href="https://pawxq.github.io/pawpaw.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>github_actions</title>
-      <link>https://pawxq.github.io/pawpaw.github.io/categories/github_actions/</link>
-      <pubDate>Sun, 01 Sep 2024 00:50:47 +0000</pubDate>
+      <title>DEVOPS</title>
+      <link>https://pawxq.github.io/pawpaw.github.io/categories/devops/</link>
+      <pubDate>Wed, 11 Sep 2024 05:59:42 +0000</pubDate>
       
-      <guid>https://pawxq.github.io/pawpaw.github.io/categories/github_actions/</guid>
+      <guid>https://pawxq.github.io/pawpaw.github.io/categories/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>https://pawxq.github.io/pawpaw.github.io/categories/github/</link>
+      <pubDate>Wed, 11 Sep 2024 05:59:42 +0000</pubDate>
+      
+      <guid>https://pawxq.github.io/pawpaw.github.io/categories/github/</guid>
       <description></description>
     </item>
     
@@ -85,6 +94,15 @@
       <pubDate>Thu, 09 May 2024 15:21:27 +0000</pubDate>
       
       <guid>https://pawxq.github.io/pawpaw.github.io/categories/data-parsing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CI/CD</title>
+      <link>https://pawxq.github.io/pawpaw.github.io/categories/ci/cd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://pawxq.github.io/pawpaw.github.io/categories/ci/cd/</guid>
       <description></description>
     </item>
     

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>github on Even - A super concise theme for Hugo</title>
-    <link>https://pawxq.github.io/pawpaw.github.io/tags/github/</link>
-    <description>Recent content in github on Even - A super concise theme for Hugo</description>
+    <title>CI/CD on Even - A super concise theme for Hugo</title>
+    <link>https://pawxq.github.io/pawpaw.github.io/categories/ci/cd/</link>
+    <description>Recent content in CI/CD on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Wed, 11 Sep 2024 05:59:42 +0000</lastBuildDate><atom:link href="https://pawxq.github.io/pawpaw.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language><atom:link href="https://pawxq.github.io/pawpaw.github.io/categories/ci/cd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Github_Actions] Chapter2 Events that Trigger Workflows</title>
       <link>https://pawxq.github.io/pawpaw.github.io/post/github/github_actions/udemy_the_complete_github_actions_workflows_guide/chapter2_events_that_trigger_workflows/</link>
@@ -22,15 +21,6 @@
       <pubDate>Sun, 01 Sep 2024 00:50:47 +0000</pubDate>
       
       <guid>https://pawxq.github.io/pawpaw.github.io/post/github/github_actions/github_actions_basic/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hugo GitHub EVEN</title>
-      <link>https://pawxq.github.io/pawpaw.github.io/post/hugo-github-even/</link>
-      <pubDate>Wed, 22 Mar 2023 01:17:52 +0800</pubDate>
-      
-      <guid>https://pawxq.github.io/pawpaw.github.io/post/hugo-github-even/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>[Github_Actions] Chapter2 Events that Trigger Workflows - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="PawPaw" /><meta name="description" content="" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.108.0 with theme even" />
+
+
+<link rel="canonical" href="https://pawxq.github.io/pawpaw.github.io/post/github/github_actions/udemy_the_complete_github_actions_workflows_guide/chapter2_events_that_trigger_workflows/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/pawpaw.github.io/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/pawpaw.github.io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/pawpaw.github.io/favicon-16x16.png">
+<link rel="manifest" href="/pawpaw.github.io/manifest.json">
+<link rel="mask-icon" href="/pawpaw.github.io/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/pawpaw.github.io/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="[Github_Actions] Chapter2 Events that Trigger Workflows" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://pawxq.github.io/pawpaw.github.io/post/github/github_actions/udemy_the_complete_github_actions_workflows_guide/chapter2_events_that_trigger_workflows/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2024-09-11T05:59:42+00:00" />
+<meta property="article:modified_time" content="2024-09-11T05:59:42+00:00" />
+<meta itemprop="name" content="[Github_Actions] Chapter2 Events that Trigger Workflows">
+<meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-09-11T05:59:42+00:00" />
+<meta itemprop="dateModified" content="2024-09-11T05:59:42+00:00" />
+<meta itemprop="wordCount" content="922">
+<meta itemprop="keywords" content="github,github_actions," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="[Github_Actions] Chapter2 Events that Trigger Workflows"/>
+<meta name="twitter:description" content=""/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">PawPaw</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/pawpaw.github.io/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/pawpaw.github.io/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/pawpaw.github.io/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/pawpaw.github.io/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">PawPaw</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/pawpaw.github.io/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">[Github_Actions] Chapter2 Events that Trigger Workflows</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2024-09-11 </span>
+        <div class="post-category">
+            <a href="/pawpaw.github.io/categories/github/"> github </a>
+            <a href="/pawpaw.github.io/categories/ci/cd/"> CI/CD </a>
+            <a href="/pawpaw.github.io/categories/devops/"> DEVOPS </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ref">REF</a></li>
+    <li><a href="#repository-events">Repository Events</a></li>
+    <li><a href="#events-activity-types">Events Activity Types</a>
+      <ul>
+        <li><a href="#pr--issue">PR &amp; Issue</a></li>
+      </ul>
+    </li>
+    <li><a href="#workflow-run-approval-form-fork-pull-requests">Workflow Run Approval form Fork Pull Requests</a></li>
+    <li><a href="#using-the-pull-request-target-event">Using the Pull Request Target Event</a></li>
+    <li><a href="#running-a-workflow-based-and-another-workflow">Running a Workflow Based and Another Workflow</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="ref">REF</h1>
+<p>紀錄學習 <a href="https://www.udemy.com/course/github-actions/?couponCode=KEEPLEARNING">The Complete GitHub Actions &amp; Workflows Guide</a></p>
+<h1 id="repository-events">Repository Events</h1>
+<p><a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows">events-that-trigger-workflows</a></p>
+<p>在 GitHub Actions 中可以基於不同 events(例如 <code>push</code>、<code>pull_request</code>、<code>issues</code> 等)來觸發 workflow</p>
+<p>可以透過 <code>GITHUB_SHA</code> 和 <code>GITHUB_REF</code> 查看提交的詳細資訊</p>
+<ul>
+<li>
+<p><strong>多種事件觸發工作流</strong>：</p>
+<ul>
+<li>不同事件會產生不同的 <code>GITHUB_REF</code> 和 <code>GITHUB_SHA</code>, 這些 value 取決於觸發事件的類型</li>
+</ul>
+</li>
+<li>
+<p><strong><code>push</code> 事件</strong>：</p>
+<ul>
+<li>當推送到不同分支時, <code>GITHUB_REF</code> 會顯示該分支名稱, <code>GITHUB_SHA</code> 則是該分支上的最新提交</li>
+<li>僅創建新分支或推送至新分支時, 也會自動觸發工作流</li>
+</ul>
+</li>
+<li>
+<p><strong><code>pull_request</code> 事件</strong>：</p>
+<ul>
+<li>開啟 Pull Request 時, <code>GITHUB_REF</code> 會是 GitHub <span style="color:red">自動創建的 merge branch, 而非原始的 feature branch</li>
+<li>此 merge branch 用於測試將 Pull Request 與 base branch(一般main) 合併後的結果</li>
+</ul>
+</li>
+<li>
+<p><strong><code>issues</code> 事件</strong>：</p>
+<ul>
+<li>當開啟, 關閉或修改 Issue 時, 工作流會觸發, <code>GITHUB_REF</code> 通常是 main branc 或 default branch</li>
+<li>如果未指定 issue type, 則所有與 Issue 有關的活動(例如 <code>opened</code>, <code>edited</code>, <code>deleted</code>)都會觸發工作流</li>
+</ul>
+</li>
+<li>
+<p><strong>過濾活動類型</strong>：</p>
+<ul>
+<li>可指定具體活動類型來控制工作流觸發, 如僅觸發 Issue opened 事件, 避免不必要的觸發</li>
+</ul>
+</li>
+</ul>
+<h1 id="events-activity-types">Events Activity Types</h1>
+<h2 id="pr--issue">PR &amp; Issue</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Repository Events</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">types</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">opened, assigned, reopened]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">issues</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">types</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">opened]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">checkout-test</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          echo $GITHUB_SHA
+</span></span></span><span class="line"><span class="cl"><span class="sd">          echo $GITHUB_REF</span><span class="w">          
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v4</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>預設情況下, 如果沒有指定 types, 則</p>
+<p><code>pull_request</code> 只有 <code>opened</code>, <code>synchronize</code>, or <code>reopened</code> 會 trigger</p>
+<p><code>issue</code> 全部的動作都會 trigger</p>
+<p><a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request">pull_request</a></p>
+<p><a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#issues">issue</a></p>
+<h1 id="workflow-run-approval-form-fork-pull-requests">Workflow Run Approval form Fork Pull Requests</h1>
+<p><a href="https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/approving-workflow-runs-from-private-forks">approving-workflow-runs-from-private-forks</a></p>
+<p><a href="https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/approving-workflow-runs-from-public-forks">approving-workflow-runs-from-public-forks</a></p>
+<p><strong>Fork 的 Pull Request</strong>：</p>
+<ul>
+<li>當 Fork 的分支發起 Pull Request, workflow 預設需要經過 approve 後才會開始運行</li>
+<li>須到 <code>Settings → Actions → General</code>, 設置是否需要對首次貢獻者或所有外部貢獻者的工作流批准</li>
+</ul>
+<p><strong>Fork Pull Request 設置</strong>：</p>
+<ul>
+<li>可選擇針對首次貢獻者或所有外部貢獻者的自動批准選項</li>
+<li>private repo 需要允許 Fork 並設置相應的工作流運行權限</li>
+</ul>
+<p><strong>操作步驟</strong>：</p>
+<ul>
+<li>外部貢獻者 Fork 庫後, 發起 Pull Request</li>
+<li>須到 Actions 標籤下查看待批准的工作流, 檢視更改內容後可選擇<code>「Approve and run」</code>來運行工作流</li>
+</ul>
+<h1 id="using-the-pull-request-target-event">Using the Pull Request Target Event</h1>
+<p>??</p>
+<h1 id="running-a-workflow-based-and-another-workflow">Running a Workflow Based and Another Workflow</h1>
+<p><a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#workflow_run">events-that-trigger-workflows#workflow_run</a></p>
+<p>workflow 可以透過另一個 workflow 的執行狀態來 trigger, 有三種 type <code>completed</code>, <code>requested</code>, <code>in_progress</code></p>
+<p>觸發條件可以是：工作流程完成(<code>completed</code>), 請求(<code>requested</code>) 或進行中(<code>in_progress</code>)</p>
+<p>使用 <code>workflow_run</code> event 來指定依賴 workflow(可以是一個或多個), 用 <code>,</code> 來分隔</p>
+<p><span style="color:red"><strong>嵌套限制</strong></span>： GitHub Actions 支持最多三层工作流嵌套</p>
+<blockquote>
+<p>Note: You can&rsquo;t use <code>workflow_run</code> to chain together <span style="color:red">more than three levels</span> of workflows. For example, if you attempt to trigger five workflows (named <code>B</code> to <code>F</code>) to run sequentially after an initial workflow <code>A</code> has run (that is: <code>A</code> → <code>B</code> → <code>C</code> → <code>D</code> → <code>E</code> → <code>F</code>), workflows <code>E</code> and <code>F</code> <span style="color:red">will not be run</span>.</p>
+</blockquote>
+<p>假設有兩個 workflow：</p>
+<ul>
+<li><code>Repository Events</code>(例如在程式碼推送時觸發)</li>
+<li><code>Workflow Run</code>(在 <code>Repository Events</code> 完成後觸發)</li>
+</ul>
+<p><strong><code>workflow-run.yaml</code> 配置</strong>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Workflow Run</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">workflow_run</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">workflows</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;Repository Events&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">types</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">completed</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">example-job</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Print Trigger Message</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">echo &#34;I was triggered because Repository Events was completed.&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">PawPaw</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2024-09-11
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/pawpaw.github.io/tags/github/">github</a>
+          <a href="/pawpaw.github.io/tags/github_actions/">github_actions</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/pawpaw.github.io/post/github/github_actions/github_actions_basic/">
+            <span class="next-text nav-default">[Github_Actions] Github_actions_basic</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/PawXQ/pawpaw.github.io" class="iconfont icon-github" title="github"></a>
+  <a href="" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2023 - 
+    2024<span class="heart"><i class="iconfont icon-heart"></i></span><span>PawPaw</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/pawpaw.github.io/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

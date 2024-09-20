@@ -37,6 +37,7 @@
 
 <link href="/pawpaw.github.io/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/style.css">
 
 
 <meta property="og:title" content="[Github_Actions] Chapter2 Events that Trigger Workflows" />
@@ -48,7 +49,7 @@
 <meta itemprop="name" content="[Github_Actions] Chapter2 Events that Trigger Workflows">
 <meta itemprop="description" content=""><meta itemprop="datePublished" content="2024-09-11T05:59:42+00:00" />
 <meta itemprop="dateModified" content="2024-09-11T05:59:42+00:00" />
-<meta itemprop="wordCount" content="922">
+<meta itemprop="wordCount" content="2494">
 <meta itemprop="keywords" content="github,github_actions," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="[Github_Actions] Chapter2 Events that Trigger Workflows"/>
 <meta name="twitter:description" content=""/>
@@ -152,6 +153,30 @@
     <li><a href="#workflow-run-approval-form-fork-pull-requests">Workflow Run Approval form Fork Pull Requests</a></li>
     <li><a href="#using-the-pull-request-target-event">Using the Pull Request Target Event</a></li>
     <li><a href="#running-a-workflow-based-and-another-workflow">Running a Workflow Based and Another Workflow</a></li>
+    <li><a href="#filtering-workflow-runs-by-branches-tags-and-paths">Filtering Workflow Runs by Branches, Tags and Paths</a>
+      <ul>
+        <li><a href="#branch-filter">Branch filter</a></li>
+        <li><a href="#tag-filter">Tag filter</a></li>
+        <li><a href="#path-filter">Path filter</a></li>
+        <li><a href="#multiple-filter">Multiple filter</a></li>
+        <li><a href="#pr-filter">PR filter</a></li>
+        <li><a href="#workflow-filter">Workflow filter</a></li>
+        <li><a href="#pattern-matchingeg">Pattern Matching(e.g.)</a></li>
+      </ul>
+    </li>
+    <li><a href="#manually-trigging-a-workflow-from-the-github-web-ui-cli-and-the-rest-api">Manually Trigging a Workflow from the Github Web UI, CLI and the REST API</a>
+      <ul>
+        <li><a href="#trigger-workflow-dispatch-的方法">Trigger Workflow Dispatch 的方法</a></li>
+        <li><a href="#使用-rest-api-方式">使用 Rest API 方式</a></li>
+      </ul>
+    </li>
+    <li><a href="#using-the-repository-dispatch-event-for-external-events">Using the Repository Dispatch Event for External Events</a>
+      <ul>
+        <li><a href="#使用-api">使用 API</a></li>
+        <li><a href="#eg">e.g.</a></li>
+      </ul>
+    </li>
+    <li><a href="#running-workflows-on-a-schedule">Running Workflows on a Schedule</a></li>
   </ul>
 </nav>
   </div>
@@ -264,7 +289,7 @@
 <h1 id="using-the-pull-request-target-event">Using the Pull Request Target Event</h1>
 <p>??</p>
 <h1 id="running-a-workflow-based-and-another-workflow">Running a Workflow Based and Another Workflow</h1>
-<p><a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#workflow_run">events-that-trigger-workflows#workflow_run</a></p>
+<p><a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#workflow_run">events-that-trigger-workflows#workflow_run</a>{target=&quot;_blank&quot;}</p>
 <p>workflow 可以透過另一個 workflow 的執行狀態來 trigger, 有三種 type <code>completed</code>, <code>requested</code>, <code>in_progress</code></p>
 <p>觸發條件可以是：工作流程完成(<code>completed</code>), 請求(<code>requested</code>) 或進行中(<code>in_progress</code>)</p>
 <p>使用 <code>workflow_run</code> event 來指定依賴 workflow(可以是一個或多個), 用 <code>,</code> 來分隔</p>
@@ -312,7 +337,524 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">echo &#34;I was triggered because Repository Events was completed.&#34;</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
+</div><h1 id="filtering-workflow-runs-by-branches-tags-and-paths">Filtering Workflow Runs by Branches, Tags and Paths</h1>
+<p>workflow 可以設定根據 <code>branch</code>, <code>tag</code>, <code>path</code> 在特定情況下才會觸發</p>
+<h2 id="branch-filter">Branch filter</h2>
+<p>控制 workflow 可以在哪些 <code>branch</code> 上運行</p>
+<p>syntax：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">main</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;feature/*&#34;</span><span class="w"> </span><span class="c"># matches feature/featA, feature/featB, does not match feature/featA/featB</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;feature/**&#34;</span><span class="w"> </span><span class="c"># matches feature/featA, feature/featB, feature/featA/featB</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;!feature/feat-A&#39;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
 </div>
+</div><p>這個配置會在 <code>main</code> branch, 所有以 <code>feature/</code> 開頭的 branch(除了 <code>feature/feat-A</code>)上觸發 workflow</p>
+<ul>
+<li>
+<p>可以使用 <code>*</code> 進行匹配:</p>
+<ul>
+<li>單星號 <code>*</code>: 匹配任何字符,但不包括 <code>/</code></li>
+<li>雙星號 <code>**</code>: 匹配任何字符,包括 <code>/</code></li>
+</ul>
+</li>
+<li>
+<p>排除 <code>branch</code>: 使用 <code>!</code></p>
+</li>
+</ul>
+<p>也可以使用 <code>branches-ignore</code> 進行排除, 但是 <span style="color:red"><code>branches</code> 和 <code>branches-ignore</code> 不能一起使用</span></p>
+<p><del>請乖乖使用 <code>branches</code> 和 <code>!</code> 就好不要想東想西</del></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches-ignore</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;ignore-branch&#39;</span><span class="w">      </span><span class="c"># 忽略 &#39;ignore-branch&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;feature/*&#39;</span><span class="w">          </span><span class="c"># 忽略以 &#39;feature/&#39; 开头的所有分支</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="tag-filter">Tag filter</h2>
+<p>根據 <code>tag</code> 來控制觸發 workflow</p>
+<p>syntax：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;v1.*&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;!v1.1.1&#39;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>這會在所有 <code>v1.x</code> 版本的 <code>tag</code> 上觸發 workflow 但排除了 <code>v1.1.1</code></p>
+<p>同樣不能同時使用 <code>tags</code> 和 <code>tags-ignore</code></p>
+<h2 id="path-filter">Path filter</h2>
+<p>根據更改的文件路徑觸發工作流程</p>
+<p>syntax：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">paths</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;**.py&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;!scripts/**&#39;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>這個配置會在任何 python 文件更改時觸發 workflow, 但排除了 <code>scripts</code> 目錄下的文件</p>
+<h2 id="multiple-filter">Multiple filter</h2>
+<p>當使用多個 <code>filter</code> 時, <code>workflow</code> 只在所有條件都滿足時運行</p>
+<p>e.g.:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">main</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">paths</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;src/**&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">tags</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s1">&#39;v*&#39;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>這個 workflow 只會在以下所有條件都滿足時運行：
+<ol>
+<li>推送到 <code>main</code> <code>branch</code> 或任何以 <code>release/</code> 開頭的 <code>branch</code></li>
+<li>更改發生在 <code>src/</code> <code>path</code> 下</li>
+<li>推送的是以 <code>v</code> 開頭的 <code>tag</code></li>
+</ol>
+</li>
+</ul>
+<h2 id="pr-filter">PR filter</h2>
+<p>可以使用 <code>branches</code> 和 <code>paths</code>, 但不適用 <code>tags</code></p>
+<p>e.g.:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">main]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">paths</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;**.python&#39;</span><span class="p">]</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>這只會在針對 <code>main</code> branch 的 Pull Request 中有 python 文件被更改時運行</p>
+<h2 id="workflow-filter">Workflow filter</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">workflow_run</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">workflows</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;CI&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">main]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">types</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">completed</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>這個 <code>workflow</code> 只會在名為 &ldquo;CI&rdquo; 的 <code>workflow</code> 在 <code>main</code> branch 上完成運行後執行</p>
+<h2 id="pattern-matchingeg">Pattern Matching(e.g.)</h2>
+<p><a href="https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet">Filter pattern cheat sheet</a></p>
+<ul>
+<li>
+<p>單星號 <code>*</code>: 匹配任何字符，但不包括 <code>/</code></p>
+<p>例: <code>feature/*</code> 匹配 <code>feature/A</code>，但不匹配 <code>feature/A/B</code></p>
+</li>
+<li>
+<p>雙星號 <code>**</code>: 匹配任何字符，包括 <code>/</code></p>
+<p>例: <code>feature/**</code> 匹配 <code>feature/A</code> 和 <code>feature/A/B</code></p>
+</li>
+<li>
+<p>問號 <code>?</code>: 匹配單個字符</p>
+<p>例: <code>release-v1.?</code> 匹配 <code>release-v1.0</code> 和 <code>release-v1.1</code></p>
+</li>
+</ul>
+<h1 id="manually-trigging-a-workflow-from-the-github-web-ui-cli-and-the-rest-api">Manually Trigging a Workflow from the Github Web UI, CLI and the REST API</h1>
+<p>透過 <code>workflow_dispatch</code> 可以讓 workflow 首度觸發, 可以透過 <code>Github Web UI</code>, <code>CLI</code> 和 <code>REST API</code> 等方式</p>
+<p>在 <code>workflow_dispatch</code> 下也可以有額外的 <code>input</code> 進行輸入或 <code>variable</code> 控制</p>
+<p>基本 syntax：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">inputs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># input config</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>input type:
+<ul>
+<li>string：字符串</li>
+<li>number：數字</li>
+<li>choice：下拉選擇</li>
+<li>boolean：布林值</li>
+<li>environment：環境選擇 (organization)</li>
+</ul>
+</li>
+</ul>
+<p>在 workflow 中讀取 input</p>
+<ul>
+<li>syntax：<code>${{ inputs.input_name }}</code></li>
+</ul>
+<p>e.g.</p>
+<p><code>manually-trigger.yml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Manually Triggered</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">inputs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">string</span><span class="p">:</span><span class="w"> </span><span class="c"># input name(any) </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">A string input</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">string</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Default value&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">option</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;An Options Input&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">required</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Option 3&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">choice</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">options</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="l">Option 1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="l">Option 2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">log-info</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">echo $GITHUB_REF</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#34;String: ${{ inputs.string }}&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">          echo &#34;Option: ${{ inputs.option }}&#34;</span><span class="w">          
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="workflow_dispatch.png" alt="workflow_dispatch"></p>
+<p><img src="workflow_dispatch2.png" alt="workflow_dispatch2"></p>
+<h2 id="trigger-workflow-dispatch-的方法">Trigger Workflow Dispatch 的方法</h2>
+<p>a) <strong>GitHub 網頁界面</strong></p>
+<ul>
+<li>
+<p>在 Actions 頁面手動運行</p>
+</li>
+<li>
+<p>選擇 branch 和 input value</p>
+</li>
+</ul>
+<p>b) <strong>GitHub CLI</strong></p>
+<p><a href="https://cli.github.com/manual/gh_workflow_run">gh workflow run</a></p>
+<p>使用之前需要進行 <code>gh auth login</code>, 或其他登入流程</p>
+<p>syntax:</p>
+<p><code>gh workflow run &lt;file_name&gt; -F input1=value1 -F option=value2 --ref branch-name</code></p>
+<p>e.g.</p>
+<p><code>gh workflow run manually-trigger.yml -F string=&quot;From gh cli&quot; -F option=&quot;Option 2&quot; --ref main</code></p>
+<p>c) <strong>GitHub REST API</strong></p>
+<p><a href="https://docs.github.com/en/rest/actions/workflows?apiVersion=2022-11-28#create-a-workflow-dispatch-event">Create a workflow dispatch event</a></p>
+<ul>
+<li>
+<p>發送 POST request</p>
+</li>
+<li>
+<p>endpoint：<code>/repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches</code></p>
+</li>
+</ul>
+<h2 id="使用-rest-api-方式">使用 Rest API 方式</h2>
+<ul>
+<li>
+<p>創建個人訪問令牌（PAT）</p>
+<ul>
+<li>
+<p>設置：Profile &gt; Settings &gt; Developer settings &gt; Personal access tokens</p>
+</li>
+<li>
+<p>權限：Actions (Read and write)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>發送 POST 請求</p>
+<ul>
+<li>
+<p>包含 Authorization header</p>
+</li>
+<li>
+<p>request body 格式：</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;ref&#34;</span><span class="p">:</span> <span class="s2">&#34;main&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;inputs&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;input1&#34;</span><span class="p">:</span> <span class="s2">&#34;value1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;input2&#34;</span><span class="p">:</span> <span class="s2">&#34;value2&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="using-the-repository-dispatch-event-for-external-events">Using the Repository Dispatch Event for External Events</h1>
+<p><a href="https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28#create-a-repository-dispatch-event">Create a repository dispatch event</a></p>
+<p><a href="https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#repository_dispatch">repository_dispatch</a></p>
+<p>允許 external events 觸發 GitHub Actions workflow</p>
+<p>基本 syntax:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">repository_dispatch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">types</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">custom_type]</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><span style="color:red">必須部署在 default branch</span>(通常是 <code>main</code> 或 <code>master</code>)</li>
+</ul>
+<h2 id="使用-api">使用 API</h2>
+<p><strong>觸發 Repository Dispatch 事件</strong></p>
+<ul>
+<li>使用 GitHub REST API 發送 POST 請求</li>
+<li>endpoint：<code>POST /repos/{owner}/{repo}/dispatches</code></li>
+<li>需要 Personal Access Token, PAT 授權</li>
+</ul>
+<p><strong>API 請求詳情</strong></p>
+<ul>
+<li>request header：
+<ul>
+<li><code>Authorization: Bearer &lt;YOUR_PAT&gt;</code></li>
+<li><code>Accept: application/vnd.github.v3+json</code></li>
+<li><code>GitHub-Api-Version: 2022-11-28</code></li>
+</ul>
+</li>
+</ul>
+<p><code>client_payload</code> 為固定格式</p>
+<p><code>env</code> 可隨意更換名稱, 依據 workflow yaml 設定</p>
+<ul>
+<li>request body：
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_type&#34;</span><span class="p">:</span> <span class="s2">&#34;build&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;client_payload&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;env&#34;</span><span class="p">:</span> <span class="s2">&#34;production&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p><strong>事件類型(Event Types)</strong></p>
+<ul>
+<li>自定義事件類型, 在 <code>event_type</code> 中指定, 可以隨意設定, 如果沒有設定, 任意的 <code>event_type</code> 皆可以</li>
+<li>workflow 可以根據 event type 選擇性執行：
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">repository_dispatch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">types</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">build, test]</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p><strong>客戶端負載(Client Payload)</strong></p>
+<ul>
+<li>可以在請求中包含額外數據</li>
+<li>在工作流程中訪問：<code>${{ github.event.client_payload.key }}</code></li>
+</ul>
+<p><strong>權限要求</strong></p>
+<ul>
+<li>PAT 需要以下權限：
+<ul>
+<li><code>metadata:read</code></li>
+<li><code>contents:read&amp;write</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="eg">e.g.</h2>
+<p>以下用 <code>postman</code> 測試</p>
+<p><code>external-event.yaml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">External Events</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">repository_dispatch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">types</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">build]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">echo-a-string</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          </span><span class="w">          </span><span class="nt">echo var</span><span class="p">:</span><span class="w"> </span><span class="l">${{ github.event.client_payload.var }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          </span><span class="w">          </span><span class="nt">echo env</span><span class="p">:</span><span class="w"> </span><span class="l">${{ github.event.client_payload.env }}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>request body</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_type&#34;</span><span class="p">:</span> <span class="s2">&#34;build&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;client_payload&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;var&#34;</span><span class="p">:</span> <span class="s2">&#34;production&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;env&#34;</span><span class="p">:</span> <span class="s2">&#34;test&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="external-event.png" alt="external-event"></p>
+<h1 id="running-workflows-on-a-schedule">Running Workflows on a Schedule</h1>
+<p>測試工具: <img src="https://crontab.guru/" alt="Crontab Guru"></p>
+<p>可以透過 schedule 達到固定時間自動執行的效果</p>
+<p>使用&quot;schedule&quot;關鍵字來設置定期執行:</p>
+<p>基本 syntax:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">schedule</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;* * * * *&#39;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>0 14 * * *</code>: 每天UTC時間14:00執行</p>
+<p><code>0/5 * * * *</code>: 每5分鐘執行一次</p>
+<p>GitHub Actions 的 schedule <span color="style:red">最小間隔是5分鐘</span></p>
     </div>
 
     <div class="post-copyright">
